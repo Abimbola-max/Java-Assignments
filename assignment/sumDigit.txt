@@ -1,0 +1,18 @@
+Stage 1
+prompt and collect number from 0-1000
+add the digits
+display the result 
+
+stage 2
+Prompt the user to enter number 0-1000
+collect the number 
+store as "number1"
+To get the first number, divide numberl by 100 
+store as firstNumber
+to compute the second number: divide firstNumber by 10 and % 10 
+store result as "secondNumber"
+to compute the third number, divide number by 10 and %10 
+store result as "thirdNumber" 
+add firstNumber, secondNumber, thirdNumber 
+store sum as "sumDigit"
+display sumDigit
