@@ -1,18 +1,17 @@
-import java.util.Scanner; // import scanner from java utilities package
+import java.util.Scanner; 
 
-	public class FeetToMeters {  /** class declaration */
+	public class FeetToMeters { 
 
-		public static void main(String[] args) { //main method begins execution of program
+		public static void main(String[] args) { 
 
-			Scanner assignment = new Scanner(System.in); /* instantiating a new object of class Scanner */
+			Scanner assignment = new Scanner(System.in); 
 
-			System.out.print("Enter number in feet: "); // prompt the user to enter number in feet 
-			double feetNumber = assignment.nextDouble(); /** it makes easy to collect number and store */
+			System.out.print("Enter number in feet: "); 
+			double feetNumber = assignment.nextDouble(); 
 			
-			double feetMeters = feetNumber * 0.305;  // compute feetMeters
+			double feetMeters = feetNumber * 0.305;  
 
-			System.out.printf("Feet in meters is %.4f", feetMeters);  // print result using the printf method
-	
-	} // end main method
+			System.out.printf("Feet in meters is %.4f", feetMeters);  	
+	} 
 
-} //end class FeetToMeters
+} 

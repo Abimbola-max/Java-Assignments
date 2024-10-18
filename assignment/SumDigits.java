@@ -1,26 +1,20 @@
-import java.util.Scanner; // import scanner from java utilities
+import java.util.Scanner; 
+		public class SumDigits {  
 
-		public class SumDigits {  /** class declaration */
+			public static void main(String[] args) { 
 
-
-		public static void main(String[] args) { // main method begins execution
-
-		Scanner assignment = new Scanner(System.in);  /* instantiating a new object of class scanner
+			Scanner assignment = new Scanner(System.in);  
 		
-		System.out.print("Enter number from 0-1000: "); // prompt the user to enter a number 0-1000
-		int numberl = assignment.nextInt();// collect the number and save as number1
+			System.out.print("Enter number from 0-1000: "); 
+			int numberl = assignment.nextInt();
 
-		int firstNumber = number1/100; /** compute to get the first number */
+			int firstNumber = number1/100; 
+			int secondNumber = (number1 / 10) % 10; 
+			int thirdNumber - number1 % 10;  
 
-		int secondNumber = (number1 / 10) % 10; /** compute to get the second number */
+			int sumofDigits = firstNumber + secondNumber + thirdNumber; 
 
+		System.out.print (sumofDigits); 
 
-		int thirdNumber - number1 % 10;  /** compute to get the third number */
-
-
-		int sumofDigits = firstNumber + secondNumber + thirdNumber; //add up all the numbers
-
-		System.out.print (sumofDigits); /** print the sum of the digits */
-
-	} // 
-} // 
+	} 
+} 
