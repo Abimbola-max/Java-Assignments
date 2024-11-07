@@ -8,15 +8,20 @@ public class TwoLargestNumbers {
 	
 	int largest = 0;
 	int number;
+
 	int secondLargest = 0;
 
 	for (int counter = 0; counter < 11; counter++) {
+
 		System.out.print("Enter number: ");
+
 		number = input.nextInt();
+
 			if (number > largest) {
 		   	 largest = number;
-			} if (largest < secondLargest) {
-			 secondLargest = largest;
+
+			} else if (largest > secondLargest) {
+			 secondLargest = number;
 			}
 	}
 		System.out.println("The largest number is: " + largest);
