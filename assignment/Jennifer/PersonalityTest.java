@@ -1,42 +1,45 @@
-import java.util.Scanner;
+String[][] questions = {
+	    ["A. expend energy, enjoy groups", "conserve energy, enjoy one on one"],
+            ["A. interpret respect", "B. look for meaning and possibilities"],
+            {"A. logical thinking, questioning", "B. empathetic feeling, accommodating"},
+            {"A. organized, orderly", "B. flexible, adaptable"},
+            {"A. more outgoing, think out loud", "B. more reserved, think to yourself"},
+            {"A. practical, realistic, experiential", "B. imaginative, innovative, theoretical"},
+            {"A. candid, straightforward, frank", "B. tactful, kind, encouraging"},
+            {"A. plan, schedule", "B. unplanned, spontaneous"},
+            {"A. seek many tasks, public activities", "B. seek private, solitary activities"},
+            {"A. standard, usual, conventional", "B. different, novel, unique"},
+            {"A. firm, tend to criticize", "B. gentle, tend to appreciate"},
+            {"A. regulated, structured", "B. easy-going, live and let live"},
+            {"A. external communicative", "B. internal reticent"},
+            {"A. focus on here and now", "B. look to the future"},
+            {"A. tough-minded, just", "B. tender-hearted, merciful"},
+            {"A. preparation, plan ahead", "B. go with the flow"},
+            {"A. active, initiate", "B. reflective, deliberate"},
+            {"A. facts, things, what is", "B. ideas, dreams, what could be"},
+            {"A. matter of fact", "B. sensitive, people-oriented"},
+            {"A. control, govern", "B. latitude, freedom"}
+        };
 
-public class PersonalityTest {
-
-	public static void main(String... args) { 
-
-	Scanner input = new Scanner(System.in);
-
-	System.out.print("Enter your name: ");
-	String name = input.nextLine();
-
-	String[] question = {
-		"A. interpret respect   B.look for eaning and possiblities",			"A.logical thinking questioning   B. empathetic feeling accomodating",	
-		"A. organized orderly  B. flexible adaptable",
-		"A. more outgoing think out loud  B. more reserved, think to yourself",
-		"A. practical realistic experimential   B. imaginative innovative theoretical",
-		"A. candid straightforward frank   B. tactful kind encouraging",
-		"A. plan, schedule   B. unplanned, sponteneous",
-		"A. seek many task, public activities, interaction with others   B. sek piate, solitary activities wit quiet to concentrate",
-		"A. standard, usual, conventional  B. different novel unique",
-		"A. firm, tend to criticize, hold the line B. gentle tend to appreciate conciliate",
-		"A. regulated, structured  B. easy going, live, let live",
-		"A. external communicative express yorself  B. internal reticent keep to yourself",
-		"A. candid straightforward frank   B. tactful kind encouraging",
-		"A. focus on here and now  B. look to the future, global perspective,",
-		"A. tough-minded, just  B. tender-hearted, merciful",
-		"A. preparation, plan ahead  B. go with the flow, adapt as you go",
-		"A. active, initiate B. reflective, deliberate",
-		"A. facts, things, what is  B. ideas, dreams, what could be, philosophical",
-		"A. matter of fact, issue-oriented B. sensitive, people-oriented, compassionate",
-		"A. control, govern B. latitude freedom",
-		
-		};
-	char[] reply = ('A', 'B');
+        int question = input.nextInt();
+        
+        for (int i = 0; i < 20; i++) {
+            System.out.println("Questions " + (i + 1) + ":");
+            System.out.println(questions[i][0]);
+            System.out.println(questions[i][1]);
+            }
+            
+           char response;
+		do {
+   			 System.out.print("Your answer (A/B): ");
+    			 response = input.nextLine().toUpperCase().charAt(0);
+    				if (response != 'A' && response != 'B') {
+       				 System.out.println("Invalid input! Please enter 'A' or 'B'.");
+    				}
+		} while (response != 'A' && response != 'B');
 
 	
-
-
-   }
 }
-
-	
+    }
+            
+            
