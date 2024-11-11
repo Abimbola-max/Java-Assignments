@@ -1,0 +1,8 @@
+stage 1 
+prepare a table 
+calculate the square and cube 
+display result
+
+stage 2 
+prepare a table containing number, square and cube
+calculate and display each number, square and cube
