@@ -8,7 +8,7 @@ public class MinimumAndMaximumArray {
 		int min = 0;
 		int number = 0;
 
-		for (int count = 1; count < arr.length; count++) {
+		for (int count = 0; count < arr.length; count++) {
 			number = arr[count];
             		if (number > max) {
                		 max = number;

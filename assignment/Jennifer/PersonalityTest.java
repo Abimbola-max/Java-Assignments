@@ -50,7 +50,7 @@ public class PersonalityTest {
                     count++;
                 }
             }
-            counts[i] = count;
+            counts[i] = optionCount;
             System.out.println("The number of A selected is: " + count);
             System.out.println("The number of B selected is: " + (5 - count));
             System.out.println();
@@ -62,11 +62,32 @@ public class PersonalityTest {
             (counts[2] > 2 ? "T" : "F") +
             (counts[3] > 2 ? "J" : "P");
 	
+
        	
         System.out.println(name + "Your MBTI type is: " + myMbtiType);
 	System.out.println();
 	
         switch (myMbtiType) {
+
+            case "ISTJ":
+                System.out.println("ISTJ (Logistician) is a personality type with the Introverted, Sensing, Thinking, and Judging traits. These people tend to be reserved yet willful, with a rational outlook on life. They compose their actions carefully and carry them out with methodical purpose.");
+                break;
+
+            case "ESFP":
+                System.out.println("ESFP (Entertainer) is a personality type with the Extroverted, Sensing, Feeling, and Prospecting traits. Outgoing and spontaneous, they enjoy life in the moment and often seek new experiences.");
+                break;
+
+            case "ESTP":
+                System.out.println("ESTP (Entrepreneur) is a personality type with the Extroverted, Sensing, Thinking, and Prospecting traits. Bold and perceptive, they take action to make things happen and enjoy living on the edge.");
+                break;
+
+	    case "INTJ":
+                System.out.println("INTJ (Architect) is a personality type with the Introverted, Intuitive, Thinking, and Judging traits. These thoughtful tacticians love perfecting the details of life, applying creativity and rationality to everything they do. Their inner world is often a private, complex one.");
+                break;		
+
+	    case "INFP":
+                System.out.println("INFP (Mediator) is a personality type with the Introverted, Intuitive, Feeling, and Prospecting traits. Idealistic and loyal to their values, they are driven by their beliefs and desire to make the world a better place.");
+                break;
 
             case "ENTJ":
                 System.out.println("ENTJ (Commander) is a personality type with the Extroverted, Intuitive, Thinking, and Judging traits. Bold and imaginative, they are strong-willed leaders who enjoy organizing and directing people and projects.");
@@ -110,26 +131,6 @@ public class PersonalityTest {
 
 	    case "ISTP":
                 System.out.println("ISTP (Virtuoso) is a personality type with the Introverted, Sensing, Thinking, and Prospecting traits. They tend to have an individualistic mindset, pursuing goals without needing much external connection. They engage in life with inquisitiveness and personal skill, varying their approach as needed.");
-                break;
-
-            case "ISTJ":
-                System.out.println("ISTJ (Logistician) is a personality type with the Introverted, Sensing, Thinking, and Judging traits. These people tend to be reserved yet willful, with a rational outlook on life. They compose their actions carefully and carry them out with methodical purpose.");
-                break;
-
-            case "ESFP":
-                System.out.println("ESFP (Entertainer) is a personality type with the Extroverted, Sensing, Feeling, and Prospecting traits. Outgoing and spontaneous, they enjoy life in the moment and often seek new experiences.");
-                break;
-
-            case "ESTP":
-                System.out.println("ESTP (Entrepreneur) is a personality type with the Extroverted, Sensing, Thinking, and Prospecting traits. Bold and perceptive, they take action to make things happen and enjoy living on the edge.");
-                break;
-
-	    case "INTJ":
-                System.out.println("INTJ (Architect) is a personality type with the Introverted, Intuitive, Thinking, and Judging traits. These thoughtful tacticians love perfecting the details of life, applying creativity and rationality to everything they do. Their inner world is often a private, complex one.");
-                break;		
-
-	    case "INFP":
-                System.out.println("INFP (Mediator) is a personality type with the Introverted, Intuitive, Feeling, and Prospecting traits. Idealistic and loyal to their values, they are driven by their beliefs and desire to make the world a better place.");
                 break;
 
             default:
