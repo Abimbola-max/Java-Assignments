@@ -8,7 +8,7 @@ public class DuplicateValues {
 
 		System.out.println("The list of array are " + Arrays.toString(numbers));
 		
-		System.out.println("The duplicate of numbers are ");
+		System.out.print("The duplicate number in the array is: ");
 		for (int count = 0; count < numbers.length; count++) {
 			for (int counter = count + 1; counter < numbers.length; counter++) {
 				if (numbers[count] == numbers[counter]) {
