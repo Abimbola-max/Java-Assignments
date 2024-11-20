@@ -24,22 +24,43 @@ import java.util.Scanner;
 			
 			int[] number2 = new int[secondNumberOfElement];
 
-			System.out.print("Enter the second list of numbers: ");
+			System.out.println("Enter the second list of numbers: ");
 
 			for (int count = 0; count < secondNumberOfElement; count++) {
-				number2[count] = input.nextInt();
-			}
+        			number2[count] = input.nextInt();
+    			}
 
-			int[] mergedList = merge(number1, number2);
-			
-			System.out.println("Merged List is: " + Arrays.toString(mergedList));
 
+    			int[] mergedArray = new int[firstNumberOfElement + secondNumberOfElement];
+    			int firstListIndex = 0; 
+    			int secondListIndex = 0; 
+    			int mergedNumbers = 0; 
+
+   		 	while (firstListIndex < firstNumberOfElement && secondListIndex < secondNumberOfElement) { 
+        			if (number1[firstListIndex] < number2[secondListIndex]) {
+            				mergedArray[mergedNumbers++] = number1[firstListIndex++];
+        			} else {
+           				 mergedArray[mergedNumbers++] = number2[secondListIndex++];
+        			}
+    			}
+
+    
+    			while (firstListIndex < firstNumberOfElement) {
+        			mergedArray[mergedNumbers++] = number1[firstListIndex++];
+    			}
+
+    			while (secondListIndex < secondNumberOfElement) {
+        			mergedArray[mergedNumbers++] = number2[secondListIndex++];
+    			}
+ 
+    			System.out.println("Merged Array: " + Arrays.toString(mergedArray));
 	}
+
 }
+					
+
 
 	
-
-
 
 
 	
