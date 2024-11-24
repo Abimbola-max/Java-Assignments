@@ -1,0 +1,5 @@
+pseudocode to check for square root of numbers 
+1. declare and initialize "number" of type int
+2. using the Math class
+3. square root "number"
+4. display result after square root

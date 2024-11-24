@@ -1,0 +1,8 @@
+pseudocode for subtraction numbers  
+1. declare and initialize first number "numberOne" of type int
+2. declare and initialize second number "numberTwo" of type int
+3. declare answer to hold integer
+4. To subtract the numbers, check if numberOne is greater than numberTwo
+5. if it is, use numberOne to subtract numberTwo
+6. if it is not, use numberTwo to subtract numberOne
+7. display result

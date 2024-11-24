@@ -1,0 +1,11 @@
+pseudocode for running total in a list
+1. declare and initialize array named "numbers" of type int
+2. create a new array named "runningTotal" to hold the running total of numbers
+3. using a for loop to loop through the numbers 
+4. using "count", loop starts from 0
+5. ends at numbers'length
+6. after the each increment, the total adds each value in the elements to the current total
+7. runningTotal becomes total
+8. repeats the same process for each elements 
+9. display "numbers"
+10. display "runningtotal"

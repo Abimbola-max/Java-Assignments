@@ -1,0 +1,9 @@
+pseudocode to check for even numbers 
+1. declare and initialize "number" of type int
+2. check if the number is even by dividing "number" by 2 
+3. If the remainder is 0, this means the number is even  
+4. the function will return true 
+5.  check if the number is odd by dividing "number" by 2 
+6. If the remainder is more than 0, this means the number is odd  
+7. the function will return false
+8. display result

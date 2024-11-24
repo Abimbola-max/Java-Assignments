@@ -1,0 +1,14 @@
+pseudocode to check for prime numbers
+prime numbers are numbers that has 2 divisors
+the divisors are it factors, which is 1 and itself 
+1. declare and initialize "number" of type int
+2. declare and initialize primeCounter to be 1
+3. using for loop to divide the number, counter starts from 2
+4. ends when it gets to the number
+5. check if the number is a prime number by dividing "number" by counter 
+6. If the remainder is 0, add 1 to primeCounter
+7. if primeCounter is zero, it means no counter has been able to divide it without remainder 
+8.  return true
+9. If the primeCounter is more than 0, this means the number is odd  
+10. the function will return false
+11. display result

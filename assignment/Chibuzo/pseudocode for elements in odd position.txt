@@ -1,0 +1,10 @@
+pseudocode for elements in odd positions in a list
+1. declare and initialize array named "numbers" of type int
+2. create a new array named "oddCounter" to hold odd index elements
+3. using a for loop to loop through the numbers 
+4. using "counter", loop starts from 1
+5. ends at numbers'length
+6. it should jump by 2
+7. initialize "index" to 0 to be increasing the index of oddCounter by 1 
+8. oddCounter becomes the numbers of the counter
+9. display oddCounter  
