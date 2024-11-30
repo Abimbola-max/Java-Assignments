@@ -1,0 +1,36 @@
+pseudocode for checkout app
+
+1. create an array of products 
+2. name all the products of all goods 
+3. attach the prices of each products
+4. prompt the cashier to enter customers name 
+5. collect input 
+6. save as "name"
+7. prompt the cashier to enter quantity bought 
+8. collect input 
+9. save as "quantity"
+10. prompt the cashier to enter discount  
+11. collect input 
+12. save as "discount"
+13. display the goods the customer got 
+14. display the price of the goods 
+15. check the price of the goods the customer got 
+16. to calculate the total price of goods the customer got:
+	quantity multiplied by price of goods
+17. save as total
+18. to calculate the discount: 
+	discount divided by 100 multiplied by "total" minus "total"
+19. save as "newDiscountPrice"
+20. to calculate VAT
+	7.5 divided by 100 multiplied by total plus total
+21. save as "newVatPrice"
+22. to calculate the total amount the customer would pay:
+	add total and newVatPrice, then minus newDiscountPrice
+23. save as "totalPriceToBePaid"
+24. display "totalPriceToBePaid" 
+
+
+
+
+
+
