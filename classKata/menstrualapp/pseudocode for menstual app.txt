@@ -1,0 +1,44 @@
+pseudocode for menstual app
+
+To calculate your menstrual cycle, including flow dates, safe periods, and ovulation dates, you can follow these steps:
+
+Track Your Periods: Note the first day of your last menstrual period (this is Day 1 of your cycle). Record how long your period lasts (e.g., 5 days, 7 days)2.
+
+Determine Your Cycle Length: Calculate the average length of your menstrual cycle by noting the number of days between the first day of one period and the first day of the next. For example, if your cycle is 28 days long, your next period should start around Day 282.
+
+Identify Ovulation Date: Ovulation typically occurs around the midpoint of your cycle (Day 14 in a 28-day cycle). If your cycle is longer or shorter, adjust accordingly (e.g., Day 12 for a 24-day cycle, Day 16 for a 32-day cycle)3.
+
+Calculate Safe Periods: The safe period is usually considered to be the days when you are least likely to get pregnant. This is typically a few days before menstruation and a few days after3. For example, if your cycle is 28 days, your safe period might be Days 1-7 and Days 21-28.
+
+1. prompt the user to enter full name 
+2. collect input 
+3. store as "fullName"
+4. prompt the user to enter gender or if the user is using it for themselves 
+5. collect input 
+6. store as "gender"
+7. prompt the user to enter age 
+8. collect input 
+9. store as "age"
+10. prompt the user to enter how they feel about their period  
+11. collect input 
+12. store as "periodMood"
+13.  display a message 
+14. prompt the user to enter the first day of their last period 
+15. collect input
+16. store as "lastPeriodDay"
+17. prompt the user to enter last period month
+18. collect input
+19. store as "lastPeriodMonth"
+20.  prompt the user to enter year
+21. collect input
+22. store as "currentYear"
+23. prompt the user to enter the length of your period 
+24. collect the input
+25. store as "periodDuration"
+26.
+
+
+
+
+
+

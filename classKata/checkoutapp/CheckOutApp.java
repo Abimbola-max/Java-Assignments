@@ -37,7 +37,7 @@ public class CheckOutApp {
 
                 		if (productPrice <= 0 || quantity <= 0) {
                     			System.out.println("Invalid price or quantity. Please try again.");
-                    			break;
+                    			continue;
                 		}
 
                 	productNames.add(productName);

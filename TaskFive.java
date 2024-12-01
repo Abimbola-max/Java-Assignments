@@ -7,7 +7,8 @@ public class TaskFive {
 	            		for ( int space = 0; space < 5; space++) {
 	   				System.out.print(number);
 	   	    		}
-			}
+			} 
+				System.out.print(" ");
 		}
 
      }

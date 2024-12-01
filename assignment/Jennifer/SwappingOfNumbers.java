@@ -16,7 +16,7 @@ public class SwappingOfNumbers {
 		number_one = number_two;
 		number_two = temp;
 		
-		System.out.print(temp + " " + number_two);
+		System.out.print(number_one + " " + number_two);
 
 	}
 }

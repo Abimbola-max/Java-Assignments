@@ -4,7 +4,7 @@ public class NumbersPattern {
 
         for (int count = 0; count < 3; count++) { 
             for (int column = 0; column < 3; column++) { 
-                int number = 1 * 3 + column + 1; 
+                int number = count * 3 + column + 1; 
                 System.out.print(number + " ");
             }
 
