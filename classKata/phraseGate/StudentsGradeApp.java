@@ -32,7 +32,7 @@ public class StudentsGradeApp {
 
         System.out.println("Enter number of subjects for " + studentNames[count] + ": ");
         int noOfAllSubjects = input.nextInt();
-        System.out.print("Saving >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        System.out.print("Saving >>>>>>>>>>>>>>>>>>>>>>");
         System.out.println("Saved Successfully.");
         System.out.println();
 
@@ -46,7 +46,7 @@ public class StudentsGradeApp {
         for (int counter = 0; counter < noOfAllSubjects; counter++) {
             studentScores[count][counter] = input.nextDouble();
 
-	System.out.print("Saving >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+	System.out.print("Saving >>>>>>>>>>>>>>>>>>>>>>");
         System.out.println("Saved Successfully.");
         System.out.println();
 
@@ -64,8 +64,14 @@ public class StudentsGradeApp {
         totalScores[count] = total;
         averages[count] = total / noOfAllSubjects;
     }
+	 int[] positions = calculatePositions(totalScores);
+
+        
+        displayTableWithPositions(studentNames, studentScores, totalScores, averages, positions);
 
         displayTable(studentNames, studentScores, totalScores, averages);
+
+	calculatePositions(totalScores);
 
 
         
@@ -85,7 +91,20 @@ public class StudentsGradeApp {
         }
     }
 
+	public static int[] calculatePositions(double[] totalScores) {
+    	int[] positions = new int[totalScores.length];
 
+    	for (int count = 0; count < totalScores.length; count++) {
+        positions[count] = 1; 
+        for (int counter = 0; counter < totalScores.length; counter++) {
+            if (count != counter && totalScores[count] < totalScores[counter]) { 
+
+                positions[count]++; 
+            }
+        }
+    }
+    return positions;
+}
 
     public static void displaySummary(double[] totalScores, double[] averages, String[] names) {
         System.out.println("CLASS SUMMARY");
