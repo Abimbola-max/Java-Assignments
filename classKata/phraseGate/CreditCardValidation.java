@@ -2,10 +2,11 @@ import java.util.Scanner;
 
 public class CreditCardValidation {
 
-	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);
+    public static void main(String[] args) {
 
-		System.out.println("Enter your credit card numbers; ");
+        Scanner input = new Scanner(System.in);
+        
+       		System.out.println("Credit card numbers; ");
 		String cardNumber = input.next();
 
 		if (cardNumber.startsWith("4")) {
@@ -22,23 +23,26 @@ public class CreditCardValidation {
 		} else {
 			System.out.println("Invalid details");
 		}
-				
-		
-		for(int count = cardNumber.length - 1; count >= 1; count-= 2) {
-			int number = count;
-			if (cardNumber.length >= 13 || cardNumber.length <= 16) {
-				if ((charAt(2) < 9 )) {
-					number = count * 2;	
-				} 
-			}
-	
-		} 
-
-			
-	
-
 	}
-}
+     
+    public static int sumOfDoubleEvenPlace(String cardNumber) {
+        int sum = 0;
+        for (int  = cardNumber.length() - 2; countForEven >= 0; countForEven -= 2) {
+            int digit = Integer.parseInt(cardNumber.substring(countForEven, countForEven + 2));
+            int doubledDigit = digit * 2;
+            sum += getDigit(doubledDigit);
+        }
+        return sum;
+    }
 
+
+    public static int sumOfOddPlace(String cardNumber) {
+        int sum = 0;
+        for (int countForEven = cardNumber.length() - 1; countForEven >= 0; countForEven -= 2) {
+            sum += Integer.parseInt(cardNumber.substring(countForEven, countForEven + 1));
+        }
+        return sum;
+    }
+}
 
 
