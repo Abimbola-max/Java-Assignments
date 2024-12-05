@@ -67,12 +67,12 @@ public class StudentsGradeApp {
 	 int[] positions = calculatePositions(totalScores);
 
         
-        displayTableWithPositions(studentNames, studentScores, totalScores, averages, positions);
-
+        
         displayTable(studentNames, studentScores, totalScores, averages);
 
 	calculatePositions(totalScores);
 
+	displayTableWithPositions(studentNames, studentScores, totalScores, averages, positions);
 
         
         displaySummary(totalScores, averages, studentNames);
@@ -92,19 +92,36 @@ public class StudentsGradeApp {
     }
 
 	public static int[] calculatePositions(double[] totalScores) {
-    	int[] positions = new int[totalScores.length];
+    		int[] positions = new int[totalScores.length];
 
-    	for (int count = 0; count < totalScores.length; count++) {
-        positions[count] = 1; 
-        for (int counter = 0; counter < totalScores.length; counter++) {
-            if (count != counter && totalScores[count] < totalScores[counter]) { 
+    		for (int positionIndex = 0; positionIndex < positions.length; positionIndex++) {
+        	positions[positionIndex] = 1;
+    		}
 
-                positions[count]++; 
-            }
+    		for (int count = 0; count < totalScores.length; count++) {
+        		for (int positionIndex = 0; positionIndex < totalScores.length; positionIndex++) {
+            			if (totalScores[count] < totalScores[positionIndex]) {
+                			positions[count]++;             }
         }
     }
     return positions;
 }
+
+
+	public static void displayTableWithPositions(String[] names, double[][] scores, double[] totals, double[] averages, int[] positions) {
+        System.out.println("\n--- STUDENTS SCORES WITH POSITIONS ---");
+        System.out.printf("%-15s%-15s%-10s%-10s%-10s\n", "Student", "Scores", "Total", "Average", "Position");
+        System.out.println("----------------------------------------------------------------------");
+
+        for (int positionIndex = 0; positionIndex < names.length; positionIndex++) {
+            System.out.printf("%-15s", names[positionIndex]); 
+            System.out.print(Arrays.toString(scores[positionIndex]) + " "); 
+            System.out.printf("%-10.2f%-10.2f%-10d\n", totals[positionIndex], averages[positionIndex], positions[positionIndex]); 
+
+        }
+    }
+
+
 
     public static void displaySummary(double[] totalScores, double[] averages, String[] names) {
         System.out.println("CLASS SUMMARY");
