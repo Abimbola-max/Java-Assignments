@@ -14,7 +14,7 @@ public class ATMachineApplication {
         int inputPin;
 
 	
-	int accountNumber = (int)(Math.random() * 10000000000L);
+	long accountNumber = (int)(Math.random() * 10000000000L);
         
         while (option != 8) {
 
