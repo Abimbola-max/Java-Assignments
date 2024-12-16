@@ -87,6 +87,8 @@ public class DiaryApp {
 	}
 
 	public static void lockDiary() {
+
+		try {
 	
 		System.out.println("Enter passkey to lock diary: ");
 		String lockPasskey = input.nextLine();
@@ -97,9 +99,14 @@ public class DiaryApp {
 		} else {
 			System.out.println("Wrong password.");
 		}
+		} catch (Exception NullPointerException) {
+			System.out.println("You have not created any diary.");
+		}
 	}
 
 	public static void unlockDiary() {
+
+		try {
 	
 		System.out.println("Enter passkey to unlock diary: ");
 		String unlockPasskey = input.nextLine();
@@ -110,6 +117,11 @@ public class DiaryApp {
 		} else {
 			System.out.println("Wrong password.");
 		}
+
+		} catch (Exception NullPointerException) {
+			System.out.println("You have not created any diary.");
+		}
+
 	}
 
 	public static void updateDiary() {
