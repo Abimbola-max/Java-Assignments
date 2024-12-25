@@ -3,8 +3,16 @@ import java.util.Scanner;
 
 public class StudentGradeApplication {
 
+	static int numberOfStudents;
+	static int numberOfSubjects;
+	static String[] nameOfStudents;
+	static double[][] scores;
+	static double[] averageScores;
+	static double[] totalScores;
+
     public static void main(String[] args) {
         dataAndTableFunction();
+
     }
 
     public static void dataAndTableFunction() {
@@ -15,19 +23,19 @@ public class StudentGradeApplication {
 
             try {
                 System.out.print("Enter the number of students: ");
-                int numberOfStudents = input.nextInt();
+                numberOfStudents = input.nextInt();
 
                 System.out.print("Enter the number of subjects they offer: ");
-                int numberOfSubjects = input.nextInt();
+                numberOfSubjects = input.nextInt();
 
                 System.out.println("Saving >>>>>>>>>>>>>>>>>>>>>>");
                 System.out.println("Saved Successfully.");
                 System.out.println();
 
-                String[] nameOfStudents = new String[numberOfStudents];
-                double[][] scores = new double[numberOfStudents][numberOfSubjects];
-                double[] totalScores = new double[numberOfStudents];
-                double[] averageScores = new double[numberOfStudents];
+                nameOfStudents = new String[numberOfStudents];
+                scores = new double[numberOfStudents][numberOfSubjects];
+                totalScores = new double[numberOfStudents];
+                averageScores = new double[numberOfStudents];
                 int[] positions = new int[numberOfStudents];
 
                 
@@ -46,6 +54,7 @@ public class StudentGradeApplication {
                             System.out.println("Invalid score. Enter a score between 1 and 100: ");
                             scores[count][counter] = input.nextDouble();
                         }
+
                         totalScores[count] += scores[count][counter]; 
                     }
 
@@ -88,19 +97,83 @@ public class StudentGradeApplication {
 
                 System.out.println("=========================================================================");
 
-                
-                System.out.print("Do you want to enter data for another set of students (yes/no)? ");
-                String response = input.next();
-                if (response.equalsIgnoreCase("no")) {
-                    continueInput = false;
-                }
+		 continueInput = false;
 
             } catch (InputMismatchException e) {
                 System.out.println("Incorrect input type. Please enter integers for student and subject counts, and numbers for scores.");
                 input.nextLine(); 
             }
 
-        } 
+        } classSummary(totalScores, averageScores, nameOfStudents);
      
     } 
+
+	 public static void subjectSummary() {
+
+		int passes = 0;
+		int fails = 0;
+		int benchMarkForPass = 40;
+		
+
+        	System.out.println("\nSUBJECT SUMMARY");
+
+		for (int subjectIndex = 0; subjectIndex < numberOfSubjects; subjectIndex++) {
+        		System.out.println("\nSubject " + (subjectIndex + 1) + ":");
+
+ 
+
+        	double totalScore = 0;
+        	int numberOfPasses = 0;
+       		int numberOfFails = 0;
+
+
+                }	
+        
+	}
+
+
+	public static void classSummary(double[] totalScores, double[] averages, String[] names) {
+
+        System.out.println("\nCLASS SUMMARY");
+    
+        double highest = totalScores[0];
+        String highestStudent = names[0];
+
+        double lowest = totalScores[0];
+        String lowestStudent = names[0];
+
+        double classTotalScore = 0; 
+
+        for (int count = 0; count < totalScores.length; count++) {
+            classTotalScore += totalScores[count]; 
+
+            if (totalScores[count] > highest) {
+                highest = totalScores[count];
+                highestStudent = names[count];
+            }
+
+            if (totalScores[count] < lowest) {
+                lowest = totalScores[count];
+                lowestStudent = names[count];
+            }
+        }
+
+        double classAverageScore = classTotalScore / totalScores.length;
+
+	System.out.println("=================================================================");	
+    		System.out.println("\nBest Graduating Student is: " + highestStudent + " scoring " + highest);
+    		System.out.println("=================================================================");
+		
+    					System.out.print("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+   	 System.out.println("\nWorst Graduating Student is: " + lowestStudent + " scoring " + lowest);
+	System.out.print("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+	System.out.println("=================================================================");
+    System.out.println("\nClass total score is: " + classTotalScore);
+    System.out.println("\nClass Average score is: " + classAverageScore);
+}
+
+
+
+
 }
