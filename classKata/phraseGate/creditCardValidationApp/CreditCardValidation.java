@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CreditCardValidation {
@@ -5,40 +6,57 @@ public class CreditCardValidation {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        
-       		System.out.println("Hello, Kindly enter Card details to verify: ");
-		String cardNumber = input.next();
+        boolean valid = true;
 
-		System.out.println("**************************************");
+        while(valid) {
 
-		if (cardNumber.startsWith("4")) {
-			System.out.println("**Credit Card Type: Visa card");
+            try {
+                System.out.println("Hello, Kindly enter Card details to verify: ");
+                String cardNumber = input.next();
 
-		} else if (cardNumber.startsWith("5")) {
-			System.out.println("**Credit Card Type: MasterCard");
+                for (int cardIndex = 0; cardIndex < cardNumber.length(); cardIndex++) {
+                    if (!Character.isDigit(cardNumber.charAt(cardIndex))) {
+                        throw new IllegalArgumentException("Invalid Card Number: Input must contain only digits.");
+                    }
+                }
 
-		} else if (cardNumber.startsWith("37")) {
-			System.out.println("**Credit Card Type: American Express cards"); 
+                System.out.println("**************************************");
 
-		} else if (cardNumber.startsWith("6")) {
-			System.out.println("**Credit Card Type: Discover card");
-		} else {
-			System.out.println("Invalid details");
-		}
+                if (cardNumber.startsWith("4")) {
+                    System.out.println("**Credit Card Type: Visa card");
 
-        if (isValid(cardNumber)) {
-            System.out.println("**Credit card validity Status: " + "valid");
-        } else {
-            System.out.println("**Credit card validity Status: " + "invalid");
+                } else if (cardNumber.startsWith("5")) {
+                    System.out.println("**Credit Card Type: MasterCard");
+
+                } else if (cardNumber.startsWith("37")) {
+                    System.out.println("**Credit Card Type: American Express cards");
+
+                } else if (cardNumber.startsWith("6")) {
+                    System.out.println("**Credit Card Type: Discover card");
+                } else {
+                    System.out.println("Invalid details");
+                    break;
+                }
+
+                if (isValid(cardNumber)) {
+                    System.out.println("**Credit card validity Status: " + "valid");
+                } else {
+                    System.out.println("**Credit card validity Status: " + "invalid");
+                }  valid = false;
+
+                System.out.println("**Credit Card Number: " + cardNumber);
+                System.out.println("**Credit Card Digit Length: " + cardNumber.length());
+                System.out.println("**************************************");
+
+            } catch (Exception InputMismatchException) {
+                System.out.println("Invalid Card Number");
+            }
         }
-	System.out.println("**Credit Card Number: " + cardNumber);
-        System.out.println("**Credit Card Digit Length: " + cardNumber.length());
-       System.out.println("**************************************");
-   
-	}
-     
+
+    }
+
     public static boolean isValid(String cardNumber) {
-         
+
         if (!(cardNumber.length() >= 13 && cardNumber.length() <= 16)) {
             return false;
         }
@@ -48,7 +66,7 @@ public class CreditCardValidation {
         return (evenSum + oddSum) % 10 == 0;
     }
 
-     
+
     public static int sumOfDoubleEvenPlace(String cardNumber) {
 
         int sum = 0;
@@ -61,7 +79,7 @@ public class CreditCardValidation {
         return sum;
     }
 
-    
+
     public static int getDigit(int number) {
         if (number > 9) {
             return (number - 9);
@@ -70,7 +88,7 @@ public class CreditCardValidation {
         }
     }
 
- 
+
     public static int sumOfOddPlace(String cardNumber) {
         int sum = 0;
         for (int countForodd = cardNumber.length() - 1; countForodd >= 0; countForodd -= 2) {
@@ -79,5 +97,3 @@ public class CreditCardValidation {
         return sum;
     }
 }
-
-
