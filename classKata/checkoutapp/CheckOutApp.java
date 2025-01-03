@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
 
-public class CheckOutApplication {
+public class CheckOutApp {
 
     static String cashierName;
     static double discount;
@@ -13,9 +12,9 @@ public class CheckOutApplication {
     static double totalPriceToBePaid;
     static double subTotal;
     static Scanner input = new Scanner(System.in);
-    static List<String> productNames = new ArrayList<>();
-    static List<Double> productPrices = new ArrayList<>();
-    static List<Integer> productQuantities = new ArrayList<>();
+    static ArrayList<String> productNames = new ArrayList<>();
+    static ArrayList<Double> productPrices = new ArrayList<>();
+    static ArrayList<Integer> productQuantities = new ArrayList<>();
 
     public static void main(String[] args) {
         inputProductDetails();
