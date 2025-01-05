@@ -12,9 +12,9 @@ public class CompoundInterestCalculator {
 
     public static void main(String[] args) {
         allInput();
-        System.out.printf("The lower bound range is:%.2f ", lowerRateBound(estimateInterestRate, interestRateVariance));
-        System.out.printf("The upper bound range is:%.2f ", upperRateBound(estimateInterestRate, interestRateVariance));
-        System.out.printf("Your future Amount is:%.2f ", investmentGrowth(principal, compoundFrequency, years, estimateInterestRate));
+        System.out.printf("The lower bound range is:%.2f\n ", lowerRateBound(estimateInterestRate, interestRateVariance));
+        System.out.printf("The upper bound range is:%.2f\n ", upperRateBound(estimateInterestRate, interestRateVariance));
+        System.out.printf("Your future Amount is:%.2f\n ", investmentGrowth(principal, compoundFrequency, years, estimateInterestRate));
     }
 
     public static void allInput() {
