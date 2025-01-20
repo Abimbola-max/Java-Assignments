@@ -1,0 +1,8 @@
+pseudocode for palindrome 
+1. declare and initialize "number" of type int
+2. check if the number is a palindrome by dividing "number" by 10 to check the first digit 
+3. check if the number is a palindrome by using the remainder operator to divide "number" by 10 to check the last digit
+4. store as lastDigit
+5. to check the reversed number, multiply it by 10 and lastDigit to it
+6. return number is equals to reversednumber
+7. display result

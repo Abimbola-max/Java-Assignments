@@ -1,0 +1,5 @@
+pseudocode for square of number 
+1. declare and initialize "number" to hold an integer
+2. to get the square of number, multiply number by number
+3. store as "squaredNumber" 
+4. display squaredNumber

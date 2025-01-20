@@ -1,0 +1,26 @@
+stage 1
+prompt and collect 5 numbers from the user
+check the number of negative numbers input, number of positive numbers input and the number of zeros input
+display result
+
+stage 2
+prompt the user for 5 numbers 
+collect 5 numbers from the user
+store as "number1", "number2", "number3", "number4", "number5" respectively
+check the amount of numbers greater than 0
+declare them as "positive numbers"
+check the amount of numbers lesser than 0
+declare them as "negative numbers"
+check the amount of numbers equals 0
+declare them as "zero input"
+display "positive numbers"
+display "negative numbers"
+display "zero input"
+
+
+
+
+
+
+
+

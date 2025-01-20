@@ -1,0 +1,8 @@
+pseudocode to check for factors of numbers 
+1. declare and initialize "number" of type int
+2. using for loop to divide the number, counter starts from 1
+3. ends when it gets to the number plus one 
+4. to check for the factors: if number divided by each count give 0 remainder
+5. add one to factorCount
+6. return factorCount
+7. display factorCount

@@ -1,0 +1,17 @@
+stage 1
+prompt and collect a three digit integer 
+check if it is palindrome 
+display result 
+
+Stage 2
+prompt the user to enter 3 digit number 
+colect 3 digits from the user
+store as "number"
+check if it is a palindrome by dividing "number" by 100
+store value as "numberP"
+module "number" by 10
+store value as "numberQ"
+if "numberP" is the same as "numberQ"
+display "it is a palindrome"
+if it "numberP" is not the same as "numberQ"
+display "it is not a palindrome"

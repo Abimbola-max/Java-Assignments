@@ -1,0 +1,8 @@
+pseudocode for factorial 
+1. declare and initialize "number" to hold an integer
+2. declare and initialize "factorial" to store result
+2. using a loop to reduce and get factorial of  "number"
+3. the counter starts counting from "number"
+4. keeps reducing till it gets to 1
+5. factorial is gotten by multiplying counter by factorial
+6. display "factorial"

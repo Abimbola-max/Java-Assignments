@@ -1,0 +1,8 @@
+pseudocode for occurrence of number in a list
+1. declare and initialize array named "numbers" of type int
+2. using a for loop to loop through the numbers to check if a particular number is in the list
+3. using for loop "count", loop starts from 1
+4. end at the length of the number 
+5. if number search matches the count at any index
+6. display true 
+7. if not, display false 

@@ -1,0 +1,13 @@
+stage one 
+prompt and collect number in feet from user
+convert it to meters 
+display result
+
+
+stage two
+prompt the user for number in feet
+collect the number in feet
+store as feetNumber
+convert it to meters by multiplying one foot by feetNumber
+store as feetMeters
+display feetMeters

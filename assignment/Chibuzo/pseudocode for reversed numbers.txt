@@ -1,0 +1,8 @@
+pseudocode for reversed numbers in a list
+1. declare and initialize array named "numbers" of type int
+2. create a new array named "reversedNumbers" to hold reversed numbers
+3. using a for loop to loop through the numbers 
+4. using counter, loop starts from the length of numbers minus one
+5. ends at 0
+6. reversedNumbers becomes the numbers of the counter
+7. display reversedNumbers  

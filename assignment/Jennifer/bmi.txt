@@ -1,0 +1,16 @@
+stage 1
+prompt and collect the user for weight and height in inches 
+calculate the user's body mass index
+display result
+
+
+stage 2
+prompt the user to enter number of weight in kilograms
+collect the number of weight in pounds
+store as "weight"
+prompt the user to enter number of height in inches
+collect the number of height in inches
+store as "height"
+calculate body mass index by dividing weight in kilograms by height * height
+store result as bmi
+display bmi
