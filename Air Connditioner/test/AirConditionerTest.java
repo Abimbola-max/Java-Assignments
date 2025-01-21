@@ -20,6 +20,23 @@ public class AirConditionerTest {
     public void testWhenTheAirConditionerTemperatureIsIncreased() {
         AirConditioner airConditioner = new AirConditioner();
         airConditioner.airConditionerIsOn();
-        assertEquals(airConditioner.increasedTemperature())
+        airConditioner.increasedTemperature();
+        assertEquals(17, airConditioner.getTemperatureControl());
+    }
+
+    @Test
+    public void testWhenTheAirConditionerTemperatureIsDecreased() {
+        AirConditioner airConditioner = new AirConditioner();
+        airConditioner.airConditionerIsOn();
+        airConditioner.decreasedTemperature();
+        assertEquals(16, airConditioner.getTemperatureControl());
+    }
+
+    @Test
+    public void testWhenTheAirConditionerTemperatureIsBeyondMax() {
+        AirConditioner airConditioner = new AirConditioner();
+        airConditioner.airConditionerIsOn();
+        airConditioner.increasedTemperature();
     }
 }
+
