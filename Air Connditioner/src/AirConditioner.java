@@ -2,10 +2,14 @@ public class AirConditioner {
 
     private boolean isOn;
     private int temperatureControl;
+    private int maxTemperature;
+    private int minTemperature;
 
     public AirConditioner() {
         isOn = true;
         temperatureControl = 16;
+        maxTemperature = 30;
+        minTemperature = 16;
     }
 
     public boolean airConditionerIsOn() {
@@ -34,6 +38,5 @@ public class AirConditioner {
         return temperatureControl;
     }
 
-    public
 
 }

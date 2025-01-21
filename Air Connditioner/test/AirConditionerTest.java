@@ -21,7 +21,7 @@ public class AirConditionerTest {
         AirConditioner airConditioner = new AirConditioner();
         airConditioner.airConditionerIsOn();
         airConditioner.increasedTemperature();
-        assertEquals(17, airConditioner.getTemperatureControl());
+        assertEquals(19, airConditioner.getTemperatureControl());
     }
 
     @Test
@@ -37,6 +37,7 @@ public class AirConditionerTest {
         AirConditioner airConditioner = new AirConditioner();
         airConditioner.airConditionerIsOn();
         airConditioner.increasedTemperature();
+        assertEquals(30, airConditioner.getTemperatureControl());
     }
 }
 
