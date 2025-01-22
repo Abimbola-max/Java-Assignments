@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class ArrayListMethod {
 
-    private ArrayList<String> arrayList;
+    private ArrayList<String> arrayList = new ArrayList<>();
 
     public boolean isEmpty() {
         return true;
@@ -12,7 +12,8 @@ public class ArrayListMethod {
         return false;
     }
 
-    public void add(String word) {
-        ArrayListMethod.add(word);
+    public String addElement(String element) {
+        arrayList.add(element);
+        return element;
     }
 }
