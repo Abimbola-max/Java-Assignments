@@ -9,6 +9,14 @@ public class SetMethods {
         return numbers.isEmpty();
     }
 
-    public void addElementsToSet() {
+    public int addElementsToSet(int number) {
+        numbers.add(number);
+        return number;
+    }
+
+    public int[] addAllElementsToSet(int number1, int number2) {
+        numbers.addAll(number1, number2);
+        return numbers;
+        
     }
 }

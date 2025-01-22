@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SetMethodsTest {
 
@@ -24,9 +23,16 @@ public class SetMethodsTest {
 
     @Test
     public void test_ThatSetsIsNotEmpty() {
-        setMethods.add(56);
-        setMethods.add(13);
+        setMethods.addElementsToSet(56);
+        assertEquals( 56, setMethods.addElementsToSet(56));
+    }
 
-        assertFalse([56, 13], setMethods.addElementsToSet());
+    @Test
+    public void test_ThatAllElementsAreAddedToSet() {
+        setMethods.addElementsToSet(56);
+        setMethods.addElementsToSet(13);
+        setMethods.addElementsToSet(2);
+
+        assertEquals( [56,13,2], setMethods.addAllElementsToSet(56,13,3));
     }
 }
