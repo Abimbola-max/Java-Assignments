@@ -16,4 +16,20 @@ public class ArrayListMethod {
         arrayList.add(element);
         return element;
     }
+
+    public int removeElement(String element) {
+        arrayList.remove((element));
+        return 0;
+    }
+
+    public int getIndexOfElement(String aisha) {
+        return arrayList.indexOf(aisha);
+    }
+
+    public boolean isContained(String number) {
+        if (arrayList.contains(number)) {
+            return true;
+        }
+        return false;
+    }
 }

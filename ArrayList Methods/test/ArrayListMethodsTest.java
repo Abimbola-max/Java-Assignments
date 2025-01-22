@@ -23,10 +23,40 @@ public class ArrayListMethodsTest {
     }
 
     @Test
-    public void addElementToArrayList() {
-//        arrayListMethods.addElement("bibi");
+    public void addElementToArrayListTest() {
         assertEquals("bibi", arrayListMethods.addElement("bibi"));
+        assertEquals("aisha", arrayListMethods.addElement("aisha"));
     }
+
+    @Test
+    public void removeElementFromArrayListTest() {
+        assertEquals(0, arrayListMethods.removeElement("bibi"));
+
+    }
+
+    @Test
+    public void getIndexOfElementFromArrayListTest() {
+        arrayListMethods.addElement("bibi");
+        arrayListMethods.addElement("aisha");
+        arrayListMethods.addElement("bolaji");
+
+        assertEquals(1, arrayListMethods.getIndexOfElement("aisha"));
+        assertEquals(2, arrayListMethods.getIndexOfElement("bolaji"));
+        assertEquals(0, arrayListMethods.getIndexOfElement("bibi"));
+    }
+
+    @Test
+    public void checkThatArrayListContainsElementTest() {
+        arrayListMethods.addElement("2");
+        arrayListMethods.addElement("1");
+        arrayListMethods.addElement("7");
+        arrayListMethods.addElement("3");
+
+        assertEquals(true, arrayListMethods.isContained("2"));
+        assertEquals(false, arrayListMethods.isContained("56"));
+    }
+
+    @Test
 
 
 }
