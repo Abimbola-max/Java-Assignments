@@ -24,4 +24,20 @@ public class MyArrayListMethod {
     public int getSizeOfArrayList() {
         return size;
     }
+
+    public boolean isContains(String number) {
+        for (int index = 0; index < size; index++) {
+            if (elements[index].equals(number)) {
+                return true;
+            }
+        } return false;
+    }
+
+    public int getIndexOf(String number) {
+        for (int index = 0; index < size; index++) {
+            if (elements[index].equals(number)) {
+                return index;
+            }
+        }return -1;
+    }
 }

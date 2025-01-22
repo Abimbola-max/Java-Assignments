@@ -24,13 +24,12 @@ public class MyArrayListMethodsTest {
     }
 
     @Test
-    public void testThatArrayListIsNotEmpty_removeAnElement() {
+    public void testThatArrayListCanRemoveAnElement() {
         assertEquals(0, arrayListMethod.getSizeOfArrayList());
         arrayListMethod.addElement("bibi");
         assertEquals(1, arrayListMethod.getSizeOfArrayList());
         arrayListMethod.isElementsRemoved("bibi");
         assertEquals(0, arrayListMethod.getSizeOfArrayList());
-//        assertFalse(arrayListMethod.contains("bibi"));
     }
 
     @Test
@@ -42,5 +41,29 @@ public class MyArrayListMethodsTest {
 
         assertEquals(4, arrayListMethod.getSizeOfArrayList());
     }
+
+    @Test
+    public void testThatArrayListContainsAnElement() {
+        arrayListMethod.addElement("60");
+        arrayListMethod.addElement("2");
+        arrayListMethod.addElement("50");
+
+        assertEquals(true, arrayListMethod.isContains("60"));
+        assertEquals(false, arrayListMethod.isContains("20"));
+    }
+
+    @Test
+    public void testGetIndexOfAnElement() {
+        arrayListMethod.addElement("78");
+        arrayListMethod.addElement("56");
+        arrayListMethod.addElement("80");
+
+        assertEquals(1, arrayListMethod.getIndexOf("56"));
+        assertEquals(0, arrayListMethod.getIndexOf("78"));
+        assertEquals(2, arrayListMethod.getIndexOf("80"));
+    }
+
+    @Test
+    public void getCapacity
 }
 
