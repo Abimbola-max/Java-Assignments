@@ -57,6 +57,24 @@ public class ArrayListMethodsTest {
     }
 
     @Test
+    public void checkThatArrayListAddsElementAndRemoveElementTest() {
+        arrayListMethods.addElement("bibi");
+        arrayListMethods.addElement("aisha");
+        arrayListMethods.addElement("bolaji");
+
+        arrayListMethods.removeElement("bibi");
+        assertEquals(false, arrayListMethods.isContained("bibi"));
+    }
+
+    @Test
+    public void getTheSizeOfArrayListTest() {
+        arrayListMethods.addElement("6");
+        arrayListMethods.addElement("9");
+        arrayListMethods.addElement("19");
+        arrayListMethods.addElement("21");
+
+        assertEquals(3, arrayListMethods.getArrayListSize());
+    }
 
 
 }

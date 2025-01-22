@@ -32,4 +32,8 @@ public class ArrayListMethod {
         }
         return false;
     }
+
+    public int getArrayListSize() {
+        return arrayList.size();
+    }
 }
