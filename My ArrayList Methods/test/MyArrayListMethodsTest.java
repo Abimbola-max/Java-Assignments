@@ -2,7 +2,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MyArrayListMethodsTest {
 
@@ -20,8 +19,28 @@ public class MyArrayListMethodsTest {
 
     @Test
     public void testThatArrayListIsNotEmpty_addAnElement() {
-        arrayListMethod.addElement("76");
-        assertEquals(arrayListMethod.listIsEmpty(), false);
-        assertEquals(arrayListMethod.addElement("79"));
+        assertEquals("76", arrayListMethod.addElement("76"));
+        assertEquals("bibi", arrayListMethod.addElement("bibi"));
+    }
+
+    @Test
+    public void testThatArrayListIsNotEmpty_removeAnElement() {
+        assertEquals(0, arrayListMethod.getSizeOfArrayList());
+        arrayListMethod.addElement("bibi");
+        assertEquals(1, arrayListMethod.getSizeOfArrayList());
+        arrayListMethod.isElementsRemoved("bibi");
+        assertEquals(0, arrayListMethod.getSizeOfArrayList());
+//        assertFalse(arrayListMethod.contains("bibi"));
+    }
+
+    @Test
+    public void testToGetTheSize() {
+        arrayListMethod.addElement("23");
+        arrayListMethod.addElement("1");
+        arrayListMethod.addElement("7");
+        arrayListMethod.addElement("bibi");
+
+        assertEquals(4, arrayListMethod.getSizeOfArrayList());
     }
 }
+
