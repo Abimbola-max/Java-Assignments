@@ -1,3 +1,5 @@
+package arraylist;
+
 public class MyArrayListMethod {
 
     private int size = 0;
@@ -8,9 +10,22 @@ public class MyArrayListMethod {
     }
 
     public String addElement(String element) {
+        if (isFull()) increaseCapacity();
         elements[size] = element;
         size++;
         return element;
+    }
+
+    private void increaseCapacity() {
+        String[] newElements = new String[size * 2];
+        elements = newElements;
+
+    }
+
+    private boolean isFull() {
+        if(size == elements.length) {
+            return true;
+        } return false;
     }
 
     public boolean isElementsRemoved(String element) {
