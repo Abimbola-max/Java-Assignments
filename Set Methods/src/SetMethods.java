@@ -5,4 +5,10 @@ public class SetMethods {
 
     Set<Integer> numbers = new HashSet<>();
 
+    public boolean isEmpty() {
+        return numbers.isEmpty();
+    }
+
+    public void addElementsToSet() {
+    }
 }
