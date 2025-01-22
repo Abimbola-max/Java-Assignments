@@ -14,7 +14,9 @@ public class ArrayListMethodsTest {
 
     @Test
     public void testThatArrayListIsEmpty() {
-        assertTrue(arrayListMethods.isEmpty());
+        assertTrue(arrayListMethods.isEmptyTest(
+                
+        ));
     }
 
     @Test
@@ -24,8 +26,10 @@ public class ArrayListMethodsTest {
 
     @Test
     public void addElementToArrayListTest() {
+        assertTrue(arrayListMethods.isEmpty());
         assertEquals("bibi", arrayListMethods.addElement("bibi"));
         assertEquals("aisha", arrayListMethods.addElement("aisha"));
+        assertTrue(arrayListMethods.isNotEmpty());
     }
 
     @Test

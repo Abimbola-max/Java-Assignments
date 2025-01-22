@@ -2,10 +2,10 @@ import java.util.ArrayList;
 
 public class ArrayListMethod {
 
-    private ArrayList<String> elements = new ArrayList<>();
+    private String[] elements = new String[4];
 
-    public boolean isEmpty() {
-        return true;
+    public boolean isEmptyTest() {
+        return elements.length == 0;
     }
 
     public boolean isNotEmpty() {
@@ -13,8 +13,7 @@ public class ArrayListMethod {
     }
 
     public String addElement(String element) {
-        elements.add(element);
-        return element;
+
     }
 
     public int removeElement(String element) {

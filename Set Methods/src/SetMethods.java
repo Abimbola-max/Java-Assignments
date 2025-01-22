@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,9 +15,9 @@ public class SetMethods {
         return number;
     }
 
-    public int[] addAllElementsToSet(int number1, int number2) {
-        numbers.addAll(number1, number2);
+    public Set<Integer> addAllElementsToSet(int integers) {
+        numbers.addAll(Arrays.asList(integers));
         return numbers;
-        
     }
+
 }
