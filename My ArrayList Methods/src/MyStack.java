@@ -9,15 +9,15 @@ public class MyStack {
         return myStacks.listIsEmpty();
     }
 
-    public String elementsAreAdded(String number) {
+    public String elementsAreAdded_pushMethod(String number) {
         return myStacks.addElement(number);
     }
 
-    public boolean removeAndReturnsElement(String element) {
+    public boolean removeTheElement_popMethod(String element) {
         return myStacks.isElementsRemoved(element);
     }
 
-    public int getSizeOfMyStack(String element) {
+    public int getSizeOfMyStack() {
         return myStacks.getSizeOfArrayList();
     }
 }
