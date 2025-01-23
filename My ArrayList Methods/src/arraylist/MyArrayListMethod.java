@@ -1,7 +1,5 @@
 package arraylist;
 
-import java.util.Arrays;
-
 public class MyArrayListMethod {
 
     private int size = 0;
@@ -57,11 +55,9 @@ public class MyArrayListMethod {
         }return -1;
     }
 
-    @Override
-    public String toString() {
-        return "MyArrayListMethod{" +
-                "size=" + size +
-                ", elements=" + Arrays.toString(elements) +
-                '}';
+    public void insertAtAnIndex(String element, int index) {
+        for (int i = getSizeOfArrayList()-1; i >= index; i++) {
+            elements[i + 1] = elements[i];
+        }
     }
 }

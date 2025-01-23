@@ -77,5 +77,14 @@ public class MyArrayListMethodsTest {
 
         Assertions.assertEquals(7, arrayListMethod.getSizeOfArrayList());
     }
+
+    @Test
+    public void testThatArrayListCanInsertAtAnIndex() {
+        arrayListMethod.addElement("1");
+        arrayListMethod.addElement("2");
+        arrayListMethod.insertAtAnIndex("4", 1);
+
+        assertEquals(3, arrayListMethod.getSizeOfArrayList());
+    }
 }
 
