@@ -16,4 +16,16 @@ public class MySet {
     public int getSizeOfSet(String number) {
         return myListMethods.getSizeOfArrayList();
     }
+
+    public int getSizeOfArrayList() {
+        return myListMethods.getSizeOfArrayList();
+    }
+
+    public void isElementsRemoved(String element) {
+        myListMethods.isElementsRemoved(element);
+    }
+
+    public int getIndexOf(String number) {
+        return myListMethods.getIndexOf(number);
+    }
 }
