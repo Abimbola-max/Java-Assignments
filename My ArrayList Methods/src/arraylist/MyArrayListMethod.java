@@ -1,5 +1,7 @@
 package arraylist;
 
+import java.util.Arrays;
+
 public class MyArrayListMethod {
 
     private int size = 0;
@@ -17,8 +19,7 @@ public class MyArrayListMethod {
     }
 
     private void increaseCapacity() {
-        String[] newElements = new String[size * 2];
-        elements = newElements;
+        elements = new String[size * 2];
 
     }
 
@@ -54,5 +55,13 @@ public class MyArrayListMethod {
                 return index;
             }
         }return -1;
+    }
+
+    @Override
+    public String toString() {
+        return "MyArrayListMethod{" +
+                "size=" + size +
+                ", elements=" + Arrays.toString(elements) +
+                '}';
     }
 }

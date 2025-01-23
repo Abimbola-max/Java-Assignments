@@ -73,7 +73,7 @@ public class MyArrayListMethodsTest {
         arrayListMethod.addElement("4");
         arrayListMethod.addElement("5");
         arrayListMethod.addElement("6");
-        arrayListMethod.addElement("7");
+        arrayListMethod.addElement("18");
 
         Assertions.assertEquals(7, arrayListMethod.getSizeOfArrayList());
     }
