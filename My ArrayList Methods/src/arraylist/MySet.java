@@ -17,7 +17,7 @@ public class MySet {
         return myListMethods.getSizeOfArrayList();
     }
 
-    public int getSizeOfArrayList() {
+    public int getSizeOfMySet() {
         return myListMethods.getSizeOfArrayList();
     }
 

@@ -18,7 +18,6 @@ public class MyArrayListMethod {
 
     private void increaseCapacity() {
         elements = new String[size * 2];
-
     }
 
     private boolean isFull() {
@@ -52,12 +51,14 @@ public class MyArrayListMethod {
             if (elements[index].equals(number)) {
                 return index;
             }
-        }return -1;
+        } return -1;
     }
 
     public void insertAtAnIndex(String element, int index) {
-        for (int i = getSizeOfArrayList()-1; i >= index; i++) {
+        for (int i = getSizeOfArrayList()-1; i >= index; i--) {
             elements[i + 1] = elements[i];
+            size++;
         }
+        elements[index] = element;
     }
 }

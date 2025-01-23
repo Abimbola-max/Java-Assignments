@@ -84,7 +84,7 @@ public class MyArrayListMethodsTest {
         arrayListMethod.addElement("2");
         arrayListMethod.insertAtAnIndex("4", 1);
 
-        assertEquals(3, arrayListMethod.getSizeOfArrayList());
+        Assertions.assertEquals(3, arrayListMethod.getSizeOfArrayList());
     }
 }
 

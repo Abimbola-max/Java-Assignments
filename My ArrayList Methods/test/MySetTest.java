@@ -29,11 +29,11 @@ public class MySetTest {
 
     @Test
     public void testThatElementIsRemoved_sizeIsGotten() {
-        Assertions.assertEquals(0, mySet.getSizeOfArrayList());
+        Assertions.assertEquals(0, mySet.getSizeOfMySet());
         mySet.addElement("10");
-        Assertions.assertEquals(1, mySet.getSizeOfArrayList());
+        Assertions.assertEquals(1, mySet.getSizeOfMySet());
         mySet.isElementsRemoved("10");
-        Assertions.assertEquals(0, mySet.getSizeOfArrayList());
+        Assertions.assertEquals(0, mySet.getSizeOfMySet());
     }
 
     @Test
@@ -43,7 +43,7 @@ public class MySetTest {
         mySet.addElement("88");
         mySet.addElement("1000");
 
-        assertEquals(4, mySet.getSizeOfArrayList());
+        assertEquals(4, mySet.getSizeOfMySet());
     }
 
     @Test
