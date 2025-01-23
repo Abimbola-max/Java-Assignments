@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class MyArrayListMethodsTest {
 
@@ -24,6 +25,7 @@ public class MyArrayListMethodsTest {
     public void testThatArrayListIsNotEmpty_addAnElement() {
         Assertions.assertEquals("76", arrayListMethod.addElement("76"));
         Assertions.assertEquals("bibi", arrayListMethod.addElement("bibi"));
+        assertFalse(arrayListMethod.listIsEmpty());
     }
 
     @Test
@@ -43,6 +45,7 @@ public class MyArrayListMethodsTest {
         arrayListMethod.addElement("bibi");
 
         Assertions.assertEquals(4, arrayListMethod.getSizeOfArrayList());
+        assertFalse(arrayListMethod.listIsEmpty());
     }
 
     @Test
@@ -53,6 +56,8 @@ public class MyArrayListMethodsTest {
 
         Assertions.assertEquals(true, arrayListMethod.isContains("60"));
         Assertions.assertEquals(false, arrayListMethod.isContains("20"));
+        assertFalse(
+                arrayListMethod.isContains("77"));
     }
 
     @Test
