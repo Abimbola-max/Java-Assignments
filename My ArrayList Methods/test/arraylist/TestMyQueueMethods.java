@@ -3,7 +3,7 @@ package arraylist;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestMyQueueMethods {
 
@@ -17,6 +17,12 @@ public class TestMyQueueMethods {
     @Test
     public void testThatQueueIsEmpty() {
         assertTrue(queue.isEmpty());
+    }
 
+    @Test
+    public void testThatElementsCanBeAddedToMyQueue() {
+        assertEquals("67", queue.addElementEnqueue("67"));
+        assertEquals("bibi", queue.addElementEnqueue("bibi"));
+        assertFalse(queue.isEmpty());
     }
 }

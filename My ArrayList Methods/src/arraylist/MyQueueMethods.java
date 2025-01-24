@@ -4,11 +4,18 @@ import java.util.ArrayList;
 
 public class MyQueueMethods {
 
-    private int size;
+    private int firstElement = 0;
+    private int lastElement = -1;
     MyArrayListMethods myListMethods = new MyArrayListMethods();
 
 
     public boolean isEmpty() {
-        return size == 0;
+        return firstElement > lastElement;
+    }
+
+    public String addElementEnqueue(String number) {
+        lastElement++;
+        myListMethods.addElement(number);
+        return number;
     }
 }
