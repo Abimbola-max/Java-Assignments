@@ -1,6 +1,6 @@
 package arraylist;
 
-public class MyArrayListMethod {
+public class MyArrayListMethods {
 
     private int size = 0;
     String[] elements = new String[5];

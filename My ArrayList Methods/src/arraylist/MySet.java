@@ -3,7 +3,7 @@ package arraylist;
 
 public class MySet {
 
-    MyArrayListMethod myListMethods = new MyArrayListMethod();
+    MyArrayListMethods myListMethods = new MyArrayListMethods();
 
     public boolean isSetEmpty() {
         return true;

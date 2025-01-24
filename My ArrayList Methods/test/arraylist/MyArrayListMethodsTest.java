@@ -9,11 +9,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class MyArrayListMethodsTest {
 
-    private MyArrayListMethod arrayListMethod;
+    private MyArrayListMethods arrayListMethod;
 
     @BeforeEach
     public void startWithThis() {
-        arrayListMethod = new MyArrayListMethod();
+        arrayListMethod = new MyArrayListMethods();
     }
 
     @Test

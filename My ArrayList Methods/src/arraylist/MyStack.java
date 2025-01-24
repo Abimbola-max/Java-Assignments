@@ -1,8 +1,8 @@
-import arraylist.MyArrayListMethod;
+package arraylist;
 
 public class MyStack {
     
-    MyArrayListMethod myStacks = new MyArrayListMethod();
+    MyArrayListMethods myStacks = new MyArrayListMethods();
 
 
     public boolean isMyStackEmpty() {
