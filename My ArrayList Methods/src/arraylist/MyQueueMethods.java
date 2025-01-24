@@ -4,10 +4,11 @@ import java.util.ArrayList;
 
 public class MyQueueMethods {
 
+    private int size;
     MyArrayListMethods myListMethods = new MyArrayListMethods();
 
 
     public boolean isEmpty() {
-        return myListMethods.listIsEmpty();
+        return size == 0;
     }
 }
