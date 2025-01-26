@@ -1,5 +1,8 @@
 public class BikeTask {
 
-    public Object isTurnedOn() {
+
+
+    public boolean isTurnedOn() {
+        return true;
     }
 }

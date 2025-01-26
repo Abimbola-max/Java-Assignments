@@ -2,6 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestBikeTask {
 
@@ -14,8 +15,6 @@ public class TestBikeTask {
 
     @Test
     public void testThatMyBikeIsOn() {
-        assertEquals(myBike.isTurnedOn());
+        assertTrue(myBike.isTurnedOn());
     }
-
-
 }
