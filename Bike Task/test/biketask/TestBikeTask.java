@@ -27,5 +27,11 @@ public class TestBikeTask {
 
         BikeTask myBike2 = new BikeTask(2,24);
         assertEquals(26, myBike2.accerelator());
+
+        BikeTask myBike3 = new BikeTask(3,25);
+        assertEquals(28, myBike3.accerelator());
+
+        BikeTask myBike4 = new BikeTask(4,44);
+        assertEquals(48, myBike4.accerelator());
     }
 }
