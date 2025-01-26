@@ -41,7 +41,7 @@ public class TestMyQueueMethods {
         queue.addElementEnqueue("67");
         queue.addElementEnqueue("bibi");
         queue.addElementEnqueue("100");
-        
+
         assertEquals(3, queue.getSize());
     }
 }
