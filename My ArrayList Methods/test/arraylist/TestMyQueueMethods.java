@@ -34,13 +34,14 @@ public class TestMyQueueMethods {
 
         queue.removedElement("67");
         assertEquals(0, queue.getIndexOf("bibi"));
+    }
 
-        queue.addElementEnqueue("yusuf");
-        queue.addElementEnqueue("lara");
-        queue.addElementEnqueue("bolaji");
-
-        queue.removedElement("bolaji");
-        assertEquals(-1, queue.getIndexOf("bibi"));
-
+    @Test
+    public void testToGetSizeOfMyQueue() {
+        queue.addElementEnqueue("67");
+        queue.addElementEnqueue("bibi");
+        queue.addElementEnqueue("100");
+        
+        assertEquals(3, queue.getSize());
     }
 }

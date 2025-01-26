@@ -42,4 +42,8 @@ public class MyQueueMethods {
         }
         return -1;
     }
+
+    public int getSize() {
+       return myListMethods.getSize();
+    }
 }
