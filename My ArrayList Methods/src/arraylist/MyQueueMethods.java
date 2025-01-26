@@ -16,17 +16,30 @@ public class MyQueueMethods {
         return number;
     }
 
-    public void removedElement(String element) {
-        for (int i = 0; i < myListMethods.getSize() - 1; i++) {
-            myListMethods.elements[i] = myListMethods.elements[i + 1];
+    public String removedElement(String element) {
+        int index = findIndexOf(element);
+        return removeElementByIndex(index);
+    }
+    private String removeElementByIndex(int index){
+        String removedElement = myListMethods.elements[index];
+        for (int indexCounter = index; indexCounter < myListMethods.getSize() - 1; indexCounter++) {
+            myListMethods.elements[indexCounter] = myListMethods.elements[indexCounter + 1];
         }
         myListMethods.elements[myListMethods.getSize() - 1] = null;
-        myListMethods.getSize() -= 1;
+        myListMethods.size--;
+        return removedElement;
     }
 
     public int getIndexOf(String elemment) {
-        for (int i = 0; i < myListMethods.getSize() - 1; i++) {
-            if ()
+        for (int index = 0; index < myListMethods.getSize() - 1; index++) {
+            if (myListMethods.elements[index].equals(elemment)) return index;
+        } return -1;
+    }
+
+    private int findIndexOf(String element) {
+        for (int index = 0; index < myListMethods.getSize() - 1; index++) {
+            if (myListMethods.elements[index].equals(element)) return index;
         }
+        return -1;
     }
 }

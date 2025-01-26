@@ -2,7 +2,7 @@ package arraylist;
 
 public class MyArrayListMethods {
 
-    private int size = 0;
+    public int size = 0;
     String[] elements = new String[5];
 
     public boolean listIsEmpty() {
