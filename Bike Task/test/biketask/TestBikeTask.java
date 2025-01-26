@@ -32,14 +32,14 @@ public class TestBikeTask {
         assertEquals(17, myBike2.accerelate());
 
         BikeTask myBike3 = new BikeTask();
-        myBike.setCurrentGear(2);
-        myBike.setCurrentSpeed(24);
-        assertEquals(26, myBike.accerelate());
+        myBike3.setCurrentGear(2);
+        myBike3.setCurrentSpeed(24);
+        assertEquals(26, myBike3.accerelate());
 
         BikeTask myBike4 = new BikeTask();
-        myBike.setCurrentGear(3);
-        myBike.setCurrentSpeed(30);
-        assertEquals(33, myBike.accerelate());
+        myBike4.setCurrentGear(3);
+        myBike4.setCurrentSpeed(30);
+        assertEquals(33, myBike4.accerelate());
 
         assertTrue(myBike.isTurnedOn());
     }
@@ -47,15 +47,23 @@ public class TestBikeTask {
     @Test
     public void testThatBikeCanDecelerate() {
         BikeTask myBike = new BikeTask();
-        assertEquals(14, myBike.decelerate());
+        myBike.setCurrentGear(3);
+        myBike.setCurrentSpeed(30);
+        assertEquals(27, myBike.decelerate());
 
         BikeTask myBike2 = new BikeTask();
+        myBike2.setCurrentGear(2);
+        myBike2.setCurrentSpeed(24);
         assertEquals(22, myBike2.decelerate());
 
         BikeTask myBike3 = new BikeTask();
-        assertEquals(22, myBike3.decelerate());
+        myBike3.setCurrentGear(1);
+        myBike3.setCurrentSpeed(16);
+        assertEquals(15, myBike3.decelerate());
 
         BikeTask myBike4 = new BikeTask();
+        myBike4.setCurrentGear(4);
+        myBike4.setCurrentSpeed(44);
         assertEquals(40, myBike4.decelerate());
 
         assertTrue(myBike.isTurnedOn());
@@ -64,29 +72,30 @@ public class TestBikeTask {
     @Test
     public void testThatBikeCanReduceOrIncreaseSpeed() {
         BikeTask myBike = new BikeTask();
+        myBike.setCurrentGear(1);
+        myBike.setCurrentSpeed(1);
         myBike.accerelate();
-        assertEquals(1, myBike.getCurrentSpeed());
-        assertEquals(1, myBike.getCurrentGear());
+        assertEquals(1, myBike.setGear());
 
-//        BikeTask myBike2 = new BikeTask();
-//        myBike2.accerelate();
-//        assertEquals(32, myBike2.getCurrentSpeed());
-//        assertEquals(3, myBike2.getCurrentGear());
-//
-//        BikeTask myBike3 = new BikeTask();
-//        myBike3.accerelate();
-//        assertEquals(43, myBike3.getCurrentSpeed());
-//        assertEquals(4, myBike3.getCurrentGear());
-//
-//        BikeTask myBike4 = new BikeTask();
-//        myBike4.decelerate();
-//        assertEquals(36, myBike4.getCurrentSpeed());
-//        assertEquals(3, myBike4.getCurrentGear());
-//
-//        BikeTask myBike5 = new BikeTask();
-//        myBike5.decelerate();
-//        assertEquals(27, myBike5.getCurrentSpeed());
-//        assertEquals(2, myBike5.getCurrentGear());
-        
+          BikeTask myBike2 = new BikeTask();
+          myBike2.accerelate();
+          assertEquals(2, myBike2.getCurrentSpeed());
+          assertEquals(1, myBike2.getCurrentGear());
+
+          BikeTask myBike3 = new BikeTask();
+          myBike3.accerelate();
+          assertEquals(3, myBike3.getCurrentSpeed());
+          assertEquals(1, myBike3.getCurrentGear());
+
+          BikeTask myBike4 = new BikeTask();
+          myBike4.decelerate();
+          assertEquals(36, myBike4.getCurrentSpeed());
+          assertEquals(3, myBike4.getCurrentGear());
+
+          BikeTask myBike5 = new BikeTask();
+          myBike5.decelerate();
+          assertEquals(27, myBike5.getCurrentSpeed());
+          assertEquals(2, myBike5.getCurrentGear());
+
     }
 }

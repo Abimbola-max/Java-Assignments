@@ -81,7 +81,7 @@ public class BikeTask {
         return currentSpeed;
     }
 
-    public void setGear() {
+    public int setGear() {
         if (currentSpeed >= 0 && currentSpeed <= 20) {
             currentGear = 1;
         } else if (currentSpeed >= 21 && currentSpeed <= 30) {
@@ -91,5 +91,6 @@ public class BikeTask {
         } else {
             currentGear = 4;
         }
+        return currentGear;
     }
 }
