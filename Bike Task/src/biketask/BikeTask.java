@@ -4,14 +4,25 @@ public class BikeTask {
 
     private int currentGear;
     private int currentSpeed;
+    private boolean isOn = true;
+    private boolean isOff = false;
 
-    public BikeTask(int currentGear, int currentSpeed) {
-        this.currentGear = currentGear;
-        this.currentSpeed = currentSpeed;
+
+    public BikeTask() {
+        this.currentGear = 0;
+        this.currentSpeed = 0;
     }
 
     public int getCurrentGear() {
         return currentGear;
+    }
+
+    public void setCurrentGear(int currentGear) {
+        this.currentGear = currentGear;
+    }
+
+    public void setCurrentSpeed(int currentSpeed) {
+        this.currentSpeed = currentSpeed;
     }
 
     public int getCurrentSpeed() {
@@ -19,11 +30,11 @@ public class BikeTask {
     }
 
     public boolean isTurnedOn() {
-        return true;
+        return isOn;
     }
 
     public boolean isTurnedOff() {
-        return false;
+        return isOff;
     }
 
     public int accerelate() {
