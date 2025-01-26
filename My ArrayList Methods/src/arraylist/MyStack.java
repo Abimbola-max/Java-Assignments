@@ -18,6 +18,6 @@ public class MyStack {
     }
 
     public int getSizeOfMyStack() {
-        return myStacks.getSizeOfArrayList();
+        return myStacks.getSize();
     }
 }

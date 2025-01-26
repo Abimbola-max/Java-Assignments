@@ -34,7 +34,7 @@ public class MyArrayListMethods {
         } return true;
     }
 
-    public int getSizeOfArrayList() {
+    public int getSize() {
         return size;
     }
 
@@ -55,7 +55,7 @@ public class MyArrayListMethods {
     }
 
     public void insertAtAnIndex(String element, int index) {
-        for (int i = getSizeOfArrayList()-1; i >= index; i--) {
+        for (int i = getSize()-1; i >= index; i--) {
             elements[i + 1] = elements[i];
             size++;
         }

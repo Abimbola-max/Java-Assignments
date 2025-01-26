@@ -25,4 +25,16 @@ public class TestMyQueueMethods {
         assertEquals("bibi", queue.addElementEnqueue("bibi"));
         assertFalse(queue.isEmpty());
     }
+
+    @Test
+    public void testThatElementsCanBeRemovedFromMyQueue_poll_dequeue_and_shifted() {
+        queue.addElementEnqueue("67");
+        queue.addElementEnqueue("bibi");
+        queue.addElementEnqueue("100");
+
+        queue.removedElement("67");
+
+        assertEquals(0, queue.getIndexOf("bibi"));
+
+    }
 }

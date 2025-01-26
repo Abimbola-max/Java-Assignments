@@ -14,11 +14,11 @@ public class MySet {
     }
 
     public int getSizeOfSet(String number) {
-        return myListMethods.getSizeOfArrayList();
+        return myListMethods.getSize();
     }
 
     public int getSizeOfMySet() {
-        return myListMethods.getSizeOfArrayList();
+        return myListMethods.getSize();
     }
 
     public void isElementsRemoved(String element) {

@@ -30,11 +30,11 @@ public class MyArrayListMethodsTest {
 
     @Test
     public void testThatArrayListCanRemoveAnElement() {
-        Assertions.assertEquals(0, arrayListMethod.getSizeOfArrayList());
+        Assertions.assertEquals(0, arrayListMethod.getSize());
         arrayListMethod.addElement("bibi");
-        Assertions.assertEquals(1, arrayListMethod.getSizeOfArrayList());
+        Assertions.assertEquals(1, arrayListMethod.getSize());
         arrayListMethod.isElementsRemoved("bibi");
-        Assertions.assertEquals(0, arrayListMethod.getSizeOfArrayList());
+        Assertions.assertEquals(0, arrayListMethod.getSize());
     }
 
     @Test
@@ -44,7 +44,7 @@ public class MyArrayListMethodsTest {
         arrayListMethod.addElement("7");
         arrayListMethod.addElement("bibi");
 
-        Assertions.assertEquals(4, arrayListMethod.getSizeOfArrayList());
+        Assertions.assertEquals(4, arrayListMethod.getSize());
         assertFalse(arrayListMethod.listIsEmpty());
     }
 
@@ -80,7 +80,7 @@ public class MyArrayListMethodsTest {
         arrayListMethod.addElement("6");
         arrayListMethod.addElement("18");
 
-        Assertions.assertEquals(7, arrayListMethod.getSizeOfArrayList());
+        Assertions.assertEquals(7, arrayListMethod.getSize());
     }
 
     @Test
@@ -89,7 +89,7 @@ public class MyArrayListMethodsTest {
         arrayListMethod.addElement("2");
         arrayListMethod.insertAtAnIndex("4", 1);
 
-        Assertions.assertEquals(3, arrayListMethod.getSizeOfArrayList());
+        Assertions.assertEquals(3, arrayListMethod.getSize());
     }
 }
 
