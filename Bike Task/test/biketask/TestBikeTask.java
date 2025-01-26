@@ -33,5 +33,11 @@ public class TestBikeTask {
 
         BikeTask myBike4 = new BikeTask(4,44);
         assertEquals(48, myBike4.accerelator());
+
+        assertTrue(myBike.isTurnedOn());
     }
+
+    @Test
+
+
 }
