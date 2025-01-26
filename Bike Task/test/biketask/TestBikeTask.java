@@ -74,5 +74,10 @@ public class TestBikeTask {
         myBike4.decelerate();
         assertEquals(36, myBike4.getCurrentSpeed());
         assertEquals(3, myBike4.getCurrentGear());
+
+        BikeTask myBike5 = new BikeTask(3,30);
+        myBike5.decelerate();
+        assertEquals(27, myBike5.getCurrentSpeed());
+        assertEquals(2, myBike5.getCurrentGear());
     }
 }
