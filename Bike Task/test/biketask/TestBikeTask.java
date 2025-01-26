@@ -53,5 +53,9 @@ public class TestBikeTask {
 
         assertTrue(myBike.isTurnedOn());
     }
-    
+
+    @Test
+    public void testThatBikeCanReduceOrIncreaseSpeed() {
+
+    }
 }
