@@ -10,6 +10,19 @@ public class BikeTask {
         this.currentSpeed = currentSpeed;
     }
 
+    public int getCurrentGear() {
+        return currentGear;
+    }
+    public void setCurrentGear(int currentGear) {
+        this.currentGear = currentGear;
+    }
+    public int getCurrentSpeed() {
+        return currentSpeed;
+    }
+    public void setCurrentSpeed(int currentSpeed) {
+        this.currentSpeed = currentSpeed;
+    }
+
     public boolean isTurnedOn() {
         return true;
     }
@@ -58,5 +71,7 @@ public class BikeTask {
         return currentSpeed;
     }
 
-
+    public void setGear() {
+        if (currentSpeed >= 0 && currentSpeed <= 20) currentGear = 1;
+    }
 }

@@ -56,8 +56,9 @@ public class TestBikeTask {
 
     @Test
     public void testThatBikeCanReduceOrIncreaseSpeed() {
-
-        
-
+        BikeTask myBike = new BikeTask(1,20);
+        myBike.accerelator();
+        assertEquals(21, myBike.getCurrentSpeed());
+        assertEquals(2, myBike.getCurrentGear());
     }
 }
