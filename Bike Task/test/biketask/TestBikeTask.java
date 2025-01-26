@@ -38,6 +38,20 @@ public class TestBikeTask {
     }
 
     @Test
+    public void testThatBikeCanDecelerate() {
+        BikeTask myBike = new BikeTask(1,15);
+        assertEquals(14, myBike.decelerate());
 
+        BikeTask myBike2 = new BikeTask(2,24);
+        assertEquals(22, myBike2.decelerate());
 
+        BikeTask myBike3 = new BikeTask(3,25);
+        assertEquals(22, myBike3.decelerate());
+
+        BikeTask myBike4 = new BikeTask(4,44);
+        assertEquals(40, myBike4.decelerate());
+
+        assertTrue(myBike.isTurnedOn());
+    }
+    
 }
