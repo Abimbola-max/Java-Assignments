@@ -13,14 +13,9 @@ public class BikeTask {
     public int getCurrentGear() {
         return currentGear;
     }
-    public void setCurrentGear(int currentGear) {
-        this.currentGear = currentGear;
-    }
+
     public int getCurrentSpeed() {
         return currentSpeed;
-    }
-    public void setCurrentSpeed(int currentSpeed) {
-        this.currentSpeed = currentSpeed;
     }
 
     public boolean isTurnedOn() {
@@ -31,7 +26,7 @@ public class BikeTask {
         return false;
     }
 
-    public int accerelator() {
+    public int accerelate() {
         switch (currentGear) {
             case 1:
                 currentSpeed += 1;
@@ -46,8 +41,10 @@ public class BikeTask {
                 currentSpeed += 4;
                 break;
             default:
+                System.out.println("Invalid gear");
                 break;
         }
+        setGear();
         return currentSpeed;
     }
 
@@ -66,12 +63,22 @@ public class BikeTask {
                 currentSpeed -= 4;
                 break;
             default:
+                System.out.println("Invalid gear");
                 break;
         }
+       setGear();
         return currentSpeed;
     }
 
     public void setGear() {
-        if (currentSpeed >= 0 && currentSpeed <= 20) currentGear = 1;
+        if (currentSpeed >= 0 && currentSpeed <= 20) {
+            currentGear = 1;
+        } else if (currentSpeed >= 21 && currentSpeed <= 30) {
+            currentGear = 2;
+        } else if (currentSpeed >= 31 && currentSpeed <= 40) {
+            currentGear = 3;
+        } else {
+            currentGear = 4;
+        }
     }
 }
