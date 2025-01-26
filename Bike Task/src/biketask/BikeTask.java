@@ -26,7 +26,7 @@ public class BikeTask {
     }
 
     public int getCurrentSpeed() {
-        return currentSpeed;
+        return this.currentSpeed;
     }
 
     public boolean isTurnedOn() {
@@ -40,53 +40,51 @@ public class BikeTask {
     public int accerelate() {
         switch (currentGear) {
             case 1:
-                currentSpeed += 1;
+                this.currentSpeed += 1;
                 break;
             case 2:
-               currentSpeed += 2;
+               this.currentSpeed += 2;
                break;
             case 3:
-                currentSpeed += 3;
+                this.currentSpeed += 3;
                 break;
             case 4:
-                currentSpeed += 4;
+                this.currentSpeed += 4;
                 break;
             default:
-                System.out.println("Invalid gear");
                 break;
         }
         setGear();
-        return currentSpeed;
+        return this.currentSpeed;
     }
 
     public int decelerate() {
         switch (currentGear) {
             case 1:
-                currentSpeed -= 1;
+                this.currentSpeed -= 1;
                 break;
             case 2:
-                currentSpeed -= 2;
+                this.currentSpeed -= 2;
                 break;
             case 3:
-                currentSpeed -= 3;
+                this.currentSpeed -= 3;
                 break;
             case 4:
-                currentSpeed -= 4;
+                this.currentSpeed -= 4;
                 break;
             default:
-                System.out.println("Invalid gear");
                 break;
         }
        setGear();
-        return currentSpeed;
+        return this.currentSpeed;
     }
 
     public int setGear() {
-        if (currentSpeed >= 0 && currentSpeed <= 20) {
+        if (this.currentSpeed >= 0 && this.currentSpeed <= 20) {
             currentGear = 1;
-        } else if (currentSpeed >= 21 && currentSpeed <= 30) {
+        } else if (this.currentSpeed >= 21 && this.currentSpeed <= 30) {
             currentGear = 2;
-        } else if (currentSpeed >= 31 && currentSpeed <= 40) {
+        } else if (this.currentSpeed >= 31 && this.currentSpeed <= 40) {
             currentGear = 3;
         } else {
             currentGear = 4;
