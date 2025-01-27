@@ -45,6 +45,7 @@ public class Account {
     }
 
     public void UpdatePin(String oldPin, String newPin) {
-
+        newPin = this.pin;
+        
     }
 }
