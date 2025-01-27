@@ -5,7 +5,7 @@ public class Account {
     private int accountNumber;
     private String firstName;
     private String lastName;
-    private int pin;
+    private String pin;
     private int balance;
 
     public Account() {
@@ -19,7 +19,7 @@ public class Account {
         return this.balance == 0;
     }
 
-    public void setPin(int pin) {
+    public void setPin(String pin) {
         this.pin = pin;
     }
     public int getBalance() {
@@ -42,5 +42,9 @@ public class Account {
 
     public int checkBalance(String pin) {
         return this.balance;
+    }
+
+    public void UpdatePin(String oldPin, String newPin) {
+
     }
 }

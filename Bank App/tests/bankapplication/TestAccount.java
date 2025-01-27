@@ -41,4 +41,14 @@ public class TestAccount {
         assertEquals(2000, myAccount.checkBalance("4040"));
     }
 
+    @Test
+    public void testThatAccountCanUpdatePin() {
+        Account myAccount = new Account();
+        myAccount.UpdatePin("4040", "2020");
+        myAccount.deposit(6000);
+        myAccount.withdraw(1000, "2020");
+
+        assertEquals(5000, myAccount.getBalance());
+    }
+
 }
