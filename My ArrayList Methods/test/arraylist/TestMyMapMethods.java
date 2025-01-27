@@ -21,8 +21,6 @@ public class TestMyMapMethods {
 
     @Test
     public void testMyMapCanPerformPutFunctions() {
-        myMap.put("jerry", 67);
-
-
+        myMap.put("jerry", 67)
     }
 }
