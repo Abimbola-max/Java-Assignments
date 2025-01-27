@@ -41,6 +41,6 @@ public class Account {
     }
 
     public int checkBalance(String pin) {
-
+        return this.balance;
     }
 }

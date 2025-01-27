@@ -18,13 +18,16 @@ public class TestAccount {
         myAccount.deposit(6000);
 
         assertFalse(myAccount.isAccountEmpty());
+        assertEquals(6000, myAccount.getBalance());
     }
 
     @Test
     public void testThatAccountCanWithdraw() {
         Account myAccount = new Account();
+        myAccount.deposit(6000);
         myAccount.withdraw(1000, "4040");
 
+        assertEquals(5000, myAccount.getBalance());
         assertFalse(myAccount.isAccountEmpty());
     }
 
@@ -33,8 +36,9 @@ public class TestAccount {
         Account myAccount = new Account();
         myAccount.deposit(6000);
         myAccount.withdraw(1000, "4040");
+        myAccount.withdraw(3000, "4040");
 
-        assertEquals(5000, myAccount.checkBalance("4040"));
+        assertEquals(2000, myAccount.checkBalance("4040"));
     }
 
 }
