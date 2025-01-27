@@ -37,5 +37,10 @@ public class Account {
         if (amount > this.balance) {
             throw new IllegalArgumentException("Insufficient amount");
         }
+        this.balance -= amount;
+    }
+
+    public int checkBalance(String pin) {
+
     }
 }

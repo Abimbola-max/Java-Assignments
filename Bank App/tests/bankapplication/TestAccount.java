@@ -23,9 +23,18 @@ public class TestAccount {
     @Test
     public void testThatAccountCanWithdraw() {
         Account myAccount = new Account();
-        myAccount.withdraw(6000, "4040");
+        myAccount.withdraw(1000, "4040");
 
         assertFalse(myAccount.isAccountEmpty());
+    }
+
+    @Test
+    public void testThatAccountCanCheckBalance() {
+        Account myAccount = new Account();
+        myAccount.deposit(6000);
+        myAccount.withdraw(1000, "4040");
+
+        assertEquals(5000, myAccount.checkBalance("4040"));
     }
 
 }
