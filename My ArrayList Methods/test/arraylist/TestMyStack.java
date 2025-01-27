@@ -54,4 +54,13 @@ public class TestMyStack {
         assertEquals(1, myStack.getSizeOfMyStack());
     }
 
+    @Test
+    public void testThatMyStackReturnsTheFirstIndex_peekMethod() {
+        myStack.elementsAreAdded_pushMethod("45");
+        myStack.elementsAreAdded_pushMethod("56");
+        myStack.elementsAreAdded_pushMethod("78");
+
+        assertEquals("78", myStack.peek());
+    }
+
 }

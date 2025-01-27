@@ -44,4 +44,13 @@ public class TestMyQueueMethods {
 
         assertEquals(3, queue.getSize());
     }
+
+    @Test
+    public void testThatQueueCanReturnTheFirstIndexOfMyQueueWithoutRemovingIt_peekMethod() {
+        queue.addElementEnqueue("67");
+        queue.addElementEnqueue("45");
+        queue.addElementEnqueue("100");
+
+        assertEquals(0, queue.getIndexOf("67"));
+    }
 }

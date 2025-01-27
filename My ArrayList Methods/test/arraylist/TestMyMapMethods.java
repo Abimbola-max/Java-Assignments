@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestMyMapMethods {
 
-    MyMapMethods myMap;
+    private MyMapMethods myMap;
 
     @BeforeEach
     public void startWithThis() {
@@ -21,6 +21,8 @@ public class TestMyMapMethods {
 
     @Test
     public void testMyMapCanPerformPutFunctions() {
+        myMap.put("jerry", 67);
+
 
     }
 }

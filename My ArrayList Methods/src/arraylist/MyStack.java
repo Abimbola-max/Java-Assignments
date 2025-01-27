@@ -20,4 +20,8 @@ public class MyStack {
     public int getSizeOfMyStack() {
         return myStacks.getSize();
     }
+
+    public String peek() {
+        return myStacks.elements[myStacks.size - 1];
+    }
 }

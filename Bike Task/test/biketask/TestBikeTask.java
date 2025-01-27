@@ -232,9 +232,9 @@ public class TestBikeTask {
         assertEquals(1, myBike11.setGear());
 
         BikeTask myBike12 = new BikeTask();
+        myBike12.setCurrentGear(2);
+        myBike12.setCurrentSpeed(21);
         myBike12.decelerate();
-        myBike12.setCurrentGear(1);
-        myBike12.setCurrentSpeed(20);
         assertEquals(1, myBike12.setGear());
 
         BikeTask myBike13 = new BikeTask();
