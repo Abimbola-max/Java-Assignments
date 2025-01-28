@@ -10,7 +10,7 @@ public class TestAccount {
 
     @BeforeEach
     void startWithThis() {
-        myAccount = new Account("Abimbola", "Abisoye", "4040");
+        myAccount = new Account("Abimbola", "Abisoye", "4040", 1);
     }
 
     @Test

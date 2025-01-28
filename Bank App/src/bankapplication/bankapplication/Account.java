@@ -5,14 +5,14 @@ public class Account {
     private int accountNumber;
     private String firstName;
     private String lastName;
-    private String pin;
+    private String pin = "4040";
     private int balance;
 
-    public Account(String firstName, String lastName, String pin) {
+    public Account(String firstName, String lastName, String pin, int accountNumber) {
         this.accountNumber = accountNumber;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.pin = "4040";
+        this.pin = pin;
         this.balance = 0;
     }
 
