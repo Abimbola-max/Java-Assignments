@@ -9,7 +9,7 @@ public class TestAccount {
     Account myAccount;
 
     @BeforeEach
-    void setUp() {
+    void startWithThis() {
         myAccount = new Account("Abimbola", "Abisoye", "2000");
     }
 

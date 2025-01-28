@@ -46,7 +46,12 @@ public class Account {
     }
 
     public void UpdatePin(String oldPin, String newPin) {
-        newPin = this.pin;
+        if (oldPin.equals(this.pin) && newPin.equals(this.pin)) {
+            this.pin = newPin;
+        }
+        else {
+            throw new IllegalArgumentException("Invalid pin");
+        }
 
     }
 }
