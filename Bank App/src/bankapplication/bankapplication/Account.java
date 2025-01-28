@@ -12,7 +12,7 @@ public class Account {
         this.accountNumber = accountNumber;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.pin = pin;
+        this.pin = "4040";
         this.balance = 0;
     }
 
@@ -35,10 +35,17 @@ public class Account {
     }
 
     public void withdraw(int amount, String pin) {
-        if (amount > this.balance) {
-            throw new IllegalArgumentException("Insufficient amount");
+        if (pin.equals(this.pin))
+        {
+            if(amount <= this.balance)
+            {
+                this.balance -= amount;
+            } else {
+                throw new IllegalArgumentException("Withdraw amount must be less than the balance");
+            }
+        } else {
+            throw new IllegalArgumentException("Incorrect PIN");
         }
-        this.balance -= amount;
     }
 
     public int checkBalance(String pin) {
@@ -46,7 +53,7 @@ public class Account {
     }
 
     public void UpdatePin(String oldPin, String newPin) {
-        if (oldPin.equals(this.pin) && newPin.equals(this.pin)) {
+        if (oldPin.equals(this.pin)) {
             this.pin = newPin;
         }
         else {

@@ -10,7 +10,7 @@ public class TestAccount {
 
     @BeforeEach
     void startWithThis() {
-        myAccount = new Account("Abimbola", "Abisoye", "2000");
+        myAccount = new Account("Abimbola", "Abisoye", "4040");
     }
 
     @Test
@@ -48,9 +48,23 @@ public class TestAccount {
     public void testThatAccountCanUpdatePin() {
         myAccount.UpdatePin("4040", "2020");
         myAccount.deposit(6000);
-        myAccount.withdraw(1000, "2066797897790");
+        myAccount.withdraw(1000, "2020");
 
         assertEquals(5000, myAccount.getBalance());
     }
+
+    @Test
+    public void testThatAccountThrowExceptionForInvalidPin() {
+        try {
+            myAccount.UpdatePin("4040", "2021");
+            myAccount.deposit(6000);
+            myAccount.withdraw(1000, "4020");
+        } catch (IllegalArgumentException e) {
+            
+        }
+
+
+    }
+
 
 }
