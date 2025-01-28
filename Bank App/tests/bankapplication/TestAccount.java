@@ -60,10 +60,8 @@ public class TestAccount {
             myAccount.deposit(6000);
             myAccount.withdraw(1000, "4020");
         } catch (IllegalArgumentException e) {
-            
+            System.out.println("invalid pin");
         }
-
-
     }
 
 

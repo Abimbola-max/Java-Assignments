@@ -56,9 +56,5 @@ public class Account {
         if (oldPin.equals(this.pin)) {
             this.pin = newPin;
         }
-        else {
-            throw new IllegalArgumentException("Invalid pin");
-        }
-
     }
 }
