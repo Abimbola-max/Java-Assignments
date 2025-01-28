@@ -8,11 +8,12 @@ public class Account {
     private String pin;
     private int balance;
 
-    public Account() {
+    public Account(String firstName, String lastName, String pin) {
         this.accountNumber = accountNumber;
         this.firstName = firstName;
         this.lastName = lastName;
         this.pin = pin;
+        this.balance = 0;
     }
 
     public boolean isAccountEmpty() {
@@ -27,7 +28,7 @@ public class Account {
     }
 
     public void deposit(int amount) {
-        if (amount < 200) {
+        if (amount < 0) {
             throw new IllegalArgumentException("Invalid amount");
         }
         this.balance += amount;
@@ -46,6 +47,6 @@ public class Account {
 
     public void UpdatePin(String oldPin, String newPin) {
         newPin = this.pin;
-        
+
     }
 }

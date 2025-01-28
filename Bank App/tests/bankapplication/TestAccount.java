@@ -1,20 +1,25 @@
 package bankapplication;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestAccount {
+    Account myAccount;
+
+    @BeforeEach
+    void setUp() {
+        myAccount = new Account("Abimbola", "Abisoye", "2000");
+    }
 
     @Test
     public void testThatAccountIsEmpty() {
-        Account myAccount = new Account();
         assertTrue(myAccount.isAccountEmpty());
     }
 
     @Test
     public void testThatAccountCanDeposit() {
-        Account myAccount = new Account();
         myAccount.deposit(6000);
 
         assertFalse(myAccount.isAccountEmpty());
@@ -23,7 +28,6 @@ public class TestAccount {
 
     @Test
     public void testThatAccountCanWithdraw() {
-        Account myAccount = new Account();
         myAccount.deposit(6000);
         myAccount.withdraw(1000, "4040");
 
@@ -33,7 +37,6 @@ public class TestAccount {
 
     @Test
     public void testThatAccountCanCheckBalance() {
-        Account myAccount = new Account();
         myAccount.deposit(6000);
         myAccount.withdraw(1000, "4040");
         myAccount.withdraw(3000, "4040");
@@ -43,10 +46,9 @@ public class TestAccount {
 
     @Test
     public void testThatAccountCanUpdatePin() {
-        Account myAccount = new Account();
         myAccount.UpdatePin("4040", "2020");
         myAccount.deposit(6000);
-        myAccount.withdraw(1000, "2020");
+        myAccount.withdraw(1000, "2066797897790");
 
         assertEquals(5000, myAccount.getBalance());
     }
