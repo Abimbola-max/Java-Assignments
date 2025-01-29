@@ -16,6 +16,10 @@ public class Account {
         this.balance = 0;
     }
 
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
     public boolean isAccountEmpty() {
         return this.balance == 0;
     }
