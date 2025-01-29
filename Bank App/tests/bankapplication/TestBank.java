@@ -9,7 +9,7 @@ public class TestBank {
     @Test
     public void testBankCanCreateAccount() {
         Bank bank = new Bank();
-        bank.createAccount("bimbola", "aishat", "4020");
+        bank.createAccount("bimbola", "aishat", "4020", 1);
         assertEquals(1,));
     }
 

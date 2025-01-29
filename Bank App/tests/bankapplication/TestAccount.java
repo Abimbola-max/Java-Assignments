@@ -23,7 +23,7 @@ public class TestAccount {
         myAccount.deposit(6000);
 
         assertFalse(myAccount.isAccountEmpty());
-        assertEquals(6000, myAccount.getBalance());
+        assertEquals(6000, myAccount.checkBalance("4040"));
     }
 
     @Test
@@ -31,7 +31,7 @@ public class TestAccount {
         myAccount.deposit(6000);
         myAccount.withdraw(1000, "4040");
 
-        assertEquals(5000, myAccount.getBalance());
+        assertEquals(5000, myAccount.checkBalance("4040"));
         assertFalse(myAccount.isAccountEmpty());
     }
 
@@ -50,19 +50,18 @@ public class TestAccount {
         myAccount.deposit(6000);
         myAccount.withdraw(1000, "2020");
 
-        assertEquals(5000, myAccount.getBalance());
+        assertEquals(5000, myAccount.checkBalance("2020"));
     }
 
     @Test
-    public void testThatAccountThrowExceptionForInvalidPin() {
-        try {
-            myAccount.UpdatePin("4040", "2021");
-            myAccount.deposit(6000);
-            myAccount.withdraw(1000, "4020");
-        } catch (IllegalArgumentException e) {
-            System.out.println("invalid pin");
-        }
+    public void testDepositMinus5kWithdaw10KThrowsIllegalArgumentException() {
+        myAccount.deposit(5000);
+        assertThrows(IllegalArgumentException.class, () -> myAccount.withdraw(10000,"2010"));
     }
 
-
+    @Test
+    public void testDepositMinus10kWithda2KThrowsIllegalArgumentException() {
+        myAccount.deposit(-5000);
+        assertThrows(IllegalArgumentException.class, () -> myAccount.withdraw(10000,"2010"));
+    }
 }

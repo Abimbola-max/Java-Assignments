@@ -31,6 +31,8 @@ public class Bank {
 
     }
 
-    public int checkBalance(int accountNumber, int) {
+    public void withdraw(int accountNumber, int amount, String pin) {
+        Account account = findAccount(accountNumber);
+        account.withdraw(amount, pin);
     }
 }

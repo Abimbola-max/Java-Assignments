@@ -7,6 +7,7 @@ public class Account {
     private String lastName;
     private String pin = "4040";
     private int balance;
+    private int accountCounter;
 
     public Account(String firstName, String lastName, String pin, int accountNumber) {
         this.accountNumber = accountNumber;
@@ -27,22 +28,21 @@ public class Account {
     public void setPin(String pin) {
         this.pin = pin;
     }
-    public int getBalance() {
-        return balance;
-    }
 
     public void deposit(int amount) {
-        if (amount < 0) {
-            throw new IllegalArgumentException("Invalid amount");
-        }
+        if (amountIsLessThanZero()) throw new IllegalArgumentException("Invalid amount");
         this.balance += amount;
     }
 
+    private boolean amountIsLessThanZero() {
+        if (this.balance < 0) return true;
+        return false;
+    }
+
     public void withdraw(int amount, String pin) {
-        if (pin.equals(this.pin))
-        {
-            if(amount <= this.balance)
-            {
+        if (amountIsLessThanZero()) throw new IllegalArgumentException("Invalid amount");
+        if (pinValidation(pin)) {
+            if(amount <= this.balance) {
                 this.balance -= amount;
             } else {
                 throw new IllegalArgumentException("Withdraw amount must be less than the balance");
@@ -53,12 +53,18 @@ public class Account {
     }
 
     public int checkBalance(String pin) {
-        return this.balance;
+        if (pinValidation(pin)) return this.balance;
+        else throw new IllegalArgumentException("Incorrect PIN");
     }
 
     public void UpdatePin(String oldPin, String newPin) {
-        if (oldPin.equals(this.pin)) {
-            this.pin = newPin;
-        }
+        if (pinValidation(pin)) this.pin = newPin;
+        else throw new IllegalArgumentException("Incorrect PIN");
+
+    }
+
+    private boolean pinValidation(String pin) {
+        if (pin.equals(this.pin)) return true;
+        return false;
     }
 }
