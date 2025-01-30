@@ -29,7 +29,7 @@ public class TestBank {
         int accountNumber = account.getAccountNumber();
         bank.deposit(10000, accountNumber);
         bank.withdraw(accountNumber, 5000, "4020");
-        assertEquals(5000, bank.checkBalance(1, "4020"));
+        assertEquals(5000, bank.checkBalance(accountNumber, "4020"));
     }
 
     @Test

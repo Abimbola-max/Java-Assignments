@@ -44,8 +44,6 @@ public class Account {
         if (pinValidation(pin)) {
             if(amount <= this.balance) {
                 this.balance -= amount;
-            } else {
-                throw new IllegalArgumentException("Insufficient funds");
             }
         } else {
             throw new IllegalArgumentException("Incorrect PIN");

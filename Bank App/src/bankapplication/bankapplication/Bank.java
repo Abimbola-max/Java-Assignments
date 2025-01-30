@@ -24,13 +24,12 @@ public class Bank {
                 return account;
             }
         }
-        return null;
+       return accounts.getFirst();
     }
 
     public void deposit(int accountNumber, int amount) {
         Account account = findAccount(accountNumber);
         if (account != null) account.deposit(amount);
-        throw new IllegalArgumentException("Account not found");
     }
 
     public void withdraw(int accountNumber, int amount, String pin) {
