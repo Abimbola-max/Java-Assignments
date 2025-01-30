@@ -25,7 +25,7 @@ public class Bank {
         return null;
     }
 
-    public void deposit(int accountNumber, int amount) {
+    public int deposit(int accountNumber, int amount) {
         Account account = findAccount(accountNumber);
         account.deposit(amount);
 
@@ -33,6 +33,12 @@ public class Bank {
 
     public void withdraw(int accountNumber, int amount, String pin) {
         Account account = findAccount(accountNumber);
-        account.withdraw(amount, pin);
+         account.withdraw(amount, pin);
+    }
+
+    public int checkBalance(int accountNumber, String pin) {
+        Account account = findAccount(accountNumber);
+       return account.checkBalance(pin);
+
     }
 }

@@ -9,9 +9,18 @@ public class TestBank {
     @Test
     public void testBankCanCreateAccount() {
         Bank bank = new Bank();
-        bank.createAccount("bimbola", "aishat", "4020", 1);
-        assertEquals(1,));
+        Account account = createAccount("bimbola", "aishat", "4020");
+        assertEquals(1, account.getAccountNumber());
     }
+    @Test
+    public void testDeposit(){
+        Bank bank = new Bank();
+        Account account = createAccount("bimbola", "aishat", "4020");
+        int initialBalance = account.checkBalance("4020");
+        account.deposit(4000);
+        assertEquals(initialBalance + 4000, account.checkBalance("4020"));
+    }
+
 
     @Test
     public void testBankCanDeposit() {

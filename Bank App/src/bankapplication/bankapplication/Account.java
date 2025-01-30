@@ -53,8 +53,8 @@ public class Account {
     }
 
     public int checkBalance(String pin) {
-        if (pinValidation(pin)) return this.balance;
-        else throw new IllegalArgumentException("Incorrect PIN");
+        if (!pinValidation(pin)) throw new IllegalArgumentException("Incorrect PIN");
+        return this.balance;
     }
 
     public void UpdatePin(String oldPin, String newPin) {
