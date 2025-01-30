@@ -40,7 +40,7 @@ public class TestBank {
         int senderAccountNumber = sender.getAccountNumber();
         int receiverAccountNumber = receiver.getAccountNumber();
         bank.deposit(senderAccountNumber, 5000);
-        bank.transfer(senderAccountNumber, 3000, receiverAccountNumber);
+        bank.transfer(senderAccountNumber, 3000, receiverAccountNumber, "4020");
         assertEquals(2000, sender.checkBalance("4020"));
     }
 }

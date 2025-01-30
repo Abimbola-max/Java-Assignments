@@ -44,14 +44,14 @@ public class Bank {
 
     }
 
-    public void transfer(int senderAccount , int amount, int receiverAccount) {
+    public void transfer(int senderAccount , int amount, int receiverAccount, String pin) {
         Account sender = findAccount(senderAccount);
         Account receiver = findAccount(receiverAccount);
 
         if (sender == null) throw new IllegalArgumentException("Sender Account not found");
         if (receiver == null) throw new IllegalArgumentException("Receiver Account not found");
 
-        sender.withdraw(amount);
+        sender.withdraw(amount, pin);
         receiver.deposit(amount);
     }
 }
