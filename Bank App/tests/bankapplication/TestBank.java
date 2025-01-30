@@ -18,7 +18,7 @@ public class TestBank {
         Bank bank = new Bank();
         Account account = bank.createAccount("bimbola", "aishat", "4020");
         int accountNumber = account.getAccountNumber();
-        bank.deposit(4000, accountNumber);
+        bank.deposit(accountNumber, 4000);
         assertEquals(4000, account.checkBalance("4020"));
     }
 
@@ -28,7 +28,7 @@ public class TestBank {
         Bank bank = new Bank();
         Account account = bank.createAccount("bimbola", "aishat", "4020");
         int accountNumber = account.getAccountNumber();
-        bank.deposit(10000, accountNumber);
+        bank.deposit( accountNumber,10000);
         bank.withdraw(accountNumber, 5000, "4020");
         assertEquals(5000, bank.checkBalance(accountNumber, "4020"));
     }

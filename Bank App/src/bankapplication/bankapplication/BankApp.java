@@ -14,12 +14,13 @@ public class BankApp {
 
     public void mainOption() {
         System.out.println("""
-                1. Create Account,
-                2. Deposit,
-                3. Withdraw money,
-                4. Transfer money,
-                5. Change Pin,
-                6. Exit
+                1. Create Account
+                2. Deposit
+                3. Withdraw money
+                4. Transfer money
+                5. Change Pin
+                6. Check Balance
+                7. Exit
                 """);
 
         System.out.print("Enter an option: ");
@@ -42,12 +43,27 @@ public class BankApp {
                 changePin();
                 break;
             case "6":
-                System.exit(0);
+                checkBalance();
+                break;
+            case "7":
+                System.out.println("Thank you for using Bibi's Bank App");
+                exit();
                 break;
             default:
                 System.out.println("Invalid option");
 
         }
+    }
+
+    private int checkBalance() {
+        try {
+            System.out.println("Enter pin: ");
+            String pin = input.next();
+            bank.checkBalance();
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid pin");
+        }
+        return
     }
 
     public void createAccount() {
@@ -58,7 +74,6 @@ public class BankApp {
             String lastName = input.next();
             System.out.println("Enter account pin: ");
             String pin = input.next();
-            Integer.parseInt(pin);
             bank.createAccount(firstName, lastName, pin);
             System.out.println("Account created successfully.");
         } catch (IllegalArgumentException exception) {
@@ -73,7 +88,7 @@ public class BankApp {
             System.out.print("Enter account number: ");
             int accountNumber = input.nextInt();
             System.out.print("Enter deposit amount: ");
-            double amount = input.nextDouble();
+            int amount = input.nextInt();
             bank.deposit(accountNumber, amount);
             System.out.println("Deposit successful.");
         } catch(IllegalArgumentException exception) {
@@ -91,8 +106,10 @@ public class BankApp {
             System.out.print("Enter account number: ");
             int accountNumber = input.nextInt();
             System.out.print("Enter withdraw amount: ");
-            double amount = input.nextDouble();
-            bank.withdraw(accountNumber, amount);
+            int amount = input.nextInt();
+            System.out.println("Enter account pin: ");
+            String pin = input.next();
+            bank.withdraw(accountNumber, amount, pin);
             System.out.println("Withdrawal successful.");
         } catch(IllegalArgumentException exception) {
             System.out.println(exception.getMessage());
@@ -109,7 +126,7 @@ public class BankApp {
             System.out.print("Enter receiver account number: ");
             int receiverAccountNumber = input.nextInt();
             System.out.print("Enter transfer amount: ");
-            double amount = input.nextDouble();
+            int amount = input.nextInt();
             System.out.print("Enter transfer description: ");
             String description = input.next();
             bank.transfer(senderAccountNumber, amount, receiverAccountNumber, description);
@@ -145,5 +162,9 @@ public class BankApp {
         } finally {
             mainOption();
         }
+    }
+
+    public void exit() {
+        System.exit(0);
     }
 }
