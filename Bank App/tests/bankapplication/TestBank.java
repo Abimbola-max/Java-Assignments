@@ -13,21 +13,26 @@ public class TestBank {
         assertEquals(1, account.getAccountNumber());
     }
     @Test
-    public void testDeposit(){
+    public void testBankCanDeposit4K(){
         Bank bank = new Bank();
         Account account = bank.createAccount("bimbola", "aishat", "4020");
-        int initialBalance = account.checkBalance("4020");
-        account.deposit(4000);
-        assertEquals(initialBalance + 4000, account.checkBalance("4020"));
+        int accountNumber = account.getAccountNumber();
+        account.deposit(4000, accountNumber);
+        assertEquals(4000, account.checkBalance("4020"));
     }
 
 
     @Test
-    public void testBankCanDeposit() {
+    public void testBankCanDeposit10kAndWithdraw5k() {
         Bank bank = new Bank();
-        bank.deposit(6000, 1);
-        assertEquals(6000, bank.checkBalance(1, "4020"));
-
+        Account account = bank.createAccount("bimbola", "aishat", "4020");
+        int accountNumber = account.getAccountNumber();
+        account.deposit(10000, accountNumber);
+        bank.withdraw(accountNumber, 5000, "4020");
+        assertEquals(5000, bank.checkBalance(1, "4020"));
     }
+
+    @Test
+    public void tes
 
 }

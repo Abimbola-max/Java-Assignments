@@ -29,7 +29,7 @@ public class Account {
         this.pin = pin;
     }
 
-    public void deposit(int amount) {
+    public void deposit(int amount, int i) {
         if (amountIsLessThanZero()) throw new IllegalArgumentException("Invalid amount");
         this.balance += amount;
     }

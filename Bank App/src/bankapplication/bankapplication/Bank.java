@@ -29,7 +29,9 @@ public class Bank {
 
     public void deposit(int accountNumber, int amount) {
         Account account = findAccount(accountNumber);
-        account.deposit(amount);
+        if (account != null) account.deposit(accountNumber, amount);
+        throw new IllegalArgumentException("Account not found");
+
     }
 
     public void withdraw(int accountNumber, int amount, String pin) {
