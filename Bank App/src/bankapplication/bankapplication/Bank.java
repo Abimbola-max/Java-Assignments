@@ -24,7 +24,7 @@ public class Bank {
                 return account;
             }
         }
-       return accounts.getFirst();
+       return null;
     }
 
     public void deposit(int accountNumber, int amount) {

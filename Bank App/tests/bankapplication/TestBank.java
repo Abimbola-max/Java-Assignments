@@ -12,6 +12,7 @@ public class TestBank {
         Account account = bank.createAccount("bimbola", "aishat", "4020");
         assertEquals(1, account.getAccountNumber());
     }
+
     @Test
     public void testBankCanDeposit4K(){
         Bank bank = new Bank();

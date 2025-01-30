@@ -54,13 +54,13 @@ public class TestAccount {
     }
 
     @Test
-    public void testDepositMinus5kWithdaw10KThrowsIllegalArgumentException() {
+    public void testDepositMinus5kWithdraw10KThrowsIllegalArgumentException() {
         myAccount.deposit(5000);
         assertThrows(IllegalArgumentException.class, () -> myAccount.withdraw(10000,"2010"));
     }
 
     @Test
-    public void testDepositMinus10kWithda2KThrowsIllegalArgumentException() {
+    public void testDepositMinus10kWithdraw2KThrowsIllegalArgumentException() {
         myAccount.deposit(-5000);
         assertThrows(IllegalArgumentException.class, () -> myAccount.withdraw(10000,"2010"));
     }
