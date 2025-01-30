@@ -55,15 +55,18 @@ public class BankApp {
         }
     }
 
-    private int checkBalance() {
+    private void checkBalance() {
         try {
+            System.out.println("Enter account number: ");
+            int accountNumber = input.nextInt();
             System.out.println("Enter pin: ");
             String pin = input.next();
-            bank.checkBalance();
+            bank.checkBalance(accountNumber, pin);
         } catch (IllegalArgumentException e) {
             System.out.println("Invalid pin");
+        } finally {
+            mainOption();
         }
-        return
     }
 
     public void createAccount() {
@@ -127,9 +130,9 @@ public class BankApp {
             int receiverAccountNumber = input.nextInt();
             System.out.print("Enter transfer amount: ");
             int amount = input.nextInt();
-            System.out.print("Enter transfer description: ");
-            String description = input.next();
-            bank.transfer(senderAccountNumber, amount, receiverAccountNumber, description);
+            System.out.print("Enter pin: ");
+            String pin = input.next();
+            bank.transfer(senderAccountNumber, amount, receiverAccountNumber, pin);
             System.out.println("Transfer successful.");
         } catch (IllegalArgumentException exception) {
             System.out.println(exception.getMessage());
@@ -139,7 +142,6 @@ public class BankApp {
         } finally {
             mainOption();
         }
-
     }
 
     public void changePin() {
