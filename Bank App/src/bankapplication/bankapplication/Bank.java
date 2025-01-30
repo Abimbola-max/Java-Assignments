@@ -29,9 +29,8 @@ public class Bank {
 
     public void deposit(int accountNumber, int amount) {
         Account account = findAccount(accountNumber);
-        if (account != null) account.deposit(accountNumber, amount);
+        if (account != null) account.deposit(amount);
         throw new IllegalArgumentException("Account not found");
-
     }
 
     public void withdraw(int accountNumber, int amount, String pin) {
@@ -52,7 +51,7 @@ public class Bank {
         if (sender == null) throw new IllegalArgumentException("Sender Account not found");
         if (receiver == null) throw new IllegalArgumentException("Receiver Account not found");
 
-        sender.withdraw(amount, pin);
-        receiver.deposit(amount, pin);
+        sender.withdraw(amount);
+        receiver.deposit(amount);
     }
 }

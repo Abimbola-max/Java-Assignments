@@ -29,7 +29,7 @@ public class Account {
         this.pin = pin;
     }
 
-    public void deposit(int amount, int i) {
+    public void deposit(int amount) {
         if (amountIsLessThanZero()) throw new IllegalArgumentException("Invalid amount");
         this.balance += amount;
     }
@@ -45,7 +45,7 @@ public class Account {
             if(amount <= this.balance) {
                 this.balance -= amount;
             } else {
-                throw new IllegalArgumentException("Withdraw amount must be less than the balance");
+                throw new IllegalArgumentException("Insufficient funds");
             }
         } else {
             throw new IllegalArgumentException("Incorrect PIN");
