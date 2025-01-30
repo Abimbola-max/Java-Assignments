@@ -34,6 +34,18 @@ public class BankApp {
             case "3":
                 withdraw();
                 break;
+            case "4":
+                transfer();
+                break;
+            case "5":
+                changePin();
+                break;
+            case "6":
+                System.exit(0);
+                break;
+            default:
+                System.out.println("Invalid option");
+
         }
     }
 
@@ -88,5 +100,42 @@ public class BankApp {
         }
     }
 
-    
+    public void transfer() {
+        try {
+            System.out.print("Enter sender account number: ");
+            int senderAccountNumber = input.nextInt();
+            System.out.print("Enter receiver account number: ");
+            int receiverAccountNumber = input.nextInt();
+            System.out.print("Enter transfer amount: ");
+            double amount = input.nextDouble();
+            System.out.print("Enter transfer description: ");
+            String description = input.next();
+            bank.transfer(senderAccountNumber, amount, receiverAccountNumber, description );
+            System.out.println("Transfer successful.");
+        } catch (IllegalArgumentException exception) {
+            System.out.println(exception.getMessage());
+        } catch (java.util.InputMismatchException exception) {
+            System.out.println("Invalid Input. Please enter a valid number.");
+            input.nextLine();
+        }
+
+    }
+
+    public void changePin() {
+        try {
+            System.out.print("Enter account number: ");
+            int accountNumber = input.nextInt();
+            System.out.print("Enter old pin: ");
+            String oldPin = input.next();
+            System.out.print("Enter new pin: ");
+            String newPin = input.next();
+            bank.updatePin(accountNumber, oldPin, newPin);
+            System.out.println("Pin changed successfully.");
+        } catch (IllegalArgumentException exception) {
+            System.out.println(exception.getMessage());
+        } catch (java.util.InputMismatchException exception) {
+            System.out.println("Invalid Input. Please enter a valid number.");
+            input.nextLine();
+        }
+    }
 }
