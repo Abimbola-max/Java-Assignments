@@ -4,12 +4,14 @@ import java.util.ArrayList;
 
 public class Bank {
 
-    ArrayList<Account> accounts = new ArrayList<>();
+    private ArrayList<Account> accounts = new ArrayList<>();
     private int accountCounter;
 
-    public ArrayList<Account> createAccount(String firstName, String lastName, String pin) {
-        accounts.add(new Account(firstName, lastName, pin, generateAccountNumber()));
-        return accounts;
+    public Account createAccount(String firstName, String lastName, String pin) {
+        int accountNumber = generateAccountNumber();
+        Account account = new Account(firstName, lastName, pin, accountNumber);
+        accounts.add(account);
+        return account;
     }
 
     private int generateAccountNumber() {
@@ -25,10 +27,9 @@ public class Bank {
         return null;
     }
 
-    public int deposit(int accountNumber, int amount) {
+    public void deposit(int accountNumber, int amount) {
         Account account = findAccount(accountNumber);
         account.deposit(amount);
-
     }
 
     public void withdraw(int accountNumber, int amount, String pin) {
