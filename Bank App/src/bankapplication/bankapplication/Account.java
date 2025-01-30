@@ -55,7 +55,7 @@ public class Account {
         return this.balance;
     }
 
-    public void UpdatePin(String oldPin, String newPin) {
+    public void updatePin(String oldPin, String newPin) {
         if (pinValidation(pin)) this.pin = newPin;
         else throw new IllegalArgumentException("Incorrect PIN");
 

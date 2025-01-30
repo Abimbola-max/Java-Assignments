@@ -53,4 +53,10 @@ public class Bank {
         sender.withdraw(amount, pin);
         receiver.deposit(amount);
     }
+
+    public void updatePin(int accountNumber, String oldPin, String newPin) {
+        Account account = findAccount(accountNumber);
+        if (account == null) throw new IllegalArgumentException("Account not found");
+        account.updatePin(oldPin, newPin);
+    }
 }

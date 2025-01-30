@@ -8,7 +8,8 @@ public class BankApp {
     Bank bank = new Bank();
 
     public static void main(String[] args) {
-
+        BankApp bankApp = new BankApp();
+        bankApp.mainOption();
     }
 
     public void mainOption() {
@@ -57,6 +58,7 @@ public class BankApp {
             String lastName = input.next();
             System.out.println("Enter account pin: ");
             String pin = input.next();
+            Integer.parseInt(pin);
             bank.createAccount(firstName, lastName, pin);
             System.out.println("Account created successfully.");
         } catch (IllegalArgumentException exception) {
@@ -110,13 +112,15 @@ public class BankApp {
             double amount = input.nextDouble();
             System.out.print("Enter transfer description: ");
             String description = input.next();
-            bank.transfer(senderAccountNumber, amount, receiverAccountNumber, description );
+            bank.transfer(senderAccountNumber, amount, receiverAccountNumber, description);
             System.out.println("Transfer successful.");
         } catch (IllegalArgumentException exception) {
             System.out.println(exception.getMessage());
         } catch (java.util.InputMismatchException exception) {
             System.out.println("Invalid Input. Please enter a valid number.");
             input.nextLine();
+        } finally {
+            mainOption();
         }
 
     }
@@ -127,8 +131,10 @@ public class BankApp {
             int accountNumber = input.nextInt();
             System.out.print("Enter old pin: ");
             String oldPin = input.next();
+            Integer.parseInt(oldPin);
             System.out.print("Enter new pin: ");
             String newPin = input.next();
+            Integer.parseInt(oldPin);
             bank.updatePin(accountNumber, oldPin, newPin);
             System.out.println("Pin changed successfully.");
         } catch (IllegalArgumentException exception) {
@@ -136,6 +142,8 @@ public class BankApp {
         } catch (java.util.InputMismatchException exception) {
             System.out.println("Invalid Input. Please enter a valid number.");
             input.nextLine();
+        } finally {
+            mainOption();
         }
     }
 }

@@ -46,7 +46,7 @@ public class TestAccount {
 
     @Test
     public void testThatAccountCanUpdatePin() {
-        myAccount.UpdatePin("4040", "2020");
+        myAccount.updatePin("4040", "2020");
         myAccount.deposit(6000);
         myAccount.withdraw(1000, "2020");
 
