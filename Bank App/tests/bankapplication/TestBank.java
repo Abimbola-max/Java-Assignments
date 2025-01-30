@@ -33,6 +33,14 @@ public class TestBank {
     }
 
     @Test
-    public void tes
-
+    public void testThatBankCanTransfer5kAndTransfer3k() {
+        Bank bank = new Bank();
+        Account sender = bank.createAccount("bimbola", "aishat", "4020");
+        Account receiver = bank.createAccount("john", "doe", "1234");
+        int senderAccountNumber = sender.getAccountNumber();
+        int receiverAccountNumber = receiver.getAccountNumber();
+        bank.deposit(senderAccountNumber, 5000);
+        bank.transfer(senderAccountNumber, 3000, receiverAccountNumber);
+        assertEquals(2000, sender.checkBalance("4020"));
+    }
 }
