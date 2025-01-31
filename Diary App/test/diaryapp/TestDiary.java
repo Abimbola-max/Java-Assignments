@@ -46,9 +46,8 @@ public class TestDiary {
     public void thatDiaryCanCreateEntry() {
         diary.lockDiary();
         diary.isUnlocked("password");
-
-        diary.createEntry("body", "body parts");
-
+        diary.createEntry( "body", "body parts");
+        assertEquals(1, diary.entrySize());
     }
 
 }
