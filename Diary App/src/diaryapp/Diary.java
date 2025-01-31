@@ -32,7 +32,15 @@ public class Diary {
     }
 
     public boolean isUnlocked(String password) {
-        if (this.password.equals(password) && this.isLocked) return true;
+        if (passwordValidation(password)) {
+            this.isLocked = false;
+            return true;
+        };
         return false;
+    }
+
+    private boolean passwordValidation(String password) {
+        if (password.equals(this.password)) return true;
+        else throw new IllegalArgumentException("Passwords do not match");
     }
 }
