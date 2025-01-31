@@ -92,6 +92,7 @@ public class TestDiary {
         diary.createEntry( "eye", "nose");
 
         assertEquals("eye nose", diary.findEntryById(2));
+        assertEquals("body body parts", diary.findEntryById(1));
     }
 
 

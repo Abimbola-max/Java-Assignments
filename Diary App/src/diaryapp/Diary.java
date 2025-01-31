@@ -81,11 +81,11 @@ public class Diary {
         }
     }
 
-    public Entry findEntryById(int id) {
+    public String findEntryById(int id) {
         if (isLocked) throw new IllegalStateException("Diary is locked. Cannot delete entry.");
         for (Entry entry : entries) {
             if (entry.getId() == id) {
-                return entry;
+                return entry.toString();
             }
         } throw new IllegalArgumentException("Entry with id " + id + " not found.");
     }
