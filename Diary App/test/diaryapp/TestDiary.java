@@ -40,6 +40,7 @@ public class TestDiary {
     public void testThatDiaryIsLockedWithIncorrectPassword() {
         diary.lockDiary();
         assertThrows(IllegalArgumentException.class, () -> diary.isUnlocked("passwo"));
+        assertThrows(IllegalArgumentException.class, () -> diary.isUnlocked("pass word"));
     }
 
     @Test
