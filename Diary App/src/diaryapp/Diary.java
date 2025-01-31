@@ -89,4 +89,7 @@ public class Diary {
             }
         } throw new IllegalArgumentException("Entry with id " + id + " not found.");
     }
+
+    public Object updateEntry(int i, String body, String s) {
+    }
 }

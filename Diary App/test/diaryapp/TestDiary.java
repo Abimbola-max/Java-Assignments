@@ -95,5 +95,24 @@ public class TestDiary {
         assertEquals("body body parts", diary.findEntryById(1));
     }
 
+    @Test
+    public void testThatDiaryWouldFindAnEntryWithNoFoundId_ThrowsIllegalArgumentException() {
+        diary.lockDiary();
+        diary.isUnlocked("password");
+        diary.createEntry("body", "body parts");
+        diary.createEntry("eye", "nose");
+
+        assertThrows(IllegalArgumentException.class, () -> diary.findEntryById(3));
+    }
+
+    @Test
+    public void testThatDiaryCanUpdateEntry() {
+        diary.lockDiary();
+        diary.isUnlocked("password");
+        diary.createEntry( "body", "body parts");
+        diary.createEntry( "eye", "nose");
+
+        assertEquals(diary.updateEntry(1, "body", "body parts, i love my face"));
+    }
 
 }
