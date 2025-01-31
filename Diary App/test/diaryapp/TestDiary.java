@@ -91,8 +91,8 @@ public class TestDiary {
         diary.createEntry( "body", "body parts");
         diary.createEntry( "eye", "nose");
 
-        assertEquals("eye nose", diary.findEntryById(2));
-        assertEquals("body body parts", diary.findEntryById(1));
+        assertEquals("eye nose", diary.findEntryById(2).toString());
+        assertEquals("body body parts", diary.findEntryById(1).toString());
     }
 
     @Test
@@ -112,7 +112,7 @@ public class TestDiary {
         diary.createEntry( "body", "body parts");
         diary.createEntry( "eye", "nose");
 
-        assertEquals(diary.updateEntry(1, "body", "body parts, i love my face"));
+        diary.updateEntry(1, "body", "body parts, i love my face");
+        assertEquals("body body parts, i love my face", diary.findEntryById(1).toString());
     }
-
 }

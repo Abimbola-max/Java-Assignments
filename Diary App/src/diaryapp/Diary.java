@@ -76,20 +76,24 @@ public class Diary {
                 removeIndex++;
             }
         }
-        if (!removed) {
-            throw new IllegalArgumentException("Entry with id " + id + " not found.");
-        }
+        if (!removed) throw new IllegalArgumentException("Entry with id " + id + " not found.");
     }
 
-    public String findEntryById(int id) {
+    public Entry findEntryById(int id) {
         if (isLocked) throw new IllegalStateException("Diary is locked. Cannot delete entry.");
         for (Entry entry : entries) {
             if (entry.getId() == id) {
-                return entry.toString();
+                return entry;
             }
         } throw new IllegalArgumentException("Entry with id " + id + " not found.");
     }
 
-    public Object updateEntry(int i, String body, String s) {
+    public void updateEntry(int id, String title, String body) {
+        if (isLocked) throw new IllegalStateException("Diary is locked. Cannot update entry.");
+
+        Entry entryToUpdate = findEntryById(id);
+        entryToUpdate.setTitle(title);
+        entryToUpdate.setBody(body);
+
     }
 }
