@@ -56,7 +56,7 @@ public class TestDiary {
     }
 
     @Test
-    public void thatDiaryCanDeleteEntry() {
+    public void thatDiaryCanDeleteEntryAndReturnRemainingSize() {
         diary.lockDiary();
         diary.isUnlocked("password");
         diary.createEntry( "body", "body parts");

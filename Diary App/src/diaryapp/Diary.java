@@ -61,11 +61,24 @@ public class Diary {
     }
 
     public int entrySize() {
-        return entries.size() - 1;
+        return entries.size();
     }
 
     public void deleteEntry(int id) {
-        entries.remove(id);
-        entryCount--;
+        if (isLocked) throw new IllegalStateException("Diary is locked. Cannot delete entry.");
+        boolean removed = false;
+        int removeIndex = 0;
+        while (removeIndex < entries.size()) {
+            if (entries.get(removeIndex).getId() == id) {
+                entries.remove(removeIndex);
+                removed = true;
+            } else {
+                removeIndex++;
+            }
+        }
+        if (!removed) {
+            throw new IllegalArgumentException("Entry with id " + id + " not found.");
+        }
     }
+
 }
