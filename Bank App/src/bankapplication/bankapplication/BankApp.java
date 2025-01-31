@@ -66,6 +66,7 @@ public class BankApp {
             System.out.println("Invalid pin");
         } finally {
             mainOption();
+
         }
     }
 
