@@ -56,6 +56,9 @@ public class TestDiary {
     }
 
     @Test
+    public 
+
+    @Test
     public void thatDiaryCanDeleteEntryAndReturnRemainingSize() {
         diary.lockDiary();
         diary.isUnlocked("password");
@@ -67,4 +70,13 @@ public class TestDiary {
         assertEquals(1, diary.entrySize());
     }
 
+    @Test
+    public void testThatDiaryWillNotDeleteEntryWithNoFoundId_ThrowsIllegalArgumentException() {
+        diary.lockDiary();
+        diary.isUnlocked("password");
+        diary.createEntry( "body", "body parts");
+        diary.createEntry( "eye", "nose");
+        diary.createEntry( "fish", "i love proteins");
+        assertThrows(IllegalArgumentException.class, () -> diary.deleteEntry(4));
+        }
 }
