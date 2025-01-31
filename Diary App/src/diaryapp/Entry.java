@@ -11,10 +11,6 @@ public class Entry {
         return date;
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
     public int getId() {
         return id;
     }
@@ -44,9 +40,4 @@ public class Entry {
         this.title = title;
         this.body = body;
     }
-
-    public boolean isEmpty() {
-        return this.id == 0 && (this.title == null || this.title.isEmpty());
-    }
-
 }
