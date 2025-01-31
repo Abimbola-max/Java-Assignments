@@ -37,7 +37,7 @@ public class TestDiary {
     }
 
     @Test
-    public void testThatDiaryIsLockedWithIncorrectPassword() {
+    public void testThatDiaryIsLockedWithIncorrectPassword_throwsIllegalArgumentException() {
         diary.lockDiary();
         assertThrows(IllegalArgumentException.class, () -> diary.isUnlocked("passwo"));
         assertThrows(IllegalArgumentException.class, () -> diary.isUnlocked("pass word"));
@@ -78,9 +78,21 @@ public class TestDiary {
     public void testThatDiaryWillNotDeleteEntryWithNoFoundId_ThrowsIllegalArgumentException() {
         diary.lockDiary();
         diary.isUnlocked("password");
+        diary.createEntry("body", "body parts");
+        diary.createEntry("eye", "nose");
+        diary.createEntry("fish", "i love proteins");
+        assertThrows(IllegalArgumentException.class, () -> diary.deleteEntry(4));
+    }
+
+    @Test
+    public void testThatDiaryWouldFindAnEntryWithUniqueIdAndReturnEntry() {
+        diary.lockDiary();
+        diary.isUnlocked("password");
         diary.createEntry( "body", "body parts");
         diary.createEntry( "eye", "nose");
-        diary.createEntry( "fish", "i love proteins");
-        assertThrows(IllegalArgumentException.class, () -> diary.deleteEntry(4));
-        }
+
+        assertEquals("eye nose", diary.findEntryById(2));
+    }
+
+
 }

@@ -38,4 +38,7 @@ public class Entry {
         this.title = title;
         this.body = body;
     }
+    public String toString() {
+        return title + " " + body;
+    }
 }
