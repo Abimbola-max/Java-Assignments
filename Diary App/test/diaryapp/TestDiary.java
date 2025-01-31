@@ -56,7 +56,11 @@ public class TestDiary {
     }
 
     @Test
-    public 
+    public void testThatDiaryWouldNotDoAnyOperationWhenLocked_throwsIllegalStateException() {
+        diary.lockDiary();
+        assertThrows(IllegalStateException.class, () -> diary.createEntry("body", "body parts"));
+    }
+
 
     @Test
     public void thatDiaryCanDeleteEntryAndReturnRemainingSize() {
