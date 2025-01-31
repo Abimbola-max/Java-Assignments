@@ -18,4 +18,11 @@ public class TestDiary {
     public void testThatUserNameFieldCannotBeEmpty() {
         assertThrows(NullPointerException.class, () -> new Diary(null, "password"));
     }
+
+    @Test
+    public void testThatPasswordFieldCannotBeEmpty() {
+        assertThrows(NullPointerException.class, () -> new Diary("abimbola", null));
+    }
+
+    @Test
 }
