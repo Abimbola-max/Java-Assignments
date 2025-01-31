@@ -1,15 +1,21 @@
 package diaryapp;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestDiary {
 
+    private Diary diary;
+
+    @BeforeEach
+    public void startWithThis() {
+        diary = new Diary("abimbola", "password");
+    }
+
     @Test
     public void testThatDiaryIsCreated() {
-        Diary diary = new Diary("abimbola", "password");
         assertEquals("abimbola", diary.getUserName());
         assertEquals("password", diary.getPassword());
     }
@@ -25,4 +31,7 @@ public class TestDiary {
     }
 
     @Test
+    public void testThatDiaryIsUnlocked() {
+        assertTrue(diary.isUnlocked("password"));
+    }
 }

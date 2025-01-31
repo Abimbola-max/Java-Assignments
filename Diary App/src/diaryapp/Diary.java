@@ -30,4 +30,9 @@ public class Diary {
     public String getPassword() {
         return password;
     }
+
+    public boolean isUnlocked(String password) {
+        if (this.password.equals(password) && this.isLocked) return true;
+        return false;
+    }
 }
