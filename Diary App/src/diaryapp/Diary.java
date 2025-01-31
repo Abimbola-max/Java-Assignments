@@ -7,7 +7,7 @@ public class Diary {
     private String userName;
     private String password;
     private boolean isLocked;
-    private ArrayList<Entry> entries = new ArrayList<>();
+    private final ArrayList<Entry> entries = new ArrayList<>();
 
     public Diary(String userName, String password) {
         if (userName == null || password == null) throw new NullPointerException();
@@ -47,4 +47,12 @@ public class Diary {
     public void lockDiary() {
         this.isLocked = true;
     }
+
+    public void createEntry(String title, String body) {
+        if (isLocked) throw new IllegalStateException("Diary is locked. Cannot add entry.");
+        Entry newEntry = new Entry(id, title, body);
+        entries.add(newEntry);
+    }
+
+    private v
 }

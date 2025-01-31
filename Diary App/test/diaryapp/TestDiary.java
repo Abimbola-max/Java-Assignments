@@ -42,4 +42,13 @@ public class TestDiary {
         assertThrows(IllegalArgumentException.class, () -> diary.isUnlocked("passwo"));
     }
 
+    @Test
+    public void thatDiaryCanCreateEntry() {
+        diary.lockDiary();
+        diary.isUnlocked("password");
+
+        diary.createEntry("body", "body parts");
+
+    }
+
 }
