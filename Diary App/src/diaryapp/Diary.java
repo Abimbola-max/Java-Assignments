@@ -10,6 +10,7 @@ public class Diary {
     private ArrayList<Entry> entries = new ArrayList<>();
 
     public Diary(String userName, String password) {
+        if (userName == null || password == null) throw new NullPointerException();
         this.userName = userName;
         this.password = password;
         this.isLocked = true;
