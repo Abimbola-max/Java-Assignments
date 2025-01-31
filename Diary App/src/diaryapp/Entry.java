@@ -1,22 +1,20 @@
 package diaryapp;
 
+import java.time.LocalDateTime;
+
 public class Entry {
 
     private int id;
     private String title;
     private String body;
-    private String date;
+    private LocalDateTime dateCreated;
 
-    public String getDate() {
-        return date;
-    }
+    public void setLocalDateTime() {
+        dateCreated = LocalDateTime.now();
+        }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getBody() {
