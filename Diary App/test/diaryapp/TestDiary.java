@@ -9,6 +9,7 @@ public class TestDiary {
     @Test
     public void testThatDiaryIsCreated() {
         Diary diary = new Diary("abimbola", "password");
-        assertEquals("abimbola", diary.getUsername());
+        assertEquals("abimbola", diary.getUserName());
+        assertEquals("password", diary.getPassword());
     }
 }
