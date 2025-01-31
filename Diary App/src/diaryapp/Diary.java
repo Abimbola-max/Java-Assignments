@@ -43,4 +43,8 @@ public class Diary {
         if (password.equals(this.password)) return true;
         else throw new IllegalArgumentException("Passwords do not match");
     }
+
+    public void lockDiary() {
+        this.isLocked = true;
+    }
 }

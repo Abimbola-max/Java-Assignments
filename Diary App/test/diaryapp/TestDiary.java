@@ -32,11 +32,14 @@ public class TestDiary {
 
     @Test
     public void testThatDiaryIsUnlockedWithCorrectPassword() {
+        diary.lockDiary();
         assertTrue(diary.isUnlocked("password"));
     }
 
     @Test
     public void testThatDiaryIsLockedWithIncorrectPassword() {
+        diary.lockDiary();
         assertThrows(IllegalArgumentException.class, () -> diary.isUnlocked("passwo"));
     }
+
 }
