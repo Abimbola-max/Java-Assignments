@@ -61,6 +61,11 @@ public class Diary {
     }
 
     public int entrySize() {
-        return entries.size();
+        return entries.size() - 1;
+    }
+
+    public void deleteEntry(int id) {
+        entries.remove(id);
+        entryCount--;
     }
 }

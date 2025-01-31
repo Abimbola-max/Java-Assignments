@@ -49,6 +49,22 @@ public class TestDiary {
         diary.isUnlocked("password");
         diary.createEntry( "body", "body parts");
         assertEquals(1, diary.entrySize());
+        diary.createEntry( "eye", "nose");
+        assertEquals(2, diary.entrySize());
+        diary.createEntry( "fish", "i love proteins");
+        assertEquals(3, diary.entrySize());
+    }
+
+    @Test
+    public void thatDiaryCanDeleteEntry() {
+        diary.lockDiary();
+        diary.isUnlocked("password");
+        diary.createEntry( "body", "body parts");
+        diary.createEntry( "eye", "nose");
+        diary.createEntry( "fish", "i love proteins");
+        diary.deleteEntry(1);
+        diary.deleteEntry(2);
+        assertEquals(1, diary.entrySize());
     }
 
 }
