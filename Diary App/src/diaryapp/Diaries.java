@@ -19,4 +19,8 @@ public class Diaries {
             }
         } return null;
     }
+
+    public int diariesSize() {
+        return diaries.size();
+    }
 }
