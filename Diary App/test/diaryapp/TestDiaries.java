@@ -9,7 +9,14 @@ public class TestDiaries {
     @Test
     public void testThatDiariesCanAddTitleAndBody() {
         Diaries diaries = new Diaries();
-        assertEquals()
+        diaries.add("title", "body");
+    }
+
+    @Test
+    public void testThatDiariesCanFindByUsername() {
+        Diaries diaries = new Diaries();
+        diaries.add("title", "body");
+        assertEquals("title body", diaries.findByUserName("bimbola"));
     }
 }
 
