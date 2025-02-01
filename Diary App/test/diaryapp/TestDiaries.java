@@ -12,7 +12,7 @@ public class TestDiaries {
         Diaries diaries = new Diaries();
         diaries.add("username", "password");
         diaries.add("username1", "password1");
-        assertEquals(2, diaries.diariesSize());
+        assertEquals(2, diaries.numberOfDiaries());
     }
 
     @Test
@@ -31,7 +31,7 @@ public class TestDiaries {
         diaries.add("username2", "password2");
 
         diaries.delete("username2", "password2");
-        assertEquals(2, diaries.diariesSize());
+        assertEquals(2, diaries.numberOfDiaries());
     }
 }
 

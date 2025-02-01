@@ -20,11 +20,17 @@ public class Diaries {
         } return null;
     }
 
-    public int diariesSize() {
+    public int numberOfDiaries() {
         return diaries.size();
     }
 
     public void delete(String username, String password) {
-        diaries.removeIf(diary -> diary.getUserName().equals(username) && diary.getPassword().equals(password));
+        for (int index = 0; index < diaries.size(); index++) {
+            Diary diary = diaries.get(index);
+            if (diary.getUserName().equals(username) && diary.getPassword().equals(password)) {
+                diaries.remove(index);
+                index--;
+            }
+        }
     }
 }
