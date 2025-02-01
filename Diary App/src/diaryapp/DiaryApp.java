@@ -65,10 +65,6 @@ public class DiaryApp {
             String username = input.next();
             System.out.println("Enter Your password: ");
             String password = input.next();
-            System.out.println("Confirm your password: ");
-            String confirmPassword = input.next();
-
-            if (password.equals(confirmPassword)) diary = new Diary(username, password);
         } catch (NullPointerException exception) {
             System.out.println("Username or password can not be empty.");
         } catch (IllegalArgumentException exception) {
