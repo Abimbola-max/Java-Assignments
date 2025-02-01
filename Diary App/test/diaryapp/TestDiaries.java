@@ -9,7 +9,7 @@ public class TestDiaries {
     @Test
     public void testThatDiariesCanAddTitleAndBody() {
         Diaries diaries = new Diaries();
-        diaries.add("title", "body");
+        diaries.add("username", "title");
     }
 
     @Test
