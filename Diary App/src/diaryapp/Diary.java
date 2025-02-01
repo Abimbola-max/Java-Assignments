@@ -94,6 +94,9 @@ public class Diary {
         Entry entryToUpdate = findEntryById(id);
         entryToUpdate.setTitle(title);
         entryToUpdate.setBody(body);
+    }
 
+    public String toString() {
+        return "Diary: userName=" + userName + ", password=" + password;
     }
 }
