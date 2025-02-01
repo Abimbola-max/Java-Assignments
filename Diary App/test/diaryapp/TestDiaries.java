@@ -24,14 +24,15 @@ public class TestDiaries {
     }
 
     @Test
-    public void testThatDiariesCanDeleteDetails() {
+    public void testThatDiariesCanDeleteTwoDetailsAndReturnTheNumberOfDetailsLeft() {
         Diaries diaries = new Diaries();
         diaries.add("username", "password");
         diaries.add("username1", "password1");
         diaries.add("username2", "password2");
 
         diaries.delete("username2", "password2");
-        assertEquals(2, diaries.numberOfDiaries());
+        diaries.delete("username", "password");
+        assertEquals(1, diaries.numberOfDiaries());
     }
 }
 
