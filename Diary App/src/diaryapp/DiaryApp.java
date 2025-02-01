@@ -32,8 +32,31 @@ public class DiaryApp {
             case "1":
                 createDiary();
                 break;
+            case "2":
+                lockDiary();
+                break;
+            case "3":
+                unlockDiary();
+                break;
+            case "4":
+                createEntry();
+                break;
+            case "5":
+                findEntryById();
+                break;
+            case "6":
+                updateEntry();
+                break;
+            case "7":
+                deleteEntry();
+                break;
+            case "8":
+                exitApp();
+                break;
+            default:
+                System.out.println("Invalid option");
+                System.exit(0);
         }
-
     }
 
     public void createDiary() {
@@ -61,7 +84,16 @@ public class DiaryApp {
             String password = input.next();
         } catch (InputMismatchException exception) {
             System.out.println("Password can not be empty.");
+        } finally {
+            mainOptions();
+
         }
+        diary.lockDiary();
+    }
+
+    public void unlockDiary() {
+        System.out.println("Enter Your password: ");
+        String password = input.next();
     }
 
     public void createEntry() {
@@ -71,9 +103,49 @@ public class DiaryApp {
         String body = input.nextLine();
         try {
             diary = new Diary(title, body);
-
-
+        } catch (NullPointerException exception) {
+            System.out.println("Title or description can not be empty.");
+        } finally {
+            mainOptions();
         }
+    }
+
+    public void findEntryById() {
+        try {
+            System.out.println("Enter Entry ID: ");
+            int entryId = input.nextInt();
+        } catch (InputMismatchException exception) {
+            System.out.println("ID can not be empty.");
+        } finally {
+            mainOptions();
+        }
+    }
+
+    public void updateEntry() {
+        try {
+            System.out.println("Enter Diary unique ID: ");
+            int entryId = input.nextInt();
+        } catch (InputMismatchException exception) {
+            System.out.println("ID can not be empty.");
+        } finally {
+            mainOptions();
+        }
+    }
+
+    public void deleteEntry() {
+        try {
+            System.out.println("Enter Diary unique ID: ");
+            int entryId = input.nextInt();
+        } catch (InputMismatchException exception) {
+            System.out.println("ID can not be empty.");
+        } finally {
+            mainOptions();
+        }
+    }
+
+    public void exitApp() {
+        System.out.println("Bye Bro!");
+        System.exit(0);
     }
 
 }
