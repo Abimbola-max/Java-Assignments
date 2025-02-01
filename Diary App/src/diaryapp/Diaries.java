@@ -25,10 +25,6 @@ public class Diaries {
     }
 
     public void delete(String username, String password) {
-        for (Diary diary : diaries) {
-            if (diary.getUserName().equals(username) && diary.getPassword().equals(password)) {
-                diaries.remove(diary);
-            }
-        }
+        diaries.removeIf(diary -> diary.getUserName().equals(username) && diary.getPassword().equals(password));
     }
 }
