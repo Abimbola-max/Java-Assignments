@@ -158,14 +158,13 @@ public class DiaryApp {
             String password = input.next();
 
             Diary diary = diaries.findByUserName(username);
+            diary.isUnlocked(password);
 
             System.out.println("Enter Entry ID: ");
             int entryId = input.nextInt();
 
-            diary.findEntryById(entryId);
-
-            System.out.println("Your entry has been successfully found, Check below.");
             Entry entry = diary.findEntryById(entryId);
+            System.out.println("Your entry has been successfully found, Check below.");
 
             System.out.println(entry);
 
@@ -185,10 +184,32 @@ public class DiaryApp {
 
     public void updateEntry() {
         try {
+            System.out.println("Enter username: ");
+            String username = input.next();
+
+            System.out.println("Enter Your password: ");
+            String password = input.next();
+
             System.out.println("Enter Diary unique ID: ");
             int entryId = input.nextInt();
+
+            Diary diary = diaries.findByUserName(username);
+            diary.isUnlocked(password);
+
+            diary.findEntryById(entryId);
+
+            System.out.println("Write your new update here: ");
+            diary.updateEntry(entryId, username, password);
+
         } catch (InputMismatchException exception) {
             System.out.println("ID can not be empty.");
+
+        } catch (NullPointerException exception) {
+            System.out.println("You have to create your diary first or password and username doesn't match.");
+        } catch (IllegalStateException exception) {
+            System.out.println(exception.getMessage());
+        }catch (IllegalArgumentException exception) {
+            System.out.println("Cannot find your entry because it does not exist.");
         } finally {
             mainOptions();
         }
