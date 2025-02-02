@@ -49,14 +49,15 @@ public class Diary {
         this.isLocked = true;
     }
 
-    public void createEntry(String title, String body) {
+    public Entry createEntry(String title, String body) {
         if (isLocked) throw new IllegalStateException("Diary is locked. Cannot add entry.");
         int id = generateId();
         Entry newEntry = new Entry(id, title, body);
         entries.add(newEntry);
+        return newEntry;
     }
 
-    private int generateId() {
+    public int generateId() {
        return ++entryCount;
     }
 

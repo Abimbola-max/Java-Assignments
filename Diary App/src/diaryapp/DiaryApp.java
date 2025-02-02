@@ -1,12 +1,13 @@
 package diaryapp;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class DiaryApp {
 
     static Scanner input = new Scanner(System.in);
-    private Diary diary;
+    private final Diaries diaries = new Diaries();
 
     public static void main(String[] args) {
         DiaryApp app = new DiaryApp();
@@ -18,9 +19,9 @@ public class DiaryApp {
         System.out.println("Welcome to AppByBibiDiary");
         System.out.println("""
                 1 --> Create Diary
-                2 --> Lock Diary
-                3 --> Unlock Diary
-                4 --> Create Entry
+                2 --> Create Entry
+                3 --> Lock Diary
+                4 --> Unlock Diary
                 5 --> Find Entry By Id
                 6 --> Update Entry
                 7 --> Delete Entry
@@ -33,13 +34,13 @@ public class DiaryApp {
                 createDiary();
                 break;
             case "2":
-                lockDiary();
+                createEntry();
                 break;
             case "3":
-                unlockDiary();
+                lockDiary();
                 break;
             case "4":
-                createEntry();
+                unlockDiary();
                 break;
             case "5":
                 findEntryById();
@@ -54,19 +55,29 @@ public class DiaryApp {
                 exitApp();
                 break;
             default:
-                System.out.println("Invalid option");
-                System.exit(0);
+               mainOptions();
         }
     }
 
     public void createDiary() {
         try {
+            System.out.println("Enter Diary Name: ");
+            String name = input.next();
+
             System.out.println("Enter Your username: ");
             String username = input.next();
+
             System.out.println("Enter Your password: ");
             String password = input.next();
-        } catch (NullPointerException exception) {
-            System.out.println("Username or password can not be empty.");
+
+            if(username.isEmpty() || password.isEmpty()) throw new IllegalArgumentException("Username and password cannot be empty.");
+            input.nextLine();
+
+            diaries.add(username, password);
+
+            System.out.println(name + "'s " + "Diary has been created");
+            System.out.println("PLEASE NOTE YOUR DIARY IS LOCKED BY DEFAULT.");
+
         } catch (IllegalArgumentException exception) {
             System.out.println("Username or password is invalid.");
         } finally {
@@ -84,7 +95,7 @@ public class DiaryApp {
             mainOptions();
 
         }
-        diary.lockDiary();
+
     }
 
     public void unlockDiary() {
@@ -93,14 +104,34 @@ public class DiaryApp {
     }
 
     public void createEntry() {
-        System.out.println("Enter Diary Title: ");
-        String title = input.nextLine();
-        System.out.println("Enter the body or description of your diary: ");
-        String body = input.nextLine();
+        input.nextLine();
+
         try {
-            diary = new Diary(title, body);
+            System.out.println("Enter username: ");
+            String username = input.next();
+
+
+
+            Diary diary = diaries.findByUserName(username);
+
+            System.out.println("Enter Entry Title: ");
+            String title = input.nextLine();
+            input.nextLine();
+            System.out.println("Enter the entry description of your diary: ");
+            String body = input.nextLine();
+
+            System.out.println("Enter password to unlock your diary: ");
+            String password = input.next();
+
+            diary.isUnlocked(password);
+            Entry entry1 = diary.createEntry(title, body);
+
+            System.out.println("Your entry has been saved successfully.");
+            System.out.println("Your unique entry id is " + entry1.getId());
         } catch (NullPointerException exception) {
-            System.out.println("Title or description can not be empty.");
+            System.out.println("You have to create your diary first.");
+        } catch (IllegalStateException exception) {
+            System.out.println(exception.getMessage());
         } finally {
             mainOptions();
         }
