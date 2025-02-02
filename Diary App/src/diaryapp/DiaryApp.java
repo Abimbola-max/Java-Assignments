@@ -109,6 +109,7 @@ public class DiaryApp {
             Diary diary = diaries.findByUserName(username);
 
             diary.isUnlocked(password);
+            System.out.println("Diary has been successfully unlocked.");
         } catch (NullPointerException exception) {
             System.out.println("You have to create your diary first or password and username doesn't match.");
         } catch (InputMismatchException exception) {
@@ -122,7 +123,7 @@ public class DiaryApp {
         try {
             System.out.println("Enter username: ");
             String username = input.next();
-            
+
             Diary diary = diaries.findByUserName(username);
 
             System.out.println("Enter Entry Title: ");
@@ -150,11 +151,28 @@ public class DiaryApp {
 
     public void findEntryById() {
         try {
+            System.out.println("Enter username: ");
+            String username = input.next();
+
+            System.out.println("Enter Your password: ");
+            String password = input.next();
+
+            Diary diary = diaries.findByUserName(username);
+
             System.out.println("Enter Entry ID: ");
             int entryId = input.nextInt();
+
+            diary.findEntryById(entryId);
+
+            System.out.println();
+
         } catch (InputMismatchException exception) {
             System.out.println("ID can not be empty.");
-        } finally {
+        } catch (NullPointerException exception) {
+            System.out.println("You have to create your diary first or password and username doesn't match.");
+        } catch (IllegalStateException | IllegalArgumentException exception) {
+            System.out.println(exception.getMessage());
+        }finally {
             mainOptions();
         }
     }
