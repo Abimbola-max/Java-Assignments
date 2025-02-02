@@ -109,8 +109,10 @@ public class DiaryApp {
             Diary diary = diaries.findByUserName(username);
 
             diary.isUnlocked(password);
+        } catch (NullPointerException exception) {
+            System.out.println("You have to create your diary first or password and username doesn't match.");
         } catch (InputMismatchException exception) {
-            System.out.println("Password can not be empty.");
+            System.out.println("Password OR USERNAME does not match.");
         }
     }
 
@@ -120,9 +122,7 @@ public class DiaryApp {
         try {
             System.out.println("Enter username: ");
             String username = input.next();
-
-
-
+            
             Diary diary = diaries.findByUserName(username);
 
             System.out.println("Enter Entry Title: ");
