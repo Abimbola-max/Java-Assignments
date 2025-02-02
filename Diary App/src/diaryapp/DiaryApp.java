@@ -114,6 +114,8 @@ public class DiaryApp {
             System.out.println("You have to create your diary first or password and username doesn't match.");
         } catch (InputMismatchException exception) {
             System.out.println("Password OR USERNAME does not match.");
+        } finally {
+            mainOptions();
         }
     }
 
@@ -197,9 +199,19 @@ public class DiaryApp {
             diary.isUnlocked(password);
 
             diary.findEntryById(entryId);
+            input.nextLine();
 
-            System.out.println("Write your new update here: ");
+            System.out.println("Write title update here: ");
+            String title = input.nextLine();
+
+            System.out.println("Write body/description update here: ");
+            String body = input.nextLine();
+
             diary.updateEntry(entryId, username, password);
+
+            Entry entry1 = diary.createEntry(title, body);
+
+            System.out.println("Your entry has been successfully updated.");
 
         } catch (InputMismatchException exception) {
             System.out.println("ID can not be empty.");
