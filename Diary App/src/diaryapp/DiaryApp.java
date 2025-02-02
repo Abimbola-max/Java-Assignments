@@ -164,10 +164,14 @@ public class DiaryApp {
 
             diary.findEntryById(entryId);
 
-            System.out.println();
+            System.out.println("Your entry has been successfully found.");
+            Entry entry = diary.findEntryById(entryId);
+
+            System.out.println(entry);
 
         } catch (InputMismatchException exception) {
             System.out.println("ID can not be empty.");
+
         } catch (NullPointerException exception) {
             System.out.println("You have to create your diary first or password and username doesn't match.");
         } catch (IllegalStateException | IllegalArgumentException exception) {
