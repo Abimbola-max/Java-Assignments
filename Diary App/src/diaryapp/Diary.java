@@ -81,7 +81,7 @@ public class Diary {
     }
 
     public Entry findEntryById(int id) {
-        if (isLocked) throw new IllegalStateException("Diary is locked. Cannot delete entry.");
+        if (isLocked) throw new IllegalStateException("Diary is locked. Cannot find entry.");
         for (Entry entry : entries) {
             if (entry.getId() == id) {
                 return entry;

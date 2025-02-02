@@ -174,8 +174,10 @@ public class DiaryApp {
 
         } catch (NullPointerException exception) {
             System.out.println("You have to create your diary first or password and username doesn't match.");
-        } catch (IllegalStateException | IllegalArgumentException exception) {
+        } catch (IllegalStateException exception) {
             System.out.println(exception.getMessage());
+        }catch (IllegalArgumentException exception) {
+            System.out.println("Cannot find your entry because it does not exist.");
         }finally {
             mainOptions();
         }
