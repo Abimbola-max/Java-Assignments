@@ -164,7 +164,7 @@ public class DiaryApp {
 
             diary.findEntryById(entryId);
 
-            System.out.println("Your entry has been successfully found.");
+            System.out.println("Your entry has been successfully found, Check below.");
             Entry entry = diary.findEntryById(entryId);
 
             System.out.println(entry);
