@@ -99,8 +99,19 @@ public class DiaryApp {
     }
 
     public void unlockDiary() {
-        System.out.println("Enter Your password: ");
-        String password = input.next();
+        try {
+            System.out.println("Enter username: ");
+            String username = input.next();
+
+            System.out.println("Enter Your password: ");
+            String password = input.next();
+
+            Diary diary = diaries.findByUserName(username);
+
+            diary.isUnlocked(password);
+        } catch (InputMismatchException exception) {
+            System.out.println("Password can not be empty.");
+        }
     }
 
     public void createEntry() {
