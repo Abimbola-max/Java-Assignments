@@ -129,8 +129,8 @@ public class DiaryApp {
             System.out.println("Your entry has been saved successfully.");
             System.out.println("Your unique entry id is " + entry1.getId());
         } catch (NullPointerException exception) {
-            System.out.println("You have to create your diary first.");
-        } catch (IllegalStateException exception) {
+            System.out.println("You have to create your diary first or password and username doesn't match.");
+        } catch (IllegalStateException | IllegalArgumentException exception) {
             System.out.println(exception.getMessage());
         } finally {
             mainOptions();
