@@ -90,7 +90,7 @@ public class DiaryApp {
             System.out.println("Enter Your password: ");
             String password = input.next();
         } catch (InputMismatchException exception) {
-            System.out.println("Password can not be empty.");
+            System.out.println("Password does not match.");
         } finally {
             mainOptions();
 
@@ -142,6 +142,8 @@ public class DiaryApp {
 
             System.out.println("Your entry has been saved successfully.");
             System.out.println("Your unique entry id is " + entry1.getId());
+        } catch(InputMismatchException exception) {
+            System.out.println("ID is invalid.");
         } catch (NullPointerException exception) {
             System.out.println("You have to create your diary first or password and username doesn't match.");
         } catch (IllegalStateException | IllegalArgumentException exception) {
@@ -171,7 +173,7 @@ public class DiaryApp {
             System.out.println(entry);
 
         } catch (InputMismatchException exception) {
-            System.out.println("ID can not be empty.");
+            System.out.println("Invalid ID.");
 
         } catch (NullPointerException exception) {
             System.out.println("You have to create your diary first or password and username doesn't match.");
@@ -192,14 +194,13 @@ public class DiaryApp {
             System.out.println("Enter Your password: ");
             String password = input.next();
 
-            System.out.println("Enter Diary unique ID: ");
+            System.out.println("Enter Diary unique ID to update: ");
             int entryId = input.nextInt();
+            input.nextLine();
 
             Diary diary = diaries.findByUserName(username);
-            diary.isUnlocked(password);
 
-            diary.findEntryById(entryId);
-            input.nextLine();
+            diary.isUnlocked(password);
 
             System.out.println("Write title update here: ");
             String title = input.nextLine();
@@ -207,15 +208,15 @@ public class DiaryApp {
             System.out.println("Write body/description update here: ");
             String body = input.nextLine();
 
-            diary.updateEntry(entryId, username, password);
+            diary.updateEntry(entryId, title, body);
 
-            Entry entry1 = diary.createEntry(title, body);
+            Entry updatedEntry = diary.findEntryById(entryId);
 
             System.out.println("Your entry has been successfully updated.");
+            System.out.println("Updated entry: " + updatedEntry);
 
         } catch (InputMismatchException exception) {
-            System.out.println("ID can not be empty.");
-
+            System.out.println("Invalid ID.");
         } catch (NullPointerException exception) {
             System.out.println("You have to create your diary first or password and username doesn't match.");
         } catch (IllegalStateException exception) {
@@ -229,10 +230,30 @@ public class DiaryApp {
 
     public void deleteEntry() {
         try {
-            System.out.println("Enter Diary unique ID: ");
+            System.out.println("Enter username: ");
+            String username = input.next();
+
+            System.out.println("Enter Your password: ");
+            String password = input.next();
+
+            Diary diary = diaries.findByUserName(username);
+            diary.isUnlocked(password);
+
+            System.out.println("Enter Diary unique ID to delete: ");
             int entryId = input.nextInt();
+            input.nextLine();
+
+            diary.deleteEntry(entryId);
+            System.out.println("Entry" + entryId + " has been successfully deleted.");
+
         } catch (InputMismatchException exception) {
-            System.out.println("ID can not be empty.");
+            System.out.println("Invalid ID.");
+        } catch (NullPointerException exception) {
+            System.out.println("You have to create your diary first or password and username doesn't match.");
+        } catch (IllegalStateException exception) {
+            System.out.println(exception.getMessage());
+        }catch (IllegalArgumentException exception) {
+            System.out.println("Cannot find your entry because it does not exist.");
         } finally {
             mainOptions();
         }
