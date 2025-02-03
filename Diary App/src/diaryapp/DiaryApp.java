@@ -1,6 +1,5 @@
 package diaryapp;
 
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -87,8 +86,12 @@ public class DiaryApp {
 
     public void lockDiary() {
         try {
-            System.out.println("Enter Your password: ");
-            String password = input.next();
+            System.out.println("Enter username: ");
+            String username = input.next();
+
+            Diary diary = diaries.findByUserName(username);
+            diary.lockDiary();
+            System.out.println("You have successfully locked your Diary.");
         } catch (InputMismatchException exception) {
             System.out.println("Password does not match.");
         } finally {
@@ -166,10 +169,11 @@ public class DiaryApp {
 
             System.out.println("Enter Entry ID: ");
             int entryId = input.nextInt();
-
+            input.nextLine();
             Entry entry = diary.findEntryById(entryId);
             System.out.println("Your entry has been successfully found, Check below.");
 
+            System.out.println("The date of creation is " + entry.getDateCreated());
             System.out.println(entry);
 
         } catch (InputMismatchException exception) {
@@ -210,11 +214,7 @@ public class DiaryApp {
 
             diary.updateEntry(entryId, title, body);
 
-            Entry updatedEntry = diary.findEntryById(entryId);
-
             System.out.println("Your entry has been successfully updated.");
-            System.out.println("Updated entry: " + updatedEntry);
-
         } catch (InputMismatchException exception) {
             System.out.println("Invalid ID.");
         } catch (NullPointerException exception) {

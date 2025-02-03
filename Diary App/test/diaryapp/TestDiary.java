@@ -111,8 +111,10 @@ public class TestDiary {
         diary.isUnlocked("password");
         diary.createEntry( "body", "body parts");
         diary.createEntry( "eye", "nose");
-
+        assertEquals("body body parts", diary.findEntryById(1).toString());
+        assertNotEquals("body body parts, i love my face", diary.findEntryById(1).toString());
         diary.updateEntry(1, "body", "body parts, i love my face");
         assertEquals("body body parts, i love my face", diary.findEntryById(1).toString());
+
     }
 }

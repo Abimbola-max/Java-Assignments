@@ -9,10 +9,6 @@ public class Entry {
     private String body;
     private LocalDateTime dateCreated;
 
-    public void setLocalDateTime() {
-        dateCreated = LocalDateTime.now();
-        }
-
     public int getId() {
         return id;
     }
@@ -33,13 +29,18 @@ public class Entry {
         this.title = title;
     }
 
+    public LocalDateTime getDateCreated() {
+        return dateCreated;
+    }
+
     public Entry(int id, String title, String body) {
         this.id = id;
         this.title = title;
         this.body = body;
+        this.dateCreated = LocalDateTime.now();
     }
 
     public String toString() {
-        return title + " " + body;
+        return title + "\n" + "Date created" + dateCreated + "\n" + body;
     }
 }
