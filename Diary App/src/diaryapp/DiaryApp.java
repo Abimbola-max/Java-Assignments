@@ -127,13 +127,13 @@ public class DiaryApp {
 
         try {
             System.out.println("Enter username: ");
-            String username = input.next();
+            String username = input.nextLine();
 
             Diary diary = diaries.findByUserName(username);
 
             System.out.println("Enter Entry Title: ");
             String title = input.nextLine();
-            input.nextLine();
+
             System.out.println("Enter the entry description of your diary: ");
             String body = input.nextLine();
 
@@ -169,16 +169,16 @@ public class DiaryApp {
 
             System.out.println("Enter Entry ID: ");
             int entryId = input.nextInt();
-            input.nextLine();
-            Entry entry = diary.findEntryById(entryId);
-            System.out.println("Your entry has been successfully found, Check below.");
 
-            System.out.println("The date of creation is " + entry.getDateCreated());
-            System.out.println(entry);
+            Entry entry = diary.findEntryById(entryId);
+
+            System.out.println("Your entry has been successfully found, Check below.");
+            System.out.println("Title: " + entry.getTitle());
+            System.out.println("Body: " + entry.getBody());
+            System.out.println("The date of creation is: " + entry.getDateCreated());
 
         } catch (InputMismatchException exception) {
             System.out.println("Invalid ID.");
-
         } catch (NullPointerException exception) {
             System.out.println("You have to create your diary first or password and username doesn't match.");
         } catch (IllegalStateException exception) {

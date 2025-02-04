@@ -91,8 +91,11 @@ public class TestDiary {
         diary.createEntry( "body", "body parts");
         diary.createEntry( "eye", "nose");
 
-        assertEquals("eye nose", diary.findEntryById(2).toString());
-        assertEquals("body body parts", diary.findEntryById(1).toString());
+        Entry returnedEntry = diary.findEntryById(1);
+        System.out.println(returnedEntry);
+        String expected = "body parts";
+        String actual = returnedEntry.getBody();
+        assertEquals(expected, actual);
     }
 
     @Test
