@@ -63,6 +63,7 @@ public class BankApp {
             String pin = input.next();
             bank.checkBalance(accountNumber, pin);
         } catch (IllegalArgumentException e) {
+
             System.out.println("Invalid pin");
         } finally {
             mainOption();
@@ -70,7 +71,20 @@ public class BankApp {
         }
     }
 
+    public void accountTypes() {
+        System.out.println("SAVINGS\n2. CURRENT ACCOUNT\n3. FIXED DEPOSIT");
+        System.out.println("Enter account type: ");
+        String accountType = input.next();
+        switch (accountType) {
+            case "1":
+
+
+        }
+
+    }
+
     public void createAccount() {
+        accountTypes();
         try {
             System.out.println("Enter first name: ");
             String firstName = input.next();
@@ -78,6 +92,7 @@ public class BankApp {
             String lastName = input.next();
             System.out.println("Enter account pin: ");
             String pin = input.next();
+
             bank.createAccount(firstName, lastName, pin);
             System.out.println("Account created successfully.");
         } catch (IllegalArgumentException exception) {
