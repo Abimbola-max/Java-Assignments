@@ -41,6 +41,6 @@ public class Entry {
     }
 
     public String toString() {
-        return "Title: " + title + "\n" + "Body: " + body + "\n" + "Date: " + dateCreated;
+        return "Title: " + title + "\n" + "Body: " + body + "\n" + "Date created: " + dateCreated;
     }
 }
