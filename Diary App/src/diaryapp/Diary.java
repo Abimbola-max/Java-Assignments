@@ -1,6 +1,7 @@
 package diaryapp;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Diary {
 
@@ -99,5 +100,16 @@ public class Diary {
 
     public String toString() {
         return "Diary: userName=" + userName + ", password=" + password;
+    }
+
+    public String viewEntries(String userName, String password) {
+        if (isLocked) throw new IllegalStateException("Diary is locked. Cannot view entries.");
+        if (userName == null || password == null) throw new NullPointerException();
+
+        String output = "";
+        for (Entry entry : entries) {
+            output += entry.toString() + "\n";
+        }
+        return output;
     }
 }

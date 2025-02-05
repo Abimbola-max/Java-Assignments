@@ -24,7 +24,8 @@ public class DiaryApp {
                 5 --> Find Entry By Id
                 6 --> Update Entry
                 7 --> Delete Entry
-                8 --> Exit App
+                8 --> View Entries
+                9 --> Exit App
                 """);
         System.out.print("Enter option: ");
         String option = input.next();
@@ -51,6 +52,9 @@ public class DiaryApp {
                 deleteEntry();
                 break;
             case "8":
+                viewEntries();
+                break;
+            case "9":
                 exitApp();
                 break;
             default:
@@ -188,6 +192,33 @@ public class DiaryApp {
         }finally {
             mainOptions();
         }
+    }
+
+    public void viewEntries() {
+        try {
+            System.out.println("Enter username: ");
+            String username = input.next();
+
+            System.out.println("Enter Your password: ");
+            String password = input.next();
+
+            Diary diary = diaries.findByUserName(username);
+            diary.isUnlocked(password);
+
+            System.out.println("This are the list of your entries below.");
+            System.out.println(diary.viewEntries(username, password));
+        } catch (InputMismatchException exception) {
+            System.out.println("Invalid ID.");
+        } catch (NullPointerException exception) {
+            System.out.println("You have to create your diary first or password and username doesn't match.");
+        } catch (IllegalStateException exception) {
+            System.out.println(exception.getMessage());
+        }catch (IllegalArgumentException exception) {
+            System.out.println("Cannot find your entry because it does not exist.");
+        }finally {
+            mainOptions();
+        }
+
     }
 
     public void updateEntry() {
