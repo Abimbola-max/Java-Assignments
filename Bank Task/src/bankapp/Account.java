@@ -81,8 +81,8 @@ public class Account {
     }
 
     public String toString() {
-        return "First Name: " + firstName +
-                "Last Name: " + lastName +
-                " Account Number: " + accountNumber;
+        return "First Name: " + firstName + "\n" +
+                "Last Name: " + lastName + "\n" +
+                "Account Number: " + accountNumber;
     }
 }

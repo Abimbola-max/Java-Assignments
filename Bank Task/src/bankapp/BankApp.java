@@ -40,6 +40,15 @@ public class BankApp {
             case 4:
                 closeAccount();
                 break;
+            case 5:
+                transferMoney();
+                break;
+            case 6:
+                checkBalance();
+                break;
+            case 7:
+                changePassword();
+                break;
             case 8:
                 exitApp();
                 break;
@@ -51,22 +60,19 @@ public class BankApp {
     }
 
     public void createAccount() {
-        Scanner inputs = new Scanner(System.in);
-
         try {
             System.out.println("Enter First Name: ");
-            String firstName = inputs.next();
+            String firstName = input.next();
             System.out.println("Enter Last Name: ");
-            String lastName = inputs.next();
+            String lastName = input.next();
             System.out.println("Enter password: ");
-            String password = inputs.next();
-            inputs.nextLine();
+            String password = input.next();
 
             if (firstName.isEmpty() || lastName.isEmpty() || password.isEmpty()) {
                 throw new IllegalArgumentException("First Name and Last Name cannot be empty");
             } else {
                 Account account = bank.createAccount(firstName, lastName, password);
-                inputs.nextLine();
+                input.nextLine();
                 System.out.println(account);
                 System.out.println("Account created successfully.");
                 System.out.println("Your account number is " + account.getAccountNumber());
@@ -145,7 +151,89 @@ public class BankApp {
             System.out.println("fields cannot be empty.");
         } catch (InvalidPinException exception) {
             System.out.println(exception.getMessage());
-        } catch (Not)
+        } catch (AccountNotFoundException exception) {
+            System.out.println("Account not found");
+        } finally {
+            menuOptions();
+        }
+    }
+
+    public void transferMoney() {
+        try {
+            System.out.println("Enter Your Account number: ");
+            int senderAccountNumber = input.nextInt();
+
+            System.out.println("Enter Amount to withdraw: ");
+            int transferAmount = input.nextInt();
+
+            System.out.println("Enter Receiver's Account number: ");
+            int receiverAccountNumber = input.nextInt();
+
+            System.out.println("Enter password: ");
+            String password = input.nextLine();
+
+            bank.findAccount(senderAccountNumber);
+            bank.findAccount(receiverAccountNumber);
+
+            bank.Transfer(senderAccountNumber, transferAmount, receiverAccountNumber, password);
+        } catch (InvalidAccountNumberException exception) {
+            System.out.println("Invalid Account Number");
+        } catch (NullPointerException exception) {
+            System.out.println("fields cannot be empty.");
+        } catch (InvalidPinException exception) {
+            System.out.println(exception.getMessage());
+        } catch (AccountNotFoundException exception) {
+            System.out.println("Account not found");
+        } finally {
+            menuOptions();
+        }
+    }
+
+    public void checkBalance() {
+        try {
+            System.out.println("Enter account number: ");
+            int accountNumber = input.nextInt();
+
+            System.out.println("Enter password: ");
+            String password = input.nextLine();
+
+            Account account = bank.findAccount(accountNumber);
+
+            System.out.println("Your account balance is " + account.getBalance());
+        } catch (InvalidAccountNumberException exception) {
+            System.out.println("Invalid Account Number");
+        } catch (NullPointerException exception) {
+            System.out.println("fields cannot be empty.");
+        } catch (InvalidPinException exception) {
+            System.out.println(exception.getMessage());
+        } catch (AccountNotFoundException exception) {
+            System.out.println("Account not found");
+        } finally {
+            menuOptions();
+        }
+    }
+
+    public void changePassword() {
+        try {
+            System.out.println("Enter account number: ");
+            int accountNumber = input.nextInt();
+
+            System.out.println("Enter Old password: ");
+            String Oldpassword = input.nextLine();
+
+            System.out.println("Enter new password: ");
+            String newPassword = input.nextLine();
+
+            Account account = bank.findAccount(accountNumber);
+            account.updatePin(Oldpassword, newPassword);
+        } catch (InvalidAccountNumberException exception) {
+            System.out.println("Invalid Account Number");
+        } catch (NullPointerException exception) {
+            System.out.println("fields cannot be empty.");
+        } catch (InvalidPinException exception) {
+            System.out.println(exception.getMessage());
+        } catch (AccountNotFoundException exception) {
+            System.out.println("Account not found");
         } finally {
             menuOptions();
         }

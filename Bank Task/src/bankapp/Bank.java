@@ -8,7 +8,7 @@ public class Bank {
     private final ArrayList<Account> accounts = new ArrayList<>();
 
     public Account createAccount(String firstName, String lastName, String password) {
-//        if (firstName.isEmpty() || lastName.isEmpty() || password.isEmpty()) throw new IllegalArgumentException("Firstname or Lastname or password cannot be empty");
+        if (firstName.isEmpty() || lastName.isEmpty() || password.isEmpty()) throw new IllegalArgumentException("Firstname or Lastname or password cannot be empty");
         int accountNumber = generateAccountNumber();
         var account = new Account(firstName, lastName, password, accountNumber);
         accounts.add(account);
@@ -47,10 +47,10 @@ public class Bank {
         Account receiverAccount = findAccount(receiverAccountNumber);
 
         if (senderAccount == null)
-            throw new InvalidAccountNumberException("Account Number Not Found");
+            throw new AccountNotFoundException("Account Number Not Found");
 
         if (receiverAccount == null)
-            throw new InvalidAccountNumberException("Account Number Not Found");
+            throw new AccountNotFoundException("Account Number Not Found");
 
         try {
             senderAccount.withdraw(amount, password);
@@ -65,6 +65,6 @@ public class Bank {
         if (myAccount != null) {
             if (myAccount.validatePassword(password))
                 accounts.remove(myAccount);
-        }
+        } throw new AccountNotFoundException ("Account Number Not Found");
     }
 }
