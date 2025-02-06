@@ -17,7 +17,7 @@ public class Account {
     }
 
     public void deposit(int amount) {
-        if (amount < 0) throw new InvalidAmountException("Insufficient balance");
+        if (amount < 0) throw new InvalidAmountException("Account cannot deposit less than 0 Naira");
         this.balance += amount;
     }
 
@@ -28,6 +28,16 @@ public class Account {
 
     private boolean validatePassword(String password) {
         if (password.equals(this.password)) return true;
+        return false;
+    }
+
+    public void withdraw(int amount, String password) {
+        if (insufficientFund(amount) && validatePassword(password)) throw new InvalidAmountException("Insufficient fund");
+        this.balance -= amount;
+    }
+
+    private boolean insufficientFund(int amount) {
+        if (amount > this.balance) throw new InvalidAmountException("Insufficient fund");
         return false;
     }
 }
