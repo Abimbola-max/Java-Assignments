@@ -76,4 +76,18 @@ public class TestBank {
     }
 
     @Test
+    public void testThatAccountCanTransfer20kFromAtoBToAccountB() {
+        Bank bank = new Bank();
+        Account myAccount = bank.createAccount("firstName", "lastName", "password");
+        int SenderAccountNumber = myAccount.getAccountNumber();
+        bank.deposit(10_000, SenderAccountNumber);
+        bank.deposit(20_000, SenderAccountNumber);
+
+        Account myAccount2 = bank.createAccount("firstName2", "lastName2", "password2");
+        int receiverAccountNumber = myAccount2.getAccountNumber();
+        bank.Transfer(SenderAccountNumber, 20_000, receiverAccountNumber, "password");
+
+        assertEquals(10_000, myAccount.getBalance());
+        assertEquals(20_000, myAccount2.getBalance());
+    }
 }
