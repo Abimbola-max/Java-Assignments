@@ -63,4 +63,37 @@ public class TestAccount {
         assertThrows(InvalidAmountException.class, () -> account.withdraw(-1000, "password"));
     }
 
+    @Test
+    public void testThatAccountCanDeposit10KTenTimesAndReturn100KAsBalance() {
+        Account account = new Account("firstName", "lastName", "password", 1);
+        account.deposit(10_000);
+        account.deposit(10_000);
+        account.deposit(10_000);
+        account.deposit(10_000);
+        account.deposit(10_000);
+        account.deposit(10_000);
+        account.deposit(10_000);
+        account.deposit(10_000);
+        account.deposit(10_000);
+        account.deposit(10_000);
+        assertEquals(100_000, account.checkBalance("password"));
+    }
+
+    @Test
+    public void testThatAccountCanUpdatePin() {
+        Account account = new Account("firstName", "lastName", "password", 1);
+        account.updatePin("password", "newPassword");
+        assertEquals(0, account.checkBalance("newPassword"));
+    }
+
+    @Test
+    public void testThatNewPasswordCanWithdraw2k() {
+        Account account = new Account("firstName", "lastName", "password", 1);
+        account.deposit(4_000);
+        account.updatePin("password", "newPassword");
+        account.withdraw(2_000, "newPassword");
+        assertEquals(2_000, account.checkBalance("newPassword"));
+
+    }
+
 }
