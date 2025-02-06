@@ -41,5 +41,24 @@ public class Bank {
     public void withdraw(int accountNumber, String password, int amount) {
         Account myAccount = findAccount(accountNumber);
         myAccount.withdraw(amount, password);
+        //throw new InvalidAccountNumberException("Account " + accountNumber+ " not found");
+    }
+
+    public void Transfer(int senderAccountNumber, int amount, int receiverAccountNumber, String password) {
+        Account senderAccount = findAccount(senderAccountNumber);
+        Account receiverAccount = findAccount(receiverAccountNumber);
+
+        if (senderAccount == null)
+            throw new InvalidAccountNumberException("Account Number Not Found");
+
+        if (receiverAccount == null)
+            throw new InvalidAccountNumberException("Account Number Not Found");
+
+        try {
+            senderAccount.withdraw(amount, password);
+        } catch (InvalidPinException | InvalidAmountException ignored) {
+            System.out.println("Invalid PIN");
+        }
+        receiverAccount.deposit(amount);
     }
 }
