@@ -57,4 +57,10 @@ public class TestAccount {
         assertThrows(InvalidAmountException.class, () -> account.withdraw(2_000, "password"));
     }
 
+    @Test
+    public void testThatAccountThrowsInvalidAmountExceptionWhenAmountToWithdrawIsNegative() {
+        Account account = new Account("firstName", "lastName", "password", 1);
+        assertThrows(InvalidAmountException.class, () -> account.withdraw(-1000, "password"));
+    }
+
 }
