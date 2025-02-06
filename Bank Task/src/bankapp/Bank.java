@@ -30,7 +30,7 @@ public class Bank {
         myAccount.deposit(amount);
     }
 
-    private Account findAccount(int accountNumber) {
+    public Account findAccount(int accountNumber) {
         for (Account account : accounts) {
             if (account.getAccountNumber() == accountNumber) {
                 return account;
@@ -41,7 +41,6 @@ public class Bank {
     public void withdraw(int accountNumber, String password, int amount) {
         Account myAccount = findAccount(accountNumber);
         myAccount.withdraw(amount, password);
-        //throw new InvalidAccountNumberException("Account " + accountNumber+ " not found");
     }
 
     public void Transfer(int senderAccountNumber, int amount, int receiverAccountNumber, String password) {
@@ -60,5 +59,13 @@ public class Bank {
             System.out.println("Invalid PIN");
         }
         receiverAccount.deposit(amount);
+    }
+
+    public void removeAccount(int accountNumber, String password){
+        Account myAccount = findAccount(accountNumber);
+        if (myAccount != null) {
+            if (myAccount.validatePassword(password))
+                accounts.remove(myAccount);
+        }
     }
 }

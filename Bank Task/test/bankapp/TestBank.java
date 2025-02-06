@@ -90,4 +90,27 @@ public class TestBank {
         assertEquals(10_000, myAccount.getBalance());
         assertEquals(20_000, myAccount2.getBalance());
     }
+
+    @Test
+    public void testThatUserCreatesAccountAndDeletesAccount() {
+        Bank bank = new Bank();
+        Account myAccount = bank.createAccount("firstName", "lastName", "password");
+        int accountNumber = myAccount.getAccountNumber();
+        bank.removeAccount(accountNumber, "password");
+
+        assertEquals(0, bank.getAccounts().size());
+    }
+
+    @Test
+    public void testThatTwoUsersCreatesAccountAndAUserDeletesAccountReturnsOneAsTheOnlyExistingAccount() {
+        Bank bank = new Bank();
+        Account myAccount = bank.createAccount("firstName", "lastName", "password");
+        int accountNumber = myAccount.getAccountNumber();
+
+        Account myAccount2 = bank.createAccount("firstName2", "lastName2", "password2");
+        int accountNumber2 = myAccount2.getAccountNumber();
+
+        bank.removeAccount(accountNumber2, "password2");
+        assertEquals(1, bank.getAccounts().size());
+    }
 }

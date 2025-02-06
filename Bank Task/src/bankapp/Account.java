@@ -39,7 +39,7 @@ public class Account {
         throw new InvalidPinException("Invalid password");
     }
 
-    private boolean validatePassword(String password) {
+    boolean validatePassword(String password) {
         if (password.equals(this.password)) return true;
         return false;
     }
@@ -80,4 +80,9 @@ public class Account {
         this.firstName = firstName;
     }
 
+    public String toString() {
+        return "First Name: " + firstName +
+                "Last Name: " + lastName +
+                " Account Number: " + accountNumber;
+    }
 }
