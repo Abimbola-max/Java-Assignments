@@ -42,4 +42,19 @@ public class TestAccount {
         assertEquals(2_000, account.checkBalance("password"));
     }
 
+    @Test
+    public void testThatAccountCanDeposit2kWithdraw1KTwiceReturnsZeroAsBalance() {
+        Account account = new Account("firstName", "lastName", "password", 1);
+        account.deposit(2_000);
+        account.withdraw(1_000, "password");
+        account.withdraw(1_000, "password");
+        assertEquals(0, account.checkBalance("password"));
+    }
+
+    @Test
+    public void testThatAccountThrowsAnInvalidAmountExceptionWhenAmountToWithdrawIsGreaterThanBalnce() {
+        Account account = new Account("firstName", "lastName", "password", 1);
+        assertThrows(InvalidAmountException.class, () -> account.withdraw(2_000, "password"));
+    }
+
 }
