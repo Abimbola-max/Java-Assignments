@@ -37,4 +37,9 @@ public class Bank {
             }
         } throw new InvalidAccountNumberException("Account " + accountNumber+ " not found");
     }
+
+    public void withdraw(int accountNumber, String password, int amount) {
+        Account myAccount = findAccount(accountNumber);
+        myAccount.withdraw(amount, password);
+    }
 }

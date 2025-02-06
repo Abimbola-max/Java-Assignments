@@ -47,4 +47,15 @@ public class TestBank {
         bank.deposit(10_000, accountNumber2);
         assertEquals(10_000, myAccount2.getBalance());
     }
+
+    @Test
+    public void testThatCustomerCanDeposit10kIntoBankAndWithdraw4kFromAccountReturns6KAsBalance() {
+        Bank bank = new Bank();
+        Account myAccount = bank.createAccount("firstName", "lastName", "password");
+        int accountNumber = myAccount.getAccountNumber();
+        bank.deposit(10_000, accountNumber);
+        bank.withdraw(accountNumber, "password", 4_000);
+
+        assertEquals(6_000, myAccount.getBalance());
+    }
 }
