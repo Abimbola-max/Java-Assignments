@@ -16,6 +16,14 @@ public class Account {
         this.balance = 0;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
     public void deposit(int amount) {
         if (amountIsLessThanZero(amount)) throw new InvalidAmountException("Amount cannot deposit less than 0 Naira");
         this.balance += amount;
@@ -50,5 +58,25 @@ public class Account {
     public void updatePin(String password, String newPassword) {
         if (!validatePassword(password)) throw new InvalidPinException("Invalid password");
         this.password = newPassword;
+    }
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 }

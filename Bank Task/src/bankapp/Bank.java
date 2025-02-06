@@ -24,4 +24,17 @@ public class Bank {
     public ArrayList<Account> getAccounts() {
         return accounts;
     }
+
+    public void deposit(int amount, int accountNumber) {
+        Account myAccount = findAccount(accountNumber);
+        myAccount.deposit(amount);
+    }
+
+    private Account findAccount(int accountNumber) {
+        for (Account account : accounts) {
+            if (account.getAccountNumber() == accountNumber) {
+                return account;
+            }
+        } throw new InvalidAccountNumberException("Account " + accountNumber+ " not found");
+    }
 }

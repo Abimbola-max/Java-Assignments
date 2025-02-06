@@ -1,0 +1,7 @@
+package bankapp;
+
+public class InvalidAccountNumberException extends RuntimeException {
+    public InvalidAccountNumberException(String message) {
+        super(message);
+    }
+}
