@@ -1,14 +1,21 @@
 package bankapp;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestBank {
 
+    private Bank bank;
+
+    @BeforeEach
+    public void startWith() {
+        bank = new Bank();
+    }
+
     @Test
     public void TestBankCanCreateAccountForAuserAndReturnOneAsNumberOfAccountCreated() {
-        Bank bank = new Bank();
         bank.createAccount("firstName", "lastName", "password");
 
         assertEquals(1, bank.getAccounts().size());
@@ -16,7 +23,6 @@ public class TestBank {
 
     @Test
     public void testThatBankCanCreateAccountForThreeusersAndReturnsThreeAsNumberOfAccountCreated() {
-        Bank bank = new Bank();
         bank.createAccount("firstName", "lastName", "password");
         bank.createAccount("firstName1", "lastName1", "password1");
         bank.createAccount("firstName2", "lastName2", "password2");
@@ -26,7 +32,6 @@ public class TestBank {
 
     @Test
     public void testThatCustomerCanDeposit4KIntoTheBankFromAccountReturns4KAsBalance() {
-        Bank bank = new Bank();
         Account myAccount = bank.createAccount("firstName", "lastName", "password");
         int accountNumber = myAccount.getAccountNumber();
 
@@ -36,7 +41,6 @@ public class TestBank {
 
     @Test
     public void testThatTwoCustomersCanDepositDifferentAmountIntoTheBankFromAccountReturnBalance() {
-        Bank bank = new Bank();
         Account myAccount = bank.createAccount("firstName", "lastName", "password");
         int accountNumber = myAccount.getAccountNumber();
         bank.deposit(20_000, accountNumber);
@@ -50,7 +54,6 @@ public class TestBank {
 
     @Test
     public void testThatCustomerCanDeposit10kIntoBankAndWithdraw4kFromAccountReturns6KAsBalance() {
-        Bank bank = new Bank();
         Account myAccount = bank.createAccount("firstName", "lastName", "password");
         int accountNumber = myAccount.getAccountNumber();
         bank.deposit(10_000, accountNumber);
@@ -61,7 +64,6 @@ public class TestBank {
 
     @Test
     public void testThatAccountCanTransfer10kFromAcountAToAccountB() {
-        Bank bank = new Bank();
         Account myAccount = bank.createAccount("firstName", "lastName", "password");
         int SenderAccountNumber = myAccount.getAccountNumber();
         bank.deposit(20_000, SenderAccountNumber);
@@ -77,7 +79,6 @@ public class TestBank {
 
     @Test
     public void testThatAccountCanTransfer20kFromAtoBToAccountB() {
-        Bank bank = new Bank();
         Account myAccount = bank.createAccount("firstName", "lastName", "password");
         int SenderAccountNumber = myAccount.getAccountNumber();
         bank.deposit(10_000, SenderAccountNumber);
@@ -93,7 +94,6 @@ public class TestBank {
 
     @Test
     public void testThatUserCreatesAccountAndDeletesAccount() {
-        Bank bank = new Bank();
         Account myAccount = bank.createAccount("firstName", "lastName", "password");
         int accountNumber = myAccount.getAccountNumber();
         bank.removeAccount(accountNumber, "password");
@@ -103,7 +103,6 @@ public class TestBank {
 
     @Test
     public void testThatTwoUsersCreatesAccountAndAUserDeletesAccountReturnsOneAsTheOnlyExistingAccount() {
-        Bank bank = new Bank();
         Account myAccount = bank.createAccount("firstName", "lastName", "password");
         int accountNumber = myAccount.getAccountNumber();
 

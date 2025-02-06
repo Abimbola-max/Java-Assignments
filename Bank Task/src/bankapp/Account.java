@@ -6,7 +6,7 @@ public class Account {
     private String lastName;
     private String password = "password";
     private int balance;
-    private int accountNumber;
+    private final int accountNumber;
 
     public Account(String firstName, String lastName, String password, int accountNumber) {
         this.firstName = firstName;

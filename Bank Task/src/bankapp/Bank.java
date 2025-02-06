@@ -8,12 +8,11 @@ public class Bank {
     private final ArrayList<Account> accounts = new ArrayList<>();
 
     public Account createAccount(String firstName, String lastName, String password) {
-        if (firstName == null || lastName == null || password == null) throw new NullPointerException("Firstname or Lastname or password cannot be empty");
+//        if (firstName.isEmpty() || lastName.isEmpty() || password.isEmpty()) throw new IllegalArgumentException("Firstname or Lastname or password cannot be empty");
         int accountNumber = generateAccountNumber();
-        Account account = new Account(firstName, lastName, password, accountNumber);
+        var account = new Account(firstName, lastName, password, accountNumber);
         accounts.add(account);
         return account;
-
     }
 
     private int generateAccountNumber() {
