@@ -96,7 +96,8 @@ public class BankApp {
             input.nextLine();
             bank.findAccount(accountNumber);
             bank.deposit(depositAmount, accountNumber);
-            System.out.println("Deposit successfully.");
+
+            System.out.println("Deposit of " + depositAmount + " is successful.");
         } catch (InvalidAccountNumberException exception) {
             System.out.println("Invalid Account Number");
         } catch (NullPointerException exception) {
@@ -117,7 +118,7 @@ public class BankApp {
             int withdrawAmount = input.nextInt();
 
             System.out.println("Enter Password: ");
-            String password = input.nextLine();
+            String password = input.next();
 
             bank.findAccount(accountNumber);
             bank.withdraw(accountNumber, password, withdrawAmount);
@@ -141,7 +142,7 @@ public class BankApp {
             System.out.println("Enter Account number: ");
             int accountNumber = input.nextInt();
             System.out.println("Enter Password: ");
-            String password = input.nextLine();
+            String password = input.next();
 
             bank.findAccount(accountNumber);
             bank.removeAccount(accountNumber, password);
@@ -160,17 +161,17 @@ public class BankApp {
 
     public void transferMoney() {
         try {
-            System.out.println("Enter Your Account number: ");
+            System.out.println("Enter The Account number you want to transfer money from: ");
             int senderAccountNumber = input.nextInt();
 
-            System.out.println("Enter Amount to withdraw: ");
+            System.out.println("Enter Amount to Transfer: ");
             int transferAmount = input.nextInt();
 
             System.out.println("Enter Receiver's Account number: ");
             int receiverAccountNumber = input.nextInt();
 
             System.out.println("Enter password: ");
-            String password = input.nextLine();
+            String password = input.next();
 
             bank.findAccount(senderAccountNumber);
             bank.findAccount(receiverAccountNumber);
@@ -195,11 +196,14 @@ public class BankApp {
             int accountNumber = input.nextInt();
 
             System.out.println("Enter password: ");
-            String password = input.nextLine();
+            String password = input.next();
+
+            input.nextLine();
 
             Account account = bank.findAccount(accountNumber);
+            int balance = account.checkBalance(password);
 
-            System.out.println("Your account balance is " + account.getBalance());
+            System.out.println("Your account balance is " + balance);
         } catch (InvalidAccountNumberException exception) {
             System.out.println("Invalid Account Number");
         } catch (NullPointerException exception) {
@@ -219,10 +223,12 @@ public class BankApp {
             int accountNumber = input.nextInt();
 
             System.out.println("Enter Old password: ");
-            String Oldpassword = input.nextLine();
+            String Oldpassword = input.next();
 
             System.out.println("Enter new password: ");
-            String newPassword = input.nextLine();
+            String newPassword = input.next();
+
+            input.nextLine();
 
             Account account = bank.findAccount(accountNumber);
             account.updatePin(Oldpassword, newPassword);
