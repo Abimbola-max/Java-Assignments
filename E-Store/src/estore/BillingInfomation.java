@@ -4,6 +4,6 @@ public class BillingInfomation {
 
     private String receiversPhone;
     private String receiversName;
-    private String receiversAddress;
+    private String deliveryAddress;
     private CreditCardInfomation creditCardInfomation;
 }
