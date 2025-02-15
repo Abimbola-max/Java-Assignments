@@ -5,7 +5,7 @@ public class PersonalityTest {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-	System.out.print("Enter your name");
+	System.out.print("Enter your name? ");
 	String name = input.nextLine();
 
         String[][] questions = {
@@ -32,11 +32,12 @@ public class PersonalityTest {
 
          int[] counts = new int[4];
 
-        for (int i = 0; i < 4; i++) {
-            int count = 0;
-            for (int j = i; j < 20; j += 4) {
-                System.out.print(questions[j][0] + " " + questions[j][1] + "\nSelect A or B: ");
-                String response = "a";
+        for (int counter = 0; counter < 4; counter++) {
+            int numberOfA = 0;
+	    
+            for (int noOfQuestions = counter; noOfQuestions < 20; noOfQuestions += 4) {
+                System.out.print(questions[noOfQuestions][0] + " " + questions[noOfQuestions][1] + " " +  "\nSelect A or B or C: ");
+                String response = "";
 
                 while (!response.equalsIgnoreCase("A") || !response.equalsIgnoreCase("B")) {
                     response = input.next();
@@ -47,13 +48,13 @@ public class PersonalityTest {
                     }
                 }
                 if (response.equalsIgnoreCase("A")) {
-                    count++;
+                    numberOfA++;
                 }
             }
-            counts[i] = optionCount;
-            System.out.println("The number of A selected is: " + count);
-            System.out.println("The number of B selected is: " + (5 - count));
-            System.out.println();
+            counts[counter] = numberOfA;
+            System.out.println("The number of A selected is: " + numberOfA);
+            System.out.println("The number of B selected is: " + (5 - numberOfA));
+            System.out.println();		
         }
 	
         String myMbtiType =
@@ -62,12 +63,12 @@ public class PersonalityTest {
             (counts[2] > 2 ? "T" : "F") +
             (counts[3] > 2 ? "J" : "P");
 	
-
        	
-        System.out.println(name + "Your MBTI type is: " + myMbtiType);
+        System.out.println(name + "," + " "+ "Your MBTI type is: " + myMbtiType);
 	System.out.println();
 	
         switch (myMbtiType) {
+
 
             case "ISTJ":
                 System.out.println("ISTJ (Logistician) is a personality type with the Introverted, Sensing, Thinking, and Judging traits. These people tend to be reserved yet willful, with a rational outlook on life. They compose their actions carefully and carry them out with methodical purpose.");
