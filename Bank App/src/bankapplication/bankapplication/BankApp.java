@@ -1,5 +1,6 @@
 package bankapplication;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class BankApp {
@@ -14,6 +15,7 @@ public class BankApp {
 
     public void mainOption() {
         System.out.println("""
+                Welcome to FB Bank
                 1. Create Account
                 2. Deposit
                 3. Withdraw money
@@ -71,20 +73,19 @@ public class BankApp {
         }
     }
 
-    public void accountTypes() {
-        System.out.println("SAVINGS\n2. CURRENT ACCOUNT\n3. FIXED DEPOSIT");
-        System.out.println("Enter account type: ");
-        String accountType = input.next();
-        switch (accountType) {
-            case "1":
-
-
-        }
-
-    }
+//    public void accountTypes() {
+//        System.out.println("Enter account type:\n");
+//        System.out.println("1.SAVINGS\n2. CURRENT ACCOUNT\n3. FIXED DEPOSIT\n>>>");
+//        String accountType = input.next();
+//        switch (accountType) {
+//            case "1":
+//               bank.findAccount();
+//
+//        }
+//
+//    }
 
     public void createAccount() {
-        accountTypes();
         try {
             System.out.println("Enter first name: ");
             String firstName = input.next();
@@ -92,9 +93,10 @@ public class BankApp {
             String lastName = input.next();
             System.out.println("Enter account pin: ");
             String pin = input.next();
-
+            if (firstName == null || lastName == null || pin == null) throw new NullPointerException("Check if First name or last name or pin is empty");
             bank.createAccount(firstName, lastName, pin);
             System.out.println("Account created successfully.");
+            System.out.println("Your account number is: " + bank.generateAccountNumber());
         } catch (IllegalArgumentException exception) {
             System.out.println(exception.getMessage());
         } finally {
@@ -109,11 +111,14 @@ public class BankApp {
             System.out.print("Enter deposit amount: ");
             int amount = input.nextInt();
             bank.deposit(accountNumber, amount);
-            System.out.println("Deposit successful.");
+
+            System.out.println("Deposit of " + amount + " successful.");
         } catch(IllegalArgumentException exception) {
             System.out.println(exception.getMessage());
-        } catch (java.util.InputMismatchException exception) {
-            System.out.println("Invalid Input. Please enter a valid number.");
+        } catch (NullPointerException exception) {
+            System.out.println("Account number does not exist.");
+        } catch (InputMismatchException exception) {
+            System.out.println("Invalid Input. Please enter a valid amount or account number.");
             input.nextLine();
         } finally {
             mainOption();
@@ -129,11 +134,11 @@ public class BankApp {
             System.out.println("Enter account pin: ");
             String pin = input.next();
             bank.withdraw(accountNumber, amount, pin);
-            System.out.println("Withdrawal successful.");
+            System.out.println("Withdrawal of " + amount + " is successful.");
         } catch(IllegalArgumentException exception) {
             System.out.println(exception.getMessage());
-        }  catch (java.util.InputMismatchException exception) {
-            System.out.println("Invalid Input. Please enter a valid number.");
+        }  catch (InputMismatchException exception) {
+            System.out.println("Invalid amount or account number Please enter a valid number.");
             input.nextLine();
         }
     }
@@ -152,7 +157,7 @@ public class BankApp {
             System.out.println("Transfer successful.");
         } catch (IllegalArgumentException exception) {
             System.out.println(exception.getMessage());
-        } catch (java.util.InputMismatchException exception) {
+        } catch (InputMismatchException exception) {
             System.out.println("Invalid Input. Please enter a valid number.");
             input.nextLine();
         } finally {
@@ -174,7 +179,7 @@ public class BankApp {
             System.out.println("Pin changed successfully.");
         } catch (IllegalArgumentException exception) {
             System.out.println(exception.getMessage());
-        } catch (java.util.InputMismatchException exception) {
+        } catch (InputMismatchException exception) {
             System.out.println("Invalid Input. Please enter a valid number.");
             input.nextLine();
         } finally {

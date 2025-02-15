@@ -14,11 +14,11 @@ public class Bank {
         return account;
     }
 
-    private int generateAccountNumber() {
-        return ++accountCounter;
+    public int generateAccountNumber() {
+        return accountCounter++;
     }
 
-    private Account findAccount(int accountNumber) {
+    public Account findAccount(int accountNumber) {
         for (Account account : accounts) {
             if (account.getAccountNumber() == accountNumber) {
                 return account;
@@ -28,14 +28,23 @@ public class Bank {
     }
 
     public void deposit(int accountNumber, int amount) {
-        Account account = findAccount(accountNumber);
-        if (account != null) account.deposit(amount);
+        boolean accountFound = false;
+        for (Account account : accounts) {
+            if (account.getAccountNumber() == accountNumber) {
+                    account.deposit(amount);
+                    accountFound = true;
+                    break;
+            }
+        }
+        if (!accountFound) throw new NullPointerException("Account number does not exist");
     }
 
     public void withdraw(int accountNumber, int amount, String pin) {
-        Account account = findAccount(accountNumber);
-
-        account.withdraw(amount, pin);
+        for (Account account : accounts) {
+            if (account.getAccountNumber() == accountNumber) {
+                account.withdraw(amount, pin);
+            }
+        }
     }
 
     public int checkBalance(int accountNumber, String pin) {
