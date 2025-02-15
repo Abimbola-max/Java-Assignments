@@ -6,6 +6,7 @@ public class Turtle {
 
     private boolean isPenUp = true;
     private Direction direction = EAST;
+    private TurtlePosition position = new TurtlePosition(0,0);
 
     public boolean isPenUp() {
         return isPenUp;
