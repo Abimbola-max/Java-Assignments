@@ -105,6 +105,7 @@ public class ATMachineApplication {
                     
 
                 case 7:
+			boolean
 
                     System.out.print("Enter your pin: ");
                     inputPin = input.nextInt();

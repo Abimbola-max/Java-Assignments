@@ -161,7 +161,7 @@ public class StudentGradeApplication {
             System.out.println("Number of passes: " + numberOfPasses);
             System.out.println("Number of fails: " + numberOfFails);
 
-        }
+        }	
     }
 
 
@@ -202,6 +202,7 @@ public class StudentGradeApplication {
         System.out.print("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
         System.out.println("=================================================================");
+
         System.out.println("\nClass total score is: " + classTotalScore);
         System.out.println("\nClass Average score is: " + classAverageScore);
     }
