@@ -9,11 +9,21 @@ public class SevenSegments {
     };
 
     private String input;
+    private boolean lightState;
 
     public SevenSegments(String input) {
         validateInput(input);
         validateLength(input);
         this.input = input;
+        this.lightState = false;
+    }
+
+    public boolean isOff() {
+        return lightState;
+    }
+
+    public boolean isOn() {
+        return !lightState;
     }
 
     private void validateInput(String input) {
@@ -32,11 +42,19 @@ public class SevenSegments {
 
     public String toString() {
         if (input.charAt(input.length() - 1) == '0') return "";
-        return "SevenSegments{" +
-                "input='" + input + '\'' +
-                '}';
+        return input;
 
     }
 
 
+    public String[][] printHorizontalHash() {
+        String[][] horizontalHash = {{" ", " ", " ", " "}};
+        if (input.charAt(0) == '1') {
+            horizontalHash = new String[]{"#"};
+            horizontalHash[1] = new String[]{"#"};
+            horizontalHash[2] = "#";
+            horizontalHash[3] = "#";
+        }
+        return horizontalHash;
+    }
 }
