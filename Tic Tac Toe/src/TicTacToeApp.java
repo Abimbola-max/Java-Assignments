@@ -27,7 +27,7 @@ public class TicTacToeApp {
                     break;
                 }
             } catch (InvalidRowOrColumnException e) {
-                System.out.println(e.getMessage());
+                System.out.println("Enter integers only");
                 input.next();
             }
         }
