@@ -65,7 +65,12 @@ public class TicTacToe {
     }
 
     private void switchThePlayers() {
-        currentPlayer = (currentPlayer == players[0]) ? players[1] : players[0];
+        if (currentPlayer == players[0]) {
+            currentPlayer = players[1];
+        }
+        else if (currentPlayer == players[1]) {
+            currentPlayer = players[0];
+        }
     }
 
     public boolean isGameBoardFull() {
