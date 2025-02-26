@@ -44,12 +44,15 @@ public class TestTicTacToe {
         game.makeMove(0, 0);
         game.makeMove(0, 1);
         game.makeMove(0, 2);
+        assertFalse(game.isGameBoardFull());
         game.makeMove(1, 0);
         game.makeMove(1, 1);
+        assertFalse(game.isGameBoardFull());
         game.makeMove(1, 2);
         game.makeMove(2, 0);
-        game.makeMove(2, 1);
         game.makeMove(2, 2);
+        assertFalse(game.isGameBoardFull());
+        game.makeMove(2, 1);
         assertTrue(game.isGameBoardFull());
     }
 
