@@ -50,7 +50,7 @@ public class SevenSegments {
     public String[][] printHorizontalHash() {
         String[][] horizontalHash = {{" ", " ", " ", " "}};
         if (input.charAt(0) == '1') {
-            horizontalHash = new String[]{"#"};
+            horizontalHash = new String{"#"};
             horizontalHash[1] = new String[]{"#"};
             horizontalHash[2] = "#";
             horizontalHash[3] = "#";
