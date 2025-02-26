@@ -6,14 +6,14 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestTicTacToe {
 
     @Test
-    void firstPlayerIsPlayerOneAndPlayCharXTest() {
+    public void firstPlayerIsPlayerOneAndPlayCharXTest() {
         Player player = new Player(1, Value.X);
         assertEquals(1, player.getId());
         assertEquals(Value.X, player.getValue());
     }
 
     @Test
-    void ticTacToeGameCreationAndNumberOfPlayerCheckTest() {
+    public void ticTacToeGameCreationAndNumberOfPlayerCheckTest() {
         Player player1 = new Player(1, Value.X);
         Player player2 = new Player(2, Value.O);
         TicTacToe game = new TicTacToe(player1, player2);
@@ -23,7 +23,7 @@ public class TestTicTacToe {
     }
 
     @Test
-    void checkThatAPlayerWinsTheGameTest() {
+    public void checkThatAPlayerWinsTheGameTest() {
         Player player1 = new Player(1, Value.X);
         Player player2 = new Player(2, Value.O);
         TicTacToe game = new TicTacToe(player1, player2);
@@ -36,7 +36,7 @@ public class TestTicTacToe {
     }
 
     @Test
-    void checkThatThereIsADrawInTheGameTest() {
+    public void checkThatThereIsADrawInTheGameTest() {
         Player player1 = new Player(1, Value.X);
         Player player2 = new Player(2, Value.O);
         TicTacToe game = new TicTacToe(player1, player2);
