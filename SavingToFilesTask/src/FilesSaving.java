@@ -7,13 +7,19 @@ import java.nio.file.Paths;
 
 public class FilesSaving {
 
-    public static File createFilePath(Path filePath) {
+    public static void createFilePath(Path filePath) {
+        if (!Files.exists(filePath)) throw new NullPointerException("File path is null or empty");
+
         try {
-            URI uri =
-//            Path path = Paths.get(;
-            Files.createFile(filePath);
+            Path path = Paths.get(filePath.toUri());
+            Files.createFile(path);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
+//        return null;
+    }
+
+    public static File writeTofile(String filepath, String content) {
+
     }
 }
